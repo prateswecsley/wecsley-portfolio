@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wecsley O. Prates, Ph.D. - Data Science Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --text-color: #333;
+            --light-bg: #ecf0f1;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 15s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-item a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::after {
+            width: 80%;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Section Styles */
+        section {
+            background: white;
+            margin: 2rem 0;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        /* Profile Summary */
+        .profile-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .summary-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .summary-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-category h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: white;
+            padding: 0.5rem 1rem;
+            margin: 0.3rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--secondary-color), var(--accent-color));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+            width: 100%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+            margin-right: 2rem;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: auto;
+            margin-left: 2rem;
+        }
+
+        .timeline-content {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            width: 45%;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            width: 20px;
+            height: 20px;
+            background: var(--secondary-color);
+            border: 4px solid white;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px var(--light-bg);
+            z-index: 1;
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content .company {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content .date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-content li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Achievements Grid */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, var(--success-color) 0%, #229954 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: '🏆';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 8rem;
+            opacity: 0.1;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .achievement-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .achievement-card p {
+            position: relative;
+            z-index: 1;
+            line-height: 1.6;
+        }
+
+        .achievement-card .metric {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-top: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Methodologies */
+        .methodologies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .methodology-card {
+            background: white;
+            border: 2px solid var(--light-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .methodology-card:hover {
+            border-color: var(--secondary-color);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .methodology-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .methodology-card .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-badge {
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Stats Dashboard */
+        .stats-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Interactive Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background: var(--light-bg);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab-button:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .tab-button.active {
+            background: var(--secondary-color);
+            color: white;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Project Showcase */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .project-header h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-impact {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: var(--success-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 80px) !important;
+                margin-left: 60px !important;
+                margin-right: 0 !important;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .skills-grid,
+            .achievements-grid,
+            .methodologies-grid,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Wecsley O. Prates, Ph.D.</h1>
+            <p class="tagline">Lead Data Scientist | Machine Learning Expert | Marketing Analytics Innovator</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:prateswecsley@gmail.com">prateswecsley@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <a href="tel:+14074339015">+1 (407) 433-9015</a>
+                </div>
+                <div class="contact-item">
+                    <span>💼</span>
+                    <a href="https://www.linkedin.com/in/wecsley-prates" target="_blank">LinkedIn</a>
+                </div>
+                <div class="contact-item">
+                    <span>🌍</span>
+                    <span>Green Card Holder | Open to Relocate</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#methodologies">Methodologies</a></li>
+            <li><a href="#projects">Major Projects</a></li>
+            <li><a href="#stats">Impact Stats</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Profile Summary Section -->
+        <section id="profile" class="scroll-reveal">
+            <h2>Professional Profile</h2>
+            <div class="profile-summary">
+                <div class="summary-card">
+                    <h3>🎯 Expertise</h3>
+                    <p>Specialized in analyzing large datasets and developing advanced ML models including MTAs, MMMs, LLMs, and Generative AI, solving complex business challenges across finance, insurance, and risk analytics sectors.</p>
+                </div>
+                <div class="summary-card">
+                    <h3>🧪 Testing & Optimization</h3>
+                    <p>Proven expertise in guiding A/B testing and multivariate testing strategies, driving data-informed decisions to enhance customer experiences and engagement with measurable ROI improvements.</p>
+                </div>
+                <div class="summary-card">
+                    <h3>⚙️ Automation</h3>
+                    <p>Expert in automating machine learning processes for marketing campaign model development, performance analysis, and attribution reporting, reducing analysis time by up to 50%.</p>
+                </div>
+                <div class="summary-card">
+                    <h3>☁️ Cloud Solutions</h3>
+                    <p>Strong track record of leveraging cloud platforms such as AWS, GCP, Microsoft Azure, and Databricks to implement scalable and impactful data science solutions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="scroll-reveal">
+            <h2>Technical & Professional Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Cloud Platforms</h3>
+                    <div class="skill-tag">AWS S3</div>
+                    <div class="skill-tag">Microsoft Azure</div>
+                    <div class="skill-tag">Databricks</div>
+                    <div class="skill-tag">Google Cloud Platform</div>
+                    <div class="skill-tag">Domino</div>
+                    <div class="skill-tag">Hadoop</div>
+                </div>
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tag">Python</div>
+                    <div class="skill-tag">R</div>
+                    <div class="skill-tag">SQL</div>
+                    <div class="skill-tag">PySpark</div>
+                </div>
+                <div class="skill-category">
+                    <h3>Development Tools</h3>
+                    <div class="skill-tag">R-Studio</div>
+                    <div class="skill-tag">Jupyter Notebook</div>
+                    <div class="skill-tag">Git/GitHub</div>
+                    <div class="skill-tag">FastAPI</div>
+                </div>
+                <div class="skill-category">
+                    <h3>Visualization Tools</h3>
+                    <div class="skill-tag">Tableau</div>
+                    <div class="skill-tag">Power BI</div>
+                    <div class="skill-tag">Google Data Studio</div>
+                    <div class="skill-tag">R-Shiny</div>
+                    <div class="skill-tag">R-Markdown</div>
+                </div>
+                <div class="skill-category">
+                    <h3>Machine Learning & AI</h3>
+                    <div class="skill-tag">Generative AI</div>
+                    <div class="skill-tag">LLMs (GPT, BERT)</div>
+                    <div class="skill-tag">RAG Systems</div>
+                    <div class="skill-tag">NLP</div>
+                    <div class="skill-tag">Topic Modeling</div>
+                    <div class="skill-tag">Deep Learning</div>
+                </div>
+                <div class="skill-category">
+                    <h3>Statistical Models</h3>
+                    <div class="skill-tag">MTA (Multi-Touch Attribution)</div>
+                    <div class="skill-tag">MMM (Marketing Mix Modeling)</div>
+                    <div class="skill-tag">Markov Chains</div>
+                    <div class="skill-tag">Time Series Forecasting</div>
+                    <div class="skill-tag">Segmentation</div>
+                    <div class="skill-tag">Classification</div>
+                    <div class="skill-tag">Churn Modeling</div>
+                    <div class="skill-tag">XGBoost</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Timeline -->
+        <section id="experience" class="scroll-reveal">
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Lead Data Scientist</h3>
+                        <div class="company">StateFarm Insurance</div>
+                        <div class="date">April 2025 - Present | Winter Garden, FL</div>
+                        <ul>
+                            <li>Developed Home Score analysis and modeling for home defects in weather conditions using Python and Power BI</li>
+                            <li>Created an AI Assistant for EDA in Neural Networks Modeling</li>
+                            <li>Leading advanced analytics initiatives for risk assessment</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Senior Data Scientist</h3>
+                        <div class="company">M&T Bank</div>
+                        <div class="date">April 2024 - October 2024 | Buffalo, NY</div>
+                        <ul>
+                            <li>Developed Marketing Mix Model (MMM) improving ROI by 12%</li>
+                            <li>Integrated LLM-based text analytics with ChatGPT optimization</li>
+                            <li>Automated campaign performance attribution, improving efficiency by 30%</li>
+                            <li>Conducted A/B Testing for Direct Mail campaign optimization</li>
+                            <li>Developed RAG application using GPT models for enhanced marketing analytics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Data Scientist / Marketing Analyst</h3>
+                        <div class="company">LexisNexis Risk Solutions</div>
+                        <div class="date">January 2021 - April 2024 | Alpharetta, GA</div>
+                        <ul>
+                            <li>Built pioneering Attribution Model using Markov Chains (first in 25 years)</li>
+                            <li>Achieved 15% spend reduction and 12% ROI increase through optimization</li>
+                            <li>Developed Topic Modeling system using NLP with PowerBI dashboards</li>
+                            <li>Fine-tuned GPT models for automating text-based customer insights</li>
+                            <li>Utilized Databricks for dataset quality testing and model development</li>
+                            <li>Enabled 30% improvement in budget allocation accuracy</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Senior Data Scientist</h3>
+                        <div class="company">Lumini IT Solution</div>
+                        <div class="date">August 2020 - January 2021 | Brazil</div>
+                        <ul>
+                            <li>Led loan scoring model development for largest residential real estate company in Latin America</li>
+                            <li>Developed multiclass XGBoost model with 89.8% accuracy</li>
+                            <li>Created binary XGBoost model with 92% accuracy for loan classification</li>
+                            <li>Built fraud detection model using XGBoost and unsupervised learning</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Coordinator and Professor</h3>
+                        <div class="company">Federal University of Bahia</div>
+                        <div class="date">March 2015 - August 2020 | Brazil</div>
+                        <ul>
+                            <li>Led PhD Statistics Professors team for data science education</li>
+                            <li>Conducted research using LLMs for text mining and sentiment analysis</li>
+                            <li>Applied Computer Vision with LSTM models for influencer content analysis</li>
+                            <li>Coordinated projects improving course success rates by 15%</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Data Scientist</h3>
+                        <div class="company">Nexus Strategic Information</div>
+                        <div class="date">November 2011 - November 2016 | Brazil</div>
+                        <ul>
+                            <li>Optimized sales and profit using cluster analysis (9% sales, 11% profit increase)</li>
+                            <li>Reduced queue wait time by 40% through Markov Chains modeling</li>
+                            <li>Drove 27% increase in average incremental revenue</li>
+                            <li>Delivered actionable Tableau dashboards for performance monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="scroll-reveal">
+            <h2>Major Accomplishments</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <h3>Markov Chain Attribution Model</h3>
+                    <p>Developed LexisNexis' first Markov Chain-based Attribution Model in 25 years, revolutionizing campaign budget allocation.</p>
+                    <div class="metric">+30% Accuracy</div>
+                </div>
+                <div class="achievement-card">
+                    <h3>ML Pipeline Automation</h3>
+                    <p>Led automated ML workflows at M&T Bank, reducing campaign analysis time significantly.</p>
+                    <div class="metric">-50% Time</div>
+                </div>
+                <div class="achievement-card">
+                    <h3>Databricks Framework</h3>
+                    <p>Established comprehensive data quality and model testing framework ensuring high data integrity.</p>
+                    <div class="metric">100% Quality</div>
+                </div>
+                <div class="achievement-card">
+                    <h3>XGBoost Loan Model</h3>
+                    <p>Built loan classification model for Latin America's largest real estate company with exceptional accuracy.</p>
+                    <div class="metric">92% Accuracy</div>
+                </div>
+                <div class="achievement-card">
+                    <h3>NLP Topic Modeling</h3>
+                    <p>Implemented NLP-based Topic Modeling system at LexisNexis, improving customer support resolution.</p>
+                    <div class="metric">+12% Resolution</div>
+                </div>
+                <div class="achievement-card">
+                    <h3>Education Innovation</h3>
+                    <p>Led data science education initiatives at Federal University, increasing course completion rates.</p>
+                    <div class="metric">+15% Success</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodologies Section -->
+        <section id="methodologies" class="scroll-reveal">
+            <h2>Advanced Methodologies & Techniques</h2>
+            
+            <div class="tabs">
+                <button class="tab-button active" onclick="switchTab('analytics')">Analytics Models</button>
+                <button class="tab-button" onclick="switchTab('ml')">Machine Learning</button>
+                <button class="tab-button" onclick="switchTab('ai')">AI & GenAI</button>
+                <button class="tab-button" onclick="switchTab('optimization')">Optimization</button>
+            </div>
+
+            <div id="analytics" class="tab-content active">
+                <div class="methodologies-grid">
+                    <div class="methodology-card">
+                        <h3>Multi-Touch Attribution (MTA)</h3>
+                        <p>User-level analysis to determine contribution of each marketing touchpoint along customer journey. Implemented using Markov Chains for probabilistic pathway modeling.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">R</span>
+                            <span class="tech-badge">Markov Chains</span>
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Power BI</span>
+                        </div>
+                    </div>
+                    <div class="methodology-card">
+                        <h3>Marketing Mix Modeling (MMM)</h3>
+                        <p>Aggregate-level analysis estimating impact of various marketing channels on business outcomes. Incorporates seasonality, economic trends, and competition factors.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">R</span>
+                            <span class="tech-badge">Time Series</span>
+                            <span class="tech-badge">Regression</span>
+                        </div>
+                    </div>
+                    <div class="methodology-card">
+                        <h3>A/B Testing & Multivariate Testing</h3>
+                        <p>Experimental design for campaign optimization, analyzing variations to determine most effective strategies with statistical significance testing.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Statistical Testing</span>
+                            <span class="tech-badge">Power BI</span>
+                        </div>
+                    </div>
+                    <div class="methodology-card">
+                        <h3>Customer Segmentation</h3>
+                        <p>Advanced clustering techniques including K-Means, K-Prototypes, GMM, and Hierarchical Clustering for actionable customer segments.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">K-Means</span>
+                            <span class="tech-badge">K-Prototypes</span>
+                            <span class="tech-badge">GMM</span>
+                            <span class="tech-badge">DBSCAN</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ml" class="tab-content">
+                <div class="methodologies-grid">
+                    <div class="methodology-card">
+                        <h3>XGBoost Classification</h3>
+                        <p>Gradient boosting models for loan classification, fraud detection, and churn prediction with high accuracy and precision.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">XGBoost</span>
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Scikit-learn</span>
+                        </div>
+                    </div>
+                    <div class="methodology-card">
+                        <h3>Time Series Forecasting</h3>
+                        <p>Predictive modeling for trend analysis, seasonality detection, and future value prediction using ARIMA, Prophet, and LSTM.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">ARIMA</span>
+                            <span class="tech-badge">Prophet</span>
+                            <span class="tech-badge">LSTM</span>
+                        </div>
+                    </div>
+                    <div class="methodology-card">
+                        <h3>Churn Modeling</h3>
+                        <p>Predictive models using Random Forest, XGBoost, and Logistic Regression to identify at-risk customers and enable retention strategies.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Random Forest</span>
+                            <span class="tech-badge">XGBoost</span>
+                            <span class="tech-badge">Survival Analysis</span>
+                        </div>
+                    </div>
+                    <div class="methodology-card">
+                        <h3>Anomaly Detection</h3>
+                        <p>Unsupervised learning techniques for fraud detection and outlier identification using Isolation Forest and clustering methods.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Isolation Forest</span>
+                            <span class="tech-badge">Clustering</span>
+                            <span class="tech-badge">Python</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ai" class="tab-content">
+                <div class="methodologies-grid">
+                    <div class="methodology-card">
+                        <h3>Large Language Models (LLMs)</h3>
+                        <p>Fine-tuning GPT and BERT models for text analytics, customer feedback analysis, and automated insights generation.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">GPT</span>
+                            <span class="tech-badge">BERT</span>
+                            <span class="tech-badge">Hugging Face</span>
+                            <span class="tech-badge">PyTorch</span>
+                        </div>
+                    </div>
+                    <div class="methodology-card">
+                        <h3>Retrieval-Augmented Generation (RAG)</h3>
+                        <p>Enhanced LLM applications integrating external data sources for improved accuracy and contextual relevance in marketing analytics.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">OpenAI API</span>
+                            <span class="tech-badge">Vector DB</span>
+                            <span class="tech-badge">Python</span>
+                        </div>
+                    </div>
+                    <div class="methodology-card">
+                        <h3>NLP & Topic Modeling</h3>
+                        <p>Latent Dirichlet Allocation (LDA) and advanced NLP techniques for sentiment analysis, theme extraction, and customer insights.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">LDA</span>
+                            <span class="tech-badge">tidytext</span>
+                            <span class="tech-badge">tm</span>
+                            <span class="tech-badge">R</span>
+                        </div>
+                    </div>
+                    <div class="methodology-card">
+                        <h3>Computer Vision with NLP</h3>
+                        <p>LSTM models for analyzing influencer content on YouTube, providing actionable insights for digital marketing strategies.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">LSTM</span>
+                            <span class="tech-badge">TensorFlow</span>
+                            <span class="tech-badge">Computer Vision</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="optimization" class="tab-content">
+                <div class="methodologies-grid">
+                    <div class="methodology-card">
+                        <h3>Budget Allocation Optimization</h3>
+                        <p>Non-linear optimization techniques accounting for diminishing returns and maximizing ROI across marketing channels.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">SciPy</span>
+                            <span class="tech-badge">Optimization</span>
+                        </div>
+                    </div>
+                    <div class="methodology-card">
+                        <h3>Queue Theory & Markov Chains</h3>
+                        <p>Modeling customer flow and wait times, achieving significant reductions in queue times and improved customer experience.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Markov Chains</span>
+                            <span class="tech-badge">Queue Theory</span>
+                            <span class="tech-badge">R</span>
+                        </div>
+                    </div>
+                    <div class="methodology-card">
+                        <h3>Cluster Analysis</h3>
+                        <p>Advanced clustering for sales and profit optimization, achieving superior results compared to traditional regression methods.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">K-Means</span>
+                            <span class="tech-badge">Hierarchical</span>
+                            <span class="tech-badge">PCA</span>
+                        </div>
+                    </div>
+                    <div class="methodology-card">
+                        <h3>ML Pipeline Automation</h3>
+                        <p>Automated workflows for model development, performance analysis, and reporting using AWS, Databricks, and custom scripts.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">AWS</span>
+                            <span class="tech-badge">Databricks</span>
+                            <span class="tech-badge">Python</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Major Projects -->
+        <section id="projects" class="scroll-reveal">
+            <h2>Signature Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>🎯 Markov Chain Attribution Model</h3>
+                        <p>LexisNexis Risk Solutions</p>
+                    </div>
+                    <div class="project-body">
+                        <p><strong>Challenge:</strong> Traditional Last-Touch attribution oversimplified customer journeys, limiting marketing optimization.</p>
+                        <p><strong>Solution:</strong> Built first-ever Markov Chain-based MTA model using R, calculating removal effects and channel contributions.</p>
+                        <p><strong>Technologies:</strong> R, Markov Chains, Power BI, R-Shiny</p>
+                        <div class="project-impact">
+                            ✓ 15% spend reduction on low-impact channels<br>
+                            ✓ 12% ROI increase through optimization<br>
+                            ✓ $500K budget reallocation<br>
+                            ✓ 30% improved allocation accuracy
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>🤖 Generative AI Customer Insights</h3>
+                        <p>LexisNexis Risk Solutions</p>
+                    </div>
+                    <div class="project-body">
+                        <p><strong>Challenge:</strong> Manual processing of thousands of customer feedback entries was time-consuming and inconsistent.</p>
+                        <p><strong>Solution:</strong> Fine-tuned BERT and GPT models using R/Python integration for automated text analysis and summarization.</p>
+                        <p><strong>Technologies:</strong> GPT, BERT, Hugging Face, reticulate, FastAPI</p>
+                        <div class="project-impact">
+                            ✓ 27% improvement in summarization accuracy<br>
+                            ✓ Automated 100K+ feedback entries monthly<br>
+                            ✓ 15% increase in NPS scores<br>
+                            ✓ Significant reduction in manual review time
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>📊 Marketing Mix Modeling</h3>
+                        <p>M&T Bank</p>
+                    </div>
+                    <div class="project-body">
+                        <p><strong>Challenge:</strong> Need to optimize multi-channel campaign performance across digital and traditional media.</p>
+                        <p><strong>Solution:</strong> Developed comprehensive MMM analyzing all marketing channels with seasonality and economic factors.</p>
+                        <p><strong>Technologies:</strong> Python, R, Statistical Modeling, Power BI</p>
+                        <div class="project-impact">
+                            ✓ 12% improvement in ROI<br>
+                            ✓ Optimized channel mix allocation<br>
+                            ✓ 30% faster decision-making<br>
+                            ✓ Data-driven budget planning
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>🏠 Loan Classification Model</h3>
+                        <p>Lumini IT Solution</p>
+                    </div>
+                    <div class="project-body">
+                        <p><strong>Challenge:</strong> Latin America's largest real estate company needed to identify ideal loan clients efficiently.</p>
+                        <p><strong>Solution:</strong> Developed multiclass XGBoost model with comprehensive feature engineering and fraud detection.</p>
+                        <p><strong>Technologies:</strong> XGBoost, Python, R-Shiny, AWS</p>
+                        <div class="project-impact">
+                            ✓ 89.8% multiclass accuracy<br>
+                            ✓ 92% binary classification accuracy<br>
+                            ✓ Reduced processing time & costs<br>
+                            ✓ Early fraud detection capability
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>💬 NLP Topic Modeling System</h3>
+                        <p>LexisNexis Risk Solutions</p>
+                    </div>
+                    <div class="project-body">
+                        <p><strong>Challenge:</strong> Unstructured customer feedback lacked actionable insights for product and support teams.</p>
+                        <p><strong>Solution:</strong> Implemented LDA-based Topic Modeling with interactive Power BI and R-Shiny dashboards.</p>
+                        <p><strong>Technologies:</strong> LDA, NLP, Power BI, R-Shiny, tidytext</p>
+                        <div class="project-impact">
+                            ✓ 12% improvement in first-call resolution<br>
+                            ✓ Identified key product improvements<br>
+                            ✓ Enhanced marketing strategies<br>
+                            ✓ Automated complaint categorization
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>⚡ Queue Optimization</h3>
+                        <p>Nexus Strategic Information</p>
+                    </div>
+                    <div class="project-body">
+                        <p><strong>Challenge:</strong> Long customer wait times negatively impacting satisfaction and revenue for supermarket chain.</p>
+                        <p><strong>Solution:</strong> Applied Queue Theory and Markov Chains to optimize staffing and customer flow.</p>
+                        <p><strong>Technologies:</strong> Markov Chains, Queue Theory, R, Tableau</p>
+                        <div class="project-impact">
+                            ✓ 40% reduction in average wait time<br>
+                            ✓ 27% increase in incremental revenue<br>
+                            ✓ 9% average weekly sales increase<br>
+                            ✓ 11% profit growth
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Stats Dashboard -->
+        <section id="stats" class="scroll-reveal">
+            <h2>Career Impact Statistics</h2>
+            <div class="stats-dashboard">
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Major Companies</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">30%</div>
+                    <div class="stat-label">Max ROI Increase</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">92%</div>
+                    <div class="stat-label">Model Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50%</div>
+                    <div class="stat-label">Time Reduction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$500K</div>
+                    <div class="stat-label">Budget Optimized</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100K+</div>
+                    <div class="stat-label">Monthly Feedback</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Technologies</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="scroll-reveal">
+            <h2>Education & Academic Background</h2>
+            <div class="methodologies-grid">
+                <div class="methodology-card">
+                    <h3>🎓 Ph.D. in Inference in Stochastic Processes</h3>
+                    <p><strong>Federal University of Minas Gerais</strong> | 2010 - 2016</p>
+                    <p>Advanced research in probabilistic models and statistical inference, providing foundation for Markov Chain and time series expertise.</p>
+                </div>
+                <div class="methodology-card">
+                    <h3>🎓 Master's in Inference in Stochastic Processes</h3>
+                    <p><strong>Federal University of Minas Gerais</strong></p>
+                    <p>Specialized training in stochastic modeling, probability theory, and statistical analysis methodologies.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Wecsley O. Prates, Ph.D. | Lead Data Scientist</p>
+        <p>Available for: On-Site • Hybrid • Remote Opportunities</p>
+        <p style="margin-top: 1rem; opacity: 0.8;">Expertise in ML, AI, Marketing Analytics, and Data Science Leadership</p>
+    </footer>
+
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Tab switching functionality
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on skill tags
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                this.style.transform = 'scale(1.1) rotate(5deg)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1) rotate(0deg)';
+                }, 300);
+            });
+        });
+
+        // Initialize stats counter animation
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = value + (element.dataset.suffix || '');
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.animated) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const text = stat.textContent;
+                        const num = parseInt(text.replace(/\D/g, ''));
+                        if (!isNaN(num)) {
+                            stat.dataset.suffix = text.replace(/[0-9]/g, '');
+                            animateValue(stat, 0, num, 2000);
+                        }
+                    });
+                    entry.target.dataset.animated = true;
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.getElementById('stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Add interactive hover effects to project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-10px) scale(1)';
+            });
+        });
+
+        // Console easter egg
+        console.log('%c👋 Welcome to Wecsley\'s Portfolio!', 'color: #3498db; font-size: 20px; font-weight: bold;');
+        console.log('%c🚀 Interested in collaboration? Reach out at prateswecsley@gmail.com', 'color: #27ae60; font-size: 14px;');
+    </script>
+</body>
+</html>
