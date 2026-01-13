@@ -295,9 +295,9 @@
                     <div>
                         <strong>Train-Test Split Strategy</strong><br>
                         <em>Method: Time-based split (not random) to prevent data leakage</em>
-                        <em>Training: 2018-2021 loans (150K loans)</em>
-                        <em>Validation: Jan-Jun 2022 (20K loans)</em>
-                        <em>Test: Jul-Dec 2022 (22K loans - completely held out)</em>
+                        <em>Training: 2017-2019 loans (150K loans)</em>
+                        <em>Validation: Jan-Jun 2020 (20K loans)</em>
+                        <em>Test: Jul-Dec 2020 (22K loans - completely held out)</em>
                         <em>Rationale: Model must predict future loans, not just similar past loans</em>
                     </div>
                 </div>
@@ -399,7 +399,7 @@
                     <div class="step-number">4</div>
                     <div>
                         <strong>Holdout Test Set Performance</strong><br>
-                        <em>Final Validation: Model trained on 2018-2021, validated on Jul-Dec 2022</em>
+                        <em>Final Validation: Model trained on 2017-2019, validated on Jul-Dec 2020</em>
                         <em>Test Metrics: 91.3% accuracy, 87.2% recall, 78.4% precision</em>
                         <em>Confusion Matrix: 19,200 TN, 1,600 FP, 240 FN, 1,600 TP (out of 22,640 test loans)</em>
                         <em>Comparison: Legacy system had 68% recall → 28% improvement (560 more defaults caught)</em>
@@ -457,8 +457,8 @@
                         <strong>Performance Degradation Detection</strong><br>
                         <em>Metric: Track actual default rate of approved loans vs. predicted</em>
                         <em>Alert: If actual default rate >10% above predicted for 2 consecutive weeks</em>
-                        <em>Root Cause Analysis: Detected spike in March 2023 due to COVID forbearance expirations</em>
-                        <em>Action: Retrained model with updated economic indicators</em>
+                        <em>Root Cause Analysis: Detected spike in November 2020 due to economic downturn in Brazilian real estate market</em>
+                        <em>Action: Retrained model with updated macroeconomic indicators and regional employment data</em>
                     </div>
                 </div>
 
