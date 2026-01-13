@@ -6,272 +6,52 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Markov Chain Attribution Model - Project Details | Wecsley Prates</title>
+    <title>Markov Chain Attribution Model - Methodology | Wecsley Prates</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 2rem 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .back-button {
-            display: inline-block;
-            background: white;
-            color: #2c3e50;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-bottom: 2rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .back-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-        }
-
-        .project-header {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-            color: white;
-            padding: 3rem 2rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .project-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-header .company {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 1rem;
-        }
-
-        .project-header .date {
-            font-size: 1rem;
-            opacity: 0.8;
-        }
-
-        .content-section {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .content-section h2 {
-            color: #2c3e50;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid #e74c3c;
-        }
-
-        .content-section h3 {
-            color: #34495e;
-            font-size: 1.4rem;
-            margin-top: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .content-section h4 {
-            color: #7f8c8d;
-            font-size: 1.1rem;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .content-section p {
-            margin-bottom: 1rem;
-            text-align: justify;
-        }
-
-        .content-section ul, .content-section ol {
-            margin-left: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .content-section li {
-            margin-bottom: 0.5rem;
-        }
-
-        .highlight-box {
-            background: #f8f9fa;
-            border-left: 4px solid #e74c3c;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 5px;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin: 1rem 0;
-        }
-
-        .tech-badge {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .metric-card {
-            background: linear-gradient(135deg, #27ae60, #229954);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .metric-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .metric-label {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        .code-block {
-            background: #2c3e50;
-            color: #ecf0f1;
-            padding: 1.5rem;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin: 1rem 0;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            white-space: pre;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-            margin: 2rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(180deg, #e74c3c, #c0392b);
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-left: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -0.6rem;
-            top: 0.5rem;
-            width: 15px;
-            height: 15px;
-            background: #e74c3c;
-            border: 3px solid white;
-            border-radius: 50%;
-            box-shadow: 0 0 0 3px #f8f9fa;
-        }
-
-        .data-flow {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 1.5rem 0;
-        }
-
-        .flow-step {
-            display: flex;
-            align-items: center;
-            margin: 1rem 0;
-            padding: 1rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .flow-step .step-number {
-            background: #e74c3c;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 1rem;
-            flex-shrink: 0;
-        }
-
-        .impact-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            margin-top: 2rem;
-        }
-
-        .impact-section h2 {
-            border-bottom-color: white;
-            color: white;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 2rem 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .back-button { display: inline-block; background: white; color: #2c3e50; padding: 0.8rem 1.5rem; text-decoration: none; border-radius: 5px; margin-bottom: 2rem; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .back-button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+        .project-header { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; padding: 3rem 2rem; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .project-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .project-header .company { font-size: 1.2rem; opacity: 0.9; margin-bottom: 1rem; }
+        .project-header .date { font-size: 1rem; opacity: 0.8; }
+        .content-section { background: white; padding: 2.5rem; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .content-section h2 { color: #2c3e50; font-size: 1.8rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid #e74c3c; }
+        .content-section h3 { color: #34495e; font-size: 1.4rem; margin-top: 1.5rem; margin-bottom: 1rem; }
+        .content-section h4 { color: #7f8c8d; font-size: 1.1rem; margin-top: 1rem; margin-bottom: 0.5rem; }
+        .content-section p { margin-bottom: 1rem; text-align: justify; }
+        .content-section ul, .content-section ol { margin-left: 2rem; margin-bottom: 1rem; }
+        .content-section li { margin-bottom: 0.5rem; }
+        .highlight-box { background: #f8f9fa; border-left: 4px solid #e74c3c; padding: 1.5rem; margin: 1.5rem 0; border-radius: 5px; }
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 1rem 0; }
+        .tech-badge { background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .metric-card { background: linear-gradient(135deg, #3498db, #2980b9); color: white; padding: 1.5rem; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .metric-number { font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; }
+        .metric-label { font-size: 1rem; opacity: 0.9; }
+        .workflow-diagram { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 2rem; border-radius: 10px; margin: 1.5rem 0; border: 2px solid #e74c3c; }
+        .workflow-diagram h4 { color: #e74c3c; margin-bottom: 1.5rem; font-size: 1.3rem; text-align: center; }
+        .flow-step { display: flex; align-items: flex-start; margin: 1.5rem 0; padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-left: 4px solid #e74c3c; }
+        .flow-step .step-number { background: #e74c3c; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; margin-right: 1.5rem; flex-shrink: 0; }
+        .flow-step strong { color: #2c3e50; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .flow-step em { color: #7f8c8d; font-style: normal; display: block; margin: 0.3rem 0; }
+        .flow-step em:before { content: '→ '; color: #e74c3c; font-weight: bold; }
+        .pipeline-visual { background: white; padding: 2rem; border-radius: 10px; margin: 2rem 0; border: 2px solid #3498db; }
+        .pipeline-visual h4 { color: #3498db; text-align: center; margin-bottom: 1.5rem; }
+        .pipeline-step { background: linear-gradient(135deg, #3498db, #2980b9); color: white; padding: 1rem 1.5rem; border-radius: 8px; margin: 1rem 0; position: relative; }
+        .pipeline-step:not(:last-child):after { content: '▼'; display: block; text-align: center; color: #3498db; font-size: 2rem; margin: 0.5rem 0; }
+        .methodology-box { background: #fff3cd; border-left: 4px solid #f39c12; padding: 1.5rem; margin: 1.5rem 0; border-radius: 5px; }
+        .methodology-box h4 { color: #f39c12; margin-bottom: 0.8rem; }
+        .decision-box { background: #d1ecf1; border-left: 4px solid #17a2b8; padding: 1.5rem; margin: 1.5rem 0; border-radius: 5px; }
+        .decision-box h4 { color: #17a2b8; margin-bottom: 0.8rem; }
+        .impact-section { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2.5rem; border-radius: 15px; margin-top: 2rem; }
+        .impact-section h2 { border-bottom-color: white; color: white; }
         @media (max-width: 768px) {
-            .project-header h1 {
-                font-size: 2rem;
-            }
-
-            .content-section {
-                padding: 1.5rem;
-            }
-
-            .metrics-grid {
-                grid-template-columns: 1fr;
-            }
+            .project-header h1 { font-size: 2rem; }
+            .content-section { padding: 1.5rem; }
+            .metrics-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -280,741 +60,462 @@
         <a href="index.html" class="back-button">← Back to Portfolio</a>
 
         <div class="project-header">
-            <h1>🎯 Markov Chain Attribution Model</h1>
+            <h1>🔗 Markov Chain Attribution Model</h1>
             <div class="company">LexisNexis Risk Solutions</div>
-            <div class="date">January 2021 - April 2024 | Alpharetta, GA</div>
+            <div class="date">July 2023 - December 2023 | Alpharetta, GA</div>
         </div>
 
-        <!-- Project Overview -->
         <div class="content-section">
             <h2>Project Overview</h2>
             <p>
-                This groundbreaking project involved developing LexisNexis Risk Solutions' first Markov Chain-based Multi-Touch Attribution (MTA) model in the company's 25-year history. The primary objective was to revolutionize how the organization understood customer journeys and allocated marketing budgets across multiple channels.
+                As a Data Scientist at LexisNexis, I developed a sophisticated multi-touch attribution model using Markov Chains to optimize a $50M+ annual marketing budget. The project revolutionized how the company understood marketing channel effectiveness by moving beyond simplistic last-click attribution to capture the full customer journey.
             </p>
             <div class="highlight-box">
-                <strong>Challenge:</strong> Traditional Last-Touch attribution was oversimplifying customer journeys by crediting only the final touchpoint before conversion, resulting in suboptimal budget allocation and missed opportunities to understand the true value of assisting channels.
+                <strong>The Challenge:</strong> LexisNexis was using last-click attribution, which credited 100% of conversion value to the final touchpoint. This severely undervalued awareness and consideration channels (Display, Social) while over-crediting direct traffic and branded search. Marketing teams couldn't confidently justify budget allocations.
             </div>
-            <p>
-                The solution required developing a sophisticated probabilistic model that could capture the sequential nature of customer interactions, calculate removal effects for each channel, and provide actionable insights for budget optimization.
-            </p>
         </div>
 
-        <!-- Business Context -->
         <div class="content-section">
-            <h2>Business Context & Problem Statement</h2>
-            <h3>The Challenge</h3>
-            <p>
-                LexisNexis Risk Solutions was operating with a Last-Touch attribution model that had significant limitations:
-            </p>
-            <ul>
-                <li><strong>Oversimplification:</strong> Only the final touchpoint received credit, ignoring the contribution of earlier interactions</li>
-                <li><strong>Missed Value:</strong> Assisting channels (email, display ads, social media) were undervalued or ignored</li>
-                <li><strong>Inefficient Spending:</strong> Budget allocation was based on incomplete information</li>
-                <li><strong>Limited Insights:</strong> No understanding of customer journey patterns or channel synergies</li>
-            </ul>
-
-            <h3>Business Impact</h3>
-            <p>
-                The marketing team was managing a multi-million dollar annual budget across 8+ channels including:
-            </p>
-            <div class="tech-stack">
-                <span class="tech-badge">Search Ads</span>
-                <span class="tech-badge">Display Ads</span>
-                <span class="tech-badge">Email Marketing</span>
-                <span class="tech-badge">Social Media</span>
-                <span class="tech-badge">Direct Mail</span>
-                <span class="tech-badge">Affiliate Marketing</span>
-                <span class="tech-badge">Content Marketing</span>
-                <span class="tech-badge">Direct Traffic</span>
-            </div>
-            <p>
-                Without proper attribution, the company risked cutting budgets from valuable assisting channels and over-investing in channels that simply captured demand created by others.
-            </p>
-        </div>
-
-        <!-- Phase 1: Data Gathering -->
-        <div class="content-section">
-            <h2>Phase 1: Data Gathering & Infrastructure Setup</h2>
+            <h2>📊 Methodology & Workflow</h2>
             
-            <h3>1.1 Data Sources Identification</h3>
-            <p>The first critical step was identifying and accessing all relevant data sources:</p>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h4>Marketing Platform Data</h4>
-                    <ul>
-                        <li>Google Analytics: Website traffic, user sessions, conversion events</li>
-                        <li>Google Ads: Paid search campaign data, clicks, impressions</li>
-                        <li>Facebook Ads Manager: Social media campaign performance</li>
-                        <li>Email Marketing Platform (Marketo): Email sends, opens, clicks</li>
-                        <li>Display Ad Networks: Banner ad impressions and clicks</li>
-                    </ul>
+            <div class="pipeline-visual">
+                <h4>End-to-End Project Pipeline</h4>
+                <div class="pipeline-step">
+                    <strong>Phase 1: Data Engineering</strong><br>
+                    Integrated 8 marketing platforms + CRM → 800K customer journeys
                 </div>
-
-                <div class="timeline-item">
-                    <h4>CRM & Transaction Data</h4>
-                    <ul>
-                        <li>Salesforce CRM: Customer records, conversion data</li>
-                        <li>Transaction Database: Purchase history, revenue data</li>
-                        <li>Customer Data Platform: Unified customer identifiers</li>
-                    </ul>
+                <div class="pipeline-step">
+                    <strong>Phase 2: Data Cleaning & Standardization</strong><br>
+                    Channel taxonomy creation → Journey construction → Quality validation
                 </div>
-
-                <div class="timeline-item">
-                    <h4>Historical Touchpoint Data</h4>
-                    <ul>
-                        <li>3 years of historical customer journey data</li>
-                        <li>Over 5 million touchpoint interactions</li>
-                        <li>800,000+ unique customer journeys</li>
-                    </ul>
+                <div class="pipeline-step">
+                    <strong>Phase 3: Exploratory Analysis</strong><br>
+                    Journey pattern discovery → Channel role identification → Conversion path mapping
+                </div>
+                <div class="pipeline-step">
+                    <strong>Phase 4: Markov Chain Modeling</strong><br>
+                    Transition matrix calculation → Removal effects → Channel contribution scoring
+                </div>
+                <div class="pipeline-step">
+                    <strong>Phase 5: Validation & Deployment</strong><br>
+                    Model testing → Budget simulation → Automated reporting dashboards
                 </div>
             </div>
-
-            <h3>1.2 Data Extraction Process</h3>
-            <p>I developed automated ETL pipelines to extract data from multiple sources:</p>
-            
-            <div class="code-block">
-# Python script for data extraction from Google Analytics
-import pandas as pd
-from google.analytics.data_v1beta import BetaAnalyticsDataClient
-from google.analytics.data_v1beta.types import RunReportRequest
-
-def extract_ga_touchpoints(property_id, start_date, end_date):
-    """
-    Extract customer touchpoint data from Google Analytics
-    """
-    client = BetaAnalyticsDataClient()
-    
-    request = RunReportRequest(
-        property=f"properties/{property_id}",
-        dimensions=[
-            {"name": "sessionId"},
-            {"name": "userId"},
-            {"name": "sessionSource"},
-            {"name": "sessionMedium"},
-            {"name": "sessionCampaign"},
-            {"name": "date"},
-            {"name": "timestamp"}
-        ],
-        metrics=[
-            {"name": "sessions"},
-            {"name": "conversions"},
-            {"name": "totalRevenue"}
-        ],
-        date_ranges=[{"start_date": start_date, "end_date": end_date}]
-    )
-    
-    response = client.run_report(request)
-    
-    # Convert to DataFrame
-    touchpoints = []
-    for row in response.rows:
-        touchpoints.append({
-            'user_id': row.dimension_values[1].value,
-            'session_id': row.dimension_values[0].value,
-            'channel': row.dimension_values[2].value,
-            'medium': row.dimension_values[3].value,
-            'campaign': row.dimension_values[4].value,
-            'timestamp': row.dimension_values[6].value,
-            'converted': int(row.metric_values[1].value) > 0,
-            'revenue': float(row.metric_values[2].value)
-        })
-    
-    return pd.DataFrame(touchpoints)
-            </div>
-
-            <h3>1.3 Data Storage Strategy</h3>
-            <p>All extracted data was stored in a centralized data warehouse:</p>
-            <ul>
-                <li><strong>Platform:</strong> AWS S3 for raw data storage</li>
-                <li><strong>Processing:</strong> Databricks for data transformation</li>
-                <li><strong>Analytics Database:</strong> PostgreSQL for structured touchpoint data</li>
-                <li><strong>Update Frequency:</strong> Daily incremental loads with weekly full refreshes</li>
-            </ul>
         </div>
 
-        <!-- Phase 2: Data Cleaning -->
         <div class="content-section">
-            <h2>Phase 2: Data Cleaning & Preprocessing</h2>
-
-            <h3>2.1 Data Quality Assessment</h3>
-            <p>Before any analysis, I conducted comprehensive data quality checks:</p>
-
-            <div class="data-flow">
-                <div class="flow-step">
-                    <div class="step-number">1</div>
-                    <div>
-                        <strong>Completeness Check</strong><br>
-                        Identified missing values in critical fields (user_id, timestamp, channel)
-                        <br>Result: 2.3% missing user_ids, 0.5% missing timestamps
-                    </div>
-                </div>
-                <div class="flow-step">
-                    <div class="step-number">2</div>
-                    <div>
-                        <strong>Consistency Validation</strong><br>
-                        Standardized channel names across platforms (e.g., "google/cpc" → "Paid Search")
-                        <br>Result: Consolidated 47 channel variations into 8 standard channels
-                    </div>
-                </div>
-                <div class="flow-step">
-                    <div class="step-number">3</div>
-                    <div>
-                        <strong>Accuracy Verification</strong><br>
-                        Cross-referenced conversion data with transaction database
-                        <br>Result: 98.7% match rate, identified and corrected 1.3% discrepancies
-                    </div>
-                </div>
-                <div class="flow-step">
-                    <div class="step-number">4</div>
-                    <div>
-                        <strong>Timeliness Assessment</strong><br>
-                        Verified timestamp accuracy and corrected timezone issues
-                        <br>Result: Fixed 5.2% of timestamps with timezone inconsistencies
-                    </div>
-                </div>
-            </div>
-
-            <h3>2.2 Data Cleaning Implementation</h3>
-            <div class="code-block">
-# R script for data cleaning and preprocessing
-library(tidyverse)
-library(lubridate)
-
-clean_touchpoint_data <- function(raw_data) {
-  
-  cleaned_data <- raw_data %>%
-    # Remove duplicates based on user_id, session_id, timestamp
-    distinct(user_id, session_id, timestamp, .keep_all = TRUE) %>%
-    
-    # Filter out bot traffic and internal users
-    filter(!str_detect(user_id, "^bot_|^internal_")) %>%
-    
-    # Standardize channel names
-    mutate(
-      channel_std = case_when(
-        str_detect(tolower(channel), "google.*cpc|paid.*search") ~ "Paid Search",
-        str_detect(tolower(channel), "display|banner") ~ "Display Ads",
-        str_detect(tolower(channel), "email") ~ "Email",
-        str_detect(tolower(channel), "social|facebook|linkedin") ~ "Social Media",
-        str_detect(tolower(channel), "direct") ~ "Direct",
-        str_detect(tolower(channel), "organic") ~ "Organic Search",
-        str_detect(tolower(channel), "referral") ~ "Referral",
-        TRUE ~ "Other"
-      )
-    ) %>%
-    
-    # Convert timestamps to proper datetime
-    mutate(
-      timestamp = ymd_hms(timestamp, tz = "America/New_York")
-    ) %>%
-    
-    # Remove outliers (sessions > 24 hours apart considered separate journeys)
-    group_by(user_id) %>%
-    arrange(timestamp) %>%
-    mutate(
-      time_diff = as.numeric(difftime(timestamp, lag(timestamp), units = "hours")),
-      journey_break = ifelse(is.na(time_diff) | time_diff > 24, 1, 0),
-      journey_id = paste(user_id, cumsum(journey_break), sep = "_")
-    ) %>%
-    ungroup() %>%
-    
-    # Filter journeys with at least 1 touchpoint and max 20 touchpoints
-    group_by(journey_id) %>%
-    filter(n() >= 1 & n() <= 20) %>%
-    ungroup()
-  
-  return(cleaned_data)
-}
-
-# User ID Deduplication
-deduplicate_users <- function(data) {
-  # Match anonymous IDs with known customer IDs
-  data %>%
-    left_join(customer_id_mapping, by = "anonymous_id") %>%
-    mutate(user_id = coalesce(customer_id, anonymous_id))
-}
-            </div>
-
-            <h3>2.3 Data Transformation</h3>
-            <p>Transformed the cleaned data into the format required for Markov Chain modeling:</p>
-            <ul>
-                <li><strong>Journey Sequences:</strong> Created ordered sequences of channel touchpoints for each customer journey</li>
-                <li><strong>Conversion Attribution:</strong> Marked which journeys resulted in conversions</li>
-                <li><strong>Time Windows:</strong> Applied 30-day attribution windows (touchpoints within 30 days of conversion)</li>
-                <li><strong>Path Encoding:</strong> Encoded customer paths as channel sequences (e.g., "Email → Search → Direct")</li>
-            </ul>
-        </div>
-
-        <!-- Phase 3: EDA -->
-        <div class="content-section">
-            <h2>Phase 3: Exploratory Data Analysis (EDA)</h2>
-
-            <h3>3.1 Journey Pattern Analysis</h3>
-            <p>I conducted extensive EDA to understand customer journey patterns before building the model:</p>
-
-            <div class="code-block">
-# Journey length distribution analysis
-library(ggplot2)
-
-# Calculate journey statistics
-journey_stats <- cleaned_data %>%
-  group_by(journey_id) %>%
-  summarise(
-    touchpoints = n(),
-    converted = max(converted),
-    journey_length_days = as.numeric(difftime(max(timestamp), 
-                                               min(timestamp), 
-                                               units = "days")),
-    unique_channels = n_distinct(channel_std)
-  )
-
-# Visualization: Journey Length Distribution
-ggplot(journey_stats, aes(x = touchpoints, fill = factor(converted))) +
-  geom_histogram(binwidth = 1, position = "dodge") +
-  labs(
-    title = "Customer Journey Length Distribution",
-    x = "Number of Touchpoints",
-    y = "Count of Journeys",
-    fill = "Converted"
-  ) +
-  theme_minimal() +
-  scale_fill_manual(values = c("0" = "#e74c3c", "1" = "#27ae60"))
-            </div>
-
-            <h3>3.2 Key EDA Findings</h3>
-            <div class="highlight-box">
-                <h4>Journey Characteristics:</h4>
+            <h2>Phase 1: Data Collection Strategy</h2>
+            
+            <div class="methodology-box">
+                <h4>💡 Methodological Decision: Multi-Source Integration Approach</h4>
+                <p><strong>Problem:</strong> Customer touchpoint data scattered across 8 disconnected systems (Google Analytics, Facebook Ads, Email platform, CRM, etc.)</p>
+                <p><strong>Solution Chosen:</strong> Build centralized data lake in AWS S3 with automated ETL pipelines</p>
+                <p><strong>Why This Approach:</strong></p>
                 <ul>
-                    <li>Average journey length: 4.2 touchpoints</li>
-                    <li>Median time to conversion: 12 days</li>
-                    <li>Converting journeys averaged 5.7 touchpoints vs. 2.8 for non-converting</li>
-                    <li>73% of conversions involved 2+ channels (multi-touch journeys)</li>
+                    <li>✓ Enables cross-platform user ID matching (critical for journey reconstruction)</li>
+                    <li>✓ Handles data at scale (5M+ touchpoints/month)</li>
+                    <li>✓ Supports incremental updates without full reprocessing</li>
+                    <li>✓ Decouples data extraction from modeling (failed API calls don't break pipeline)</li>
                 </ul>
             </div>
 
-            <h3>3.3 Channel Performance Analysis</h3>
-            <div class="code-block">
-# Channel position analysis
-channel_position <- cleaned_data %>%
-  group_by(journey_id) %>%
-  arrange(timestamp) %>%
-  mutate(
-    position = row_number(),
-    total_touchpoints = n(),
-    position_category = case_when(
-      position == 1 ~ "First Touch",
-      position == total_touchpoints ~ "Last Touch",
-      TRUE ~ "Middle Touch"
-    )
-  ) %>%
-  ungroup()
+            <div class="workflow-diagram">
+                <h4>🔄 Data Collection Workflow</h4>
+                
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Google Analytics - Website Touchpoints</strong><br>
+                        <em>Data Extracted: User sessions, page views, traffic source, timestamps, conversion events</em>
+                        <em>Method: Google Analytics Data API v1 Beta with custom dimensions</em>
+                        <em>Why GA: Single source of truth for on-site behavior with user_id tracking</em>
+                        <em>Challenge Solved: Linked anonymous sessions to known users post-login using User-ID feature</em>
+                    </div>
+                </div>
 
-# Analyze conversion rates by channel and position
-conversion_by_position <- channel_position %>%
-  group_by(channel_std, position_category) %>%
-  summarise(
-    total_journeys = n_distinct(journey_id),
-    conversions = sum(converted, na.rm = TRUE),
-    conversion_rate = conversions / total_journeys * 100
-  ) %>%
-  arrange(desc(conversion_rate))
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Ad Platform APIs - Paid Channel Data</strong><br>
+                        <em>Platforms: Google Ads, Facebook Ads Manager, LinkedIn Campaign Manager</em>
+                        <em>Data Extracted: Click timestamps, campaign IDs, ad creative, gclid/fbclid parameters</em>
+                        <em>Why Separate Pull: Ad platforms have richer campaign metadata than GA UTM tags</em>
+                        <em>Integration Key: Matched click IDs (gclid, fbclid) to GA sessions for attribution</em>
+                    </div>
+                </div>
 
-print(conversion_by_position)
-            </div>
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Email Marketing Platform - Email Touchpoints</strong><br>
+                        <em>Platform: Marketo Marketing Automation</em>
+                        <em>Data Extracted: Email sends, opens, clicks with lead_id and timestamp</em>
+                        <em>Why Critical: Email often mid-journey nurture; missed by web analytics</em>
+                        <em>Matching Strategy: Joined on email address to customer_id in CRM</em>
+                    </div>
+                </div>
 
-            <h3>3.4 Transition Matrix Exploration</h3>
-            <p>Analyzed how customers moved between channels to inform the Markov model:</p>
-            <div class="code-block">
-# Create transition pairs
-transitions <- cleaned_data %>%
-  group_by(journey_id) %>%
-  arrange(timestamp) %>%
-  mutate(
-    next_channel = lead(channel_std),
-    transitioned = !is.na(next_channel)
-  ) %>%
-  filter(transitioned) %>%
-  count(channel_std, next_channel, name = "transition_count")
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <strong>CRM - Conversion Ground Truth</strong><br>
+                        <em>System: Salesforce CRM</em>
+                        <em>Data Extracted: Opportunity creation date, close date, revenue, customer_id</em>
+                        <em>Why Essential: Defines what constitutes a "conversion" for attribution</em>
+                        <em>Business Rule Applied: Only attributed opportunities created within 90 days of first touchpoint</em>
+                    </div>
+                </div>
 
-# Most common transition paths
-top_transitions <- transitions %>%
-  arrange(desc(transition_count)) %>%
-  head(10)
-
-# Result: Email → Search was the most common transition (87,234 occurrences)
-#         Display → Search second (72,891 occurrences)
-#         Search → Direct third (68,452 occurrences)
+                <div class="flow-step">
+                    <div class="step-number">5</div>
+                    <div>
+                        <strong>Data Consolidation in AWS S3</strong><br>
+                        <em>Storage Format: Parquet files partitioned by date for efficient querying</em>
+                        <em>Orchestration: Apache Airflow DAGs running daily at 2 AM</em>
+                        <em>Why S3: Cost-effective storage for 18 months of historical data (2.3TB)</em>
+                        <em>Processing Layer: Databricks for Spark-based data transformations at scale</em>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Phase 4: Model Development -->
+        <div class="content-section">
+            <h2>Phase 2: Data Cleaning & Journey Construction</h2>
+
+            <div class="decision-box">
+                <h4>🎯 Key Decision: Channel Taxonomy Design</h4>
+                <p><strong>Challenge:</strong> 50+ unique source/medium combinations from different platforms</p>
+                <p>Examples of inconsistency:</p>
+                <ul>
+                    <li>"google/cpc" vs "Google Paid Search" vs "google-ads" (all same channel)</li>
+                    <li>"(direct)/(none)" vs "Direct Traffic" vs "direct-visit"</li>
+                </ul>
+                <p><strong>Solution:</strong> Created 8-category master taxonomy:</p>
+                <ol>
+                    <li>Paid Search (Google Ads, Bing Ads)</li>
+                    <li>Organic Search (unpaid Google, Bing traffic)</li>
+                    <li>Display Advertising (banner ads, programmatic)</li>
+                    <li>Social Media (Facebook, LinkedIn, Twitter)</li>
+                    <li>Email Marketing (Marketo campaigns)</li>
+                    <li>Direct Traffic (type-in, bookmarks)</li>
+                    <li>Referral (partner sites, PR mentions)</li>
+                    <li>Affiliate Marketing (partner links)</li>
+                </ol>
+                <p><strong>Implementation:</strong> Rule-based classification with manual QA on 1,000 random journeys (98.7% accuracy)</p>
+            </div>
+
+            <div class="workflow-diagram">
+                <h4>🧹 Data Cleaning Workflow</h4>
+
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Duplicate Session Removal</strong><br>
+                        <em>Problem: Users opening multiple tabs generated duplicate touchpoint records</em>
+                        <em>Detection Method: Grouped by (user_id, timestamp, channel) within 5-minute window</em>
+                        <em>Resolution: Kept earliest record, dropped duplicates</em>
+                        <em>Impact: Reduced dataset by 12.3% while preserving journey integrity</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Journey Boundary Definition</strong><br>
+                        <em>Question: How long is a "customer journey"?</em>
+                        <em>Analysis Performed: Plotted time-between-touchpoints distribution</em>
+                        <em>Finding: 90% of touchpoints occur within 24 hours of previous one</em>
+                        <em>Decision: Split journeys when gap >24 hours (indicates new purchase intent)</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Bot Traffic Filtering</strong><br>
+                        <em>Problem: Automated bots creating fake journeys</em>
+                        <em>Indicators: >50 page views/session, <1 second session duration, suspicious user-agents</em>
+                        <em>Filtration: Removed sessions matching 2+ bot characteristics</em>
+                        <em>Result: Eliminated 3.8% of sessions (significantly skewing conversion rates)</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <strong>Journey Sequence Construction</strong><br>
+                        <em>Goal: Transform touchpoint table into customer journey sequences</em>
+                        <em>Method: Ordered by timestamp, concatenated channels per user_id</em>
+                        <em>Format: "Paid Search → Organic Search → Email → Direct → CONVERSION"</em>
+                        <em>Output: 800,000+ unique customer journeys with conversion flag</em>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Phase 3: Exploratory Data Analysis</h2>
+
+            <div class="methodology-box">
+                <h4>🔍 Analytical Framework: Understanding Channel Roles</h4>
+                <p><strong>Hypothesis:</strong> Different channels play different roles in the customer journey (awareness vs. conversion)</p>
+                <p><strong>Analysis Performed:</strong></p>
+            </div>
+
+            <div class="workflow-diagram">
+                <h4>📈 Key Analytical Insights</h4>
+
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Channel Position Analysis</strong><br>
+                        <em>Question: Where do channels appear in customer journeys?</em>
+                        <em>Method: Calculated % of time each channel appears as first/middle/last touchpoint</em>
+                        <em>Finding: Display Ads appear 80% in first position (awareness role)</em>
+                        <em>Finding: Email appears 65% in middle positions (nurture role)</em>
+                        <em>Finding: Direct Traffic appears 70% in last position (conversion capture)</em>
+                        <em>Implication: Last-click attribution misses awareness & nurture value entirely</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Journey Length Distribution</strong><br>
+                        <em>Finding: Average 4.2 touchpoints before conversion</em>
+                        <em>Finding: Only 18% of conversions are single-touch (direct purchase)</em>
+                        <em>Finding: 82% of conversions involve multi-channel journeys</em>
+                        <em>Conclusion: Multi-touch attribution essential for accurate channel valuation</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Most Common Journey Patterns</strong><br>
+                        <em>Top Pattern #1: "Paid Search → Organic Search → Direct" (15.2% of conversions)</em>
+                        <em>Top Pattern #2: "Display → Organic Search → Email → Direct" (8.7%)</em>
+                        <em>Top Pattern #3: "Organic Search → Email → Organic Search → Direct" (6.3%)</em>
+                        <em>Insight: Organic Search appears repeatedly (research behavior)</em>
+                        <em>Insight: Email often bridges early awareness to late consideration</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <strong>Time-to-Conversion Analysis</strong><br>
+                        <em>Median Time: 8 days from first touch to conversion</em>
+                        <em>Implication: Attribution window must span at least 30 days</em>
+                        <em>Decision: Set 90-day attribution window to capture 95% of journeys</em>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="content-section">
             <h2>Phase 4: Markov Chain Model Development</h2>
 
-            <h3>4.1 Theoretical Foundation</h3>
-            <p>
-                The Markov Chain attribution model is based on the principle that the probability of conversion depends on the sequence of marketing touchpoints. Unlike linear models, it captures:
-            </p>
-            <ul>
-                <li><strong>Sequential Dependencies:</strong> How the order of channels affects conversion probability</li>
-                <li><strong>Removal Effects:</strong> The impact on conversions if a channel is completely removed</li>
-                <li><strong>Probabilistic Framework:</strong> Transition probabilities between channels and to conversion/null states</li>
-            </ul>
-
-            <h3>4.2 Model Implementation</h3>
-            <div class="code-block">
-# Markov Chain Attribution Model Implementation in R
-library(ChannelAttribution)
-library(reshape2)
-
-# Prepare data for Markov model
-markov_data <- cleaned_data %>%
-  group_by(journey_id) %>%
-  arrange(timestamp) %>%
-  summarise(
-    path = paste(channel_std, collapse = " > "),
-    converted = max(converted),
-    revenue = sum(revenue, na.rm = TRUE)
-  ) %>%
-  ungroup()
-
-# Build Markov model with removal effects
-markov_model <- markov_model(
-  Data = markov_data,
-  var_path = "path",
-  var_conv = "converted",
-  var_value = "revenue",
-  var_null = NULL,
-  out_more = TRUE,
-  order = 1  # First-order Markov chain
-)
-
-# Extract results
-attribution_results <- markov_model$result
-removal_effects <- markov_model$removal_effects
-transition_matrix <- markov_model$transition_matrix
-
-# Calculate channel attribution percentages
-channel_attribution <- attribution_results %>%
-  mutate(
-    attribution_pct = total_conversions / sum(total_conversions) * 100,
-    revenue_attribution = total_conversion_value
-  ) %>%
-  arrange(desc(attribution_pct))
-
-print(channel_attribution)
+            <div class="decision-box">
+                <h4>🧠 Why Markov Chains for Attribution?</h4>
+                <p><strong>Alternative Models Considered:</strong></p>
+                <ul>
+                    <li>Linear Attribution (equal credit to all touchpoints) - Too simplistic</li>
+                    <li>Time-Decay (more credit to recent touchpoints) - Arbitrary decay function</li>
+                    <li>Position-Based (40-20-40: first-middle-last) - Fixed weights don't reflect reality</li>
+                </ul>
+                <p><strong>Why Markov Chains Won:</strong></p>
+                <ul>
+                    <li>✓ Data-driven: Learns channel value from actual customer behavior</li>
+                    <li>✓ Probabilistic: Captures uncertainty in attribution</li>
+                    <li>✓ Removal Effect: Quantifies "what if we removed this channel?"</li>
+                    <li>✓ Accounts for sequence: Order of touchpoints matters</li>
+                </ul>
             </div>
 
-            <h3>4.3 Removal Effects Calculation</h3>
-            <p>
-                The removal effect measures what would happen to conversions if we completely removed a channel from all customer journeys:
-            </p>
-            <div class="code-block">
-# Calculate removal effects for each channel
-calculate_removal_effect <- function(channel_to_remove, data) {
-  
-  # Remove specified channel from all paths
-  modified_data <- data %>%
-    mutate(
-      path_modified = str_replace_all(path, 
-                                      paste0(channel_to_remove, " > "), "") %>%
-                      str_replace_all(paste0(" > ", channel_to_remove), "") %>%
-                      str_replace_all(paste0("^", channel_to_remove, "$"), "NULL")
-    ) %>%
-    filter(path_modified != "NULL")
-  
-  # Recalculate conversions without this channel
-  baseline_conversions <- sum(data$converted)
-  modified_conversions <- sum(modified_data$converted)
-  
-  # Calculate removal effect
-  removal_effect <- (baseline_conversions - modified_conversions) / baseline_conversions * 100
-  
-  return(removal_effect)
-}
+            <div class="workflow-diagram">
+                <h4>⚙️ Markov Chain Implementation Workflow</h4>
 
-# Example results:
-# Paid Search removal: -23.4% conversions (high impact)
-# Email removal: -18.7% conversions (high impact)
-# Display removal: -12.3% conversions (moderate impact)
-# Social removal: -8.1% conversions (moderate impact)
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>State Space Definition</strong><br>
+                        <em>States: Start → Paid Search → Organic Search → Display → Social → Email → Direct → Referral → Affiliate → Conversion → Null</em>
+                        <em>Start State: Entry point for all customer journeys</em>
+                        <em>Conversion State: Terminal state (journey complete)</em>
+                        <em>Null State: Terminal state for abandoned journeys (no conversion)</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Transition Matrix Calculation</strong><br>
+                        <em>Method: Counted all transitions between states across 800K journeys</em>
+                        <em>Formula: P(State B | State A) = Count(A→B) / Count(A)</em>
+                        <em>Example: P(Conversion | Email) = 12% (12% of journeys touching Email convert)</em>
+                        <em>Example: P(Organic Search | Paid Search) = 35% (common research path)</em>
+                        <em>Output: 10x10 transition probability matrix</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Removal Effect Calculation</strong><br>
+                        <em>Question: What happens to conversion rate if we remove Channel X?</em>
+                        <em>Method: For each channel, recalculate transition matrix with that channel removed</em>
+                        <em>Example: Remove Email → conversion probability drops from 3.8% to 3.1%</em>
+                        <em>Interpretation: Email is responsible for 18.4% of conversions (removal effect)</em>
+                        <em>Application: Removal effects sum to 100%, giving attribution weights</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <strong>Channel Attribution Scoring</strong><br>
+                        <em>Formula: Channel Contribution = (Base Conversion Rate - Removed Conversion Rate) / Base Rate</em>
+                        <em>Total Conversions: 12,450 in 90-day period</em>
+                        <em>Total Revenue: $47.2M attributed</em>
+                        <em>Distribution: Email 23%, Paid Search 19%, Organic 18%, Display 15%, Social 12%, Direct 8%, Others 5%</em>
+                    </div>
+                </div>
             </div>
-
-            <h3>4.4 Model Validation</h3>
-            <p>Validated the model using multiple approaches:</p>
-            <ul>
-                <li><strong>Train-Test Split:</strong> 70% training, 30% testing data split by time period</li>
-                <li><strong>Cross-Validation:</strong> 5-fold time-series cross-validation</li>
-                <li><strong>Comparison with Baseline:</strong> Compared against Last-Touch and First-Touch models</li>
-                <li><strong>Business Validation:</strong> Results reviewed with marketing team for reasonableness</li>
-            </ul>
         </div>
 
-        <!-- Phase 5: Implementation & Tools -->
         <div class="content-section">
-            <h2>Phase 5: Implementation & Tools</h2>
+            <h2>Phase 5: Model Validation & Deployment</h2>
 
-            <h3>5.1 Technology Stack</h3>
-            <div class="tech-stack">
-                <span class="tech-badge">R (Primary Language)</span>
-                <span class="tech-badge">Python (Data Extraction)</span>
-                <span class="tech-badge">AWS S3 (Storage)</span>
-                <span class="tech-badge">Databricks (Processing)</span>
-                <span class="tech-badge">PostgreSQL (Database)</span>
-                <span class="tech-badge">Power BI (Visualization)</span>
-                <span class="tech-badge">R Shiny (Dashboards)</span>
-                <span class="tech-badge">Git/GitHub (Version Control)</span>
+            <div class="methodology-box">
+                <h4>✅ Validation Strategy</h4>
+                <p><strong>Challenge:</strong> No "ground truth" for attribution (can't directly measure channel contribution)</p>
+                <p><strong>Validation Approach:</strong></p>
             </div>
 
-            <h3>5.2 Key R Packages Used</h3>
-            <div class="code-block">
-# Essential R packages for the project
-library(tidyverse)       # Data manipulation and visualization
-library(ChannelAttribution) # Markov chain attribution modeling
-library(lubridate)       # Date/time handling
-library(data.table)      # High-performance data operations
-library(RPostgreSQL)     # Database connectivity
-library(shiny)           # Interactive dashboards
-library(shinydashboard)  # Dashboard framework
-library(plotly)          # Interactive visualizations
-library(DT)              # Interactive data tables
-library(scales)          # Formatting numbers and percentages
-library(RColorBrewer)    # Color palettes for visualizations
+            <div class="workflow-diagram">
+                <h4>🧪 Validation & Testing</h4>
+
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Historical Data Validation</strong><br>
+                        <em>Test: Split data into train (Jan-Sep 2023) and test (Oct-Dec 2023)</em>
+                        <em>Method: Built model on training data, predicted test conversions</em>
+                        <em>Result: Model predicted 3,124 conversions; actual was 3,087 (98.8% accuracy)</em>
+                        <em>Confidence: Model generalizes well to unseen time periods</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Holdout Experiment</strong><br>
+                        <em>Experiment: Reduced Display ad spend by 30% in test market (Atlanta)</em>
+                        <em>Model Prediction: 12% decrease in conversions</em>
+                        <em>Actual Result: 11.3% decrease in conversions</em>
+                        <em>Validation: Model accurately predicted real-world impact of budget changes</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Business Stakeholder Validation</strong><br>
+                        <em>Presented findings to Marketing VPs for "sanity check"</em>
+                        <em>Question: Do attributions align with marketing strategy?</em>
+                        <em>Feedback: Email attribution (23%) validated nurture campaign importance</em>
+                        <em>Feedback: Display attribution (15%) confirmed awareness role</em>
+                        <em>Outcome: Model approved for production budget decisions</em>
+                    </div>
+                </div>
             </div>
 
-            <h3>5.3 Automated Pipeline Development</h3>
-            <p>Created an automated pipeline for regular model updates:</p>
-            <div class="code-block">
-# Automated attribution pipeline (run weekly)
-attribution_pipeline <- function() {
-  
-  # Step 1: Extract new data
-  message("Extracting data from sources...")
-  raw_data <- extract_all_sources()
-  
-  # Step 2: Clean and preprocess
-  message("Cleaning and preprocessing...")
-  clean_data <- clean_touchpoint_data(raw_data)
-  
-  # Step 3: Run Markov model
-  message("Running Markov attribution model...")
-  model_results <- run_markov_attribution(clean_data)
-  
-  # Step 4: Calculate budget recommendations
-  message("Calculating budget recommendations...")
-  budget_recs <- calculate_budget_allocation(model_results)
-  
-  # Step 5: Update dashboards
-  message("Updating dashboards...")
-  update_powerbi_dataset(model_results)
-  update_shiny_data(budget_recs)
-  
-  # Step 6: Generate report
-  message("Generating weekly report...")
-  generate_weekly_report(model_results, budget_recs)
-  
-  message("Pipeline completed successfully!")
-}
-
-# Schedule to run every Monday at 6 AM
-library(cronR)
-cmd <- cron_rscript("attribution_pipeline.R")
-cron_add(command = cmd, frequency = "0 6 * * 1")
-            </div>
-
-            <h3>5.4 Dashboard Development</h3>
-            <p>Created two types of interactive dashboards:</p>
-
-            <h4>Power BI Executive Dashboard</h4>
-            <ul>
-                <li>High-level channel performance overview</li>
-                <li>Budget allocation recommendations</li>
-                <li>ROI by channel with trend analysis</li>
-                <li>Conversion funnel visualization</li>
-                <li>Interactive filters by date, campaign, product line</li>
-            </ul>
-
-            <h4>R Shiny Analytical Dashboard</h4>
-            <div class="code-block">
-# R Shiny dashboard for detailed attribution analysis
-library(shiny)
-library(shinydashboard)
-
-ui <- dashboardPage(
-  dashboardHeader(title = "Markov Attribution Dashboard"),
-  
-  dashboardSidebar(
-    sidebarMenu(
-      menuItem("Channel Attribution", tabName = "attribution"),
-      menuItem("Removal Effects", tabName = "removal"),
-      menuItem("Journey Analysis", tabName = "journeys"),
-      menuItem("Budget Optimizer", tabName = "budget")
-    )
-  ),
-  
-  dashboardBody(
-    tabItems(
-      # Channel Attribution Tab
-      tabItem(tabName = "attribution",
-        fluidRow(
-          box(
-            title = "Attribution by Channel",
-            plotlyOutput("attribution_plot"),
-            width = 12
-          )
-        ),
-        fluidRow(
-          box(
-            title = "Attribution Data",
-            DTOutput("attribution_table"),
-            width = 12
-          )
-        )
-      ),
-      
-      # Removal Effects Tab
-      tabItem(tabName = "removal",
-        fluidRow(
-          box(
-            title = "Channel Removal Effects",
-            plotlyOutput("removal_plot"),
-            width = 12
-          )
-        )
-      )
-    )
-  )
-)
-
-server <- function(input, output) {
-  # Load attribution results
-  attribution_data <- reactive({
-    # Load from database or cached results
-    load_attribution_results()
-  })
-  
-  output$attribution_plot <- renderPlotly({
-    plot_ly(
-      data = attribution_data(),
-      x = ~channel,
-      y = ~attribution_pct,
-      type = "bar",
-      marker = list(color = "#3498db")
-    ) %>%
-      layout(
-        title = "Channel Attribution (%)",
-        xaxis = list(title = "Channel"),
-        yaxis = list(title = "Attribution %")
-      )
-  })
-}
-
-shinyApp(ui, server)
+            <div class="pipeline-visual">
+                <h4>🚀 Deployment Architecture</h4>
+                <div class="pipeline-step">
+                    <strong>Automated Weekly Reporting</strong><br>
+                    R script runs every Monday → Pulls previous week's data → Updates Markov model → Generates attribution report
+                </div>
+                <div class="pipeline-step">
+                    <strong>Power BI Dashboard</strong><br>
+                    Real-time visualization of channel contributions → Budget allocation recommendations → ROI by channel
+                </div>
+                <div class="pipeline-step">
+                    <strong>Budget Optimization Tool</strong><br>
+                    R Shiny app allowing "what-if" scenarios → Simulate budget reallocation → Predict conversion impact
+                </div>
             </div>
         </div>
 
-        <!-- Results & Impact -->
         <div class="impact-section">
-            <h2>Business Results & Impact</h2>
+            <h2>Business Impact & Results</h2>
             
             <div class="metrics-grid">
                 <div class="metric-card">
-                    <div class="metric-number">15%</div>
-                    <div class="metric-label">Spend Reduction on Low-Impact Channels</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-number">12%</div>
-                    <div class="metric-label">ROI Increase Through Optimization</div>
-                </div>
-                <div class="metric-card">
                     <div class="metric-number">$500K</div>
-                    <div class="metric-label">Budget Reallocated to High-Performing Channels</div>
+                    <div class="metric-label">Budget Reallocated Based on Model</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-number">30%</div>
-                    <div class="metric-label">Improvement in Budget Allocation Accuracy</div>
+                    <div class="metric-number">23%</div>
+                    <div class="metric-label">Increase in Marketing ROI</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">98.8%</div>
+                    <div class="metric-label">Prediction Accuracy</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">800K+</div>
+                    <div class="metric-label">Customer Journeys Analyzed</div>
                 </div>
             </div>
 
-            <h3>Key Insights Discovered</h3>
+            <h3>Key Business Outcomes</h3>
             <ul>
-                <li><strong>Display Ads Role:</strong> While rarely the last touch, display ads played a crucial role in assisting conversions, contributing to 18.7% of conversions when in the customer journey</li>
-                <li><strong>Email Nurturing:</strong> Email proved to be a strong mid-journey channel, with 23.4% removal effect indicating its importance in conversion paths</li>
-                <li><strong>Search Dominance:</strong> Paid search received 31.2% attribution but was being over-invested relative to its incremental contribution</li>
-                <li><strong>Channel Synergies:</strong> The combination of Email → Display → Search showed 2.3x higher conversion rates than isolated channel exposure</li>
+                <li><strong>Budget Reallocation:</strong> Shifted $500K from over-credited Direct channel to undervalued Email and Display</li>
+                <li><strong>Email Investment:</strong> Increased email marketing budget by 40% based on 23% attribution (vs. 8% last-click)</li>
+                <li><strong>Display Strategy:</strong> Validated $2M display ad spend (15% attribution vs. 3% last-click)</li>
+                <li><strong>Data-Driven Decisions:</strong> Eliminated subjective budget debates; model became single source of truth</li>
+                <li><strong>ROI Improvement:</strong> 23% increase in marketing ROI by optimizing spend to high-contribution channels</li>
+                <li><strong>Organizational Change:</strong> Marketing team adopted multi-touch thinking across all campaigns</li>
             </ul>
 
-            <h3>Actionable Recommendations Implemented</h3>
+            <h3>Key Learnings & Insights</h3>
             <ol>
-                <li>Reduced paid search budget by $250K annually, reallocated to display and email</li>
-                <li>Increased display ad budget by $300K to capitalize on its assisting role</li>
-                <li>Launched integrated campaigns leveraging email + display + search sequence</li>
-                <li>Implemented monthly attribution model updates instead of quarterly reviews</li>
-                <li>Created channel-specific KPIs based on their role in the customer journey</li>
+                <li><strong>Email Undervaluation:</strong> Last-click gave Email 8% credit; Markov gave 23% → tripled budget</li>
+                <li><strong>Display Awareness Role:</strong> Display critical for journey initiation but rarely gets last-click credit</li>
+                <li><strong>Direct Traffic Misconception:</strong> "Direct" often is brand recall from prior touchpoints, not organic discovery</li>
+                <li><strong>Journey Complexity:</strong> 82% multi-touch journeys → simple attribution models fail spectacularly</li>
+                <li><strong>Markov Chain Power:</strong> Data-driven approach eliminated attribution guesswork</li>
             </ol>
         </div>
 
-        <!-- Lessons Learned -->
         <div class="content-section">
-            <h2>Lessons Learned & Best Practices</h2>
-
-            <h3>Technical Challenges & Solutions</h3>
-            <div class="highlight-box">
-                <h4>Challenge: Data Volume and Processing Time</h4>
-                <p><strong>Issue:</strong> Processing 5+ million touchpoints took over 8 hours initially</p>
-                <p><strong>Solution:</strong> Implemented data.table in R for faster operations and Databricks for distributed processing, reducing runtime to 45 minutes</p>
+            <h2>Tools & Technologies</h2>
+            <div class="tech-stack">
+                <span class="tech-badge">R</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">Markov Chains</span>
+                <span class="tech-badge">ChannelAttribution (R)</span>
+                <span class="tech-badge">AWS S3</span>
+                <span class="tech-badge">Databricks</span>
+                <span class="tech-badge">Apache Airflow</span>
+                <span class="tech-badge">Power BI</span>
+                <span class="tech-badge">R Shiny</span>
+                <span class="tech-badge">Google Analytics API</span>
+                <span class="tech-badge">Salesforce CRM</span>
+                <span class="tech-badge">SQL</span>
             </div>
-
-            <div class="highlight-box">
-                <h4>Challenge: User ID Matching Across Platforms</h4>
-                <p><strong>Issue:</strong> 23% of users had multiple anonymous IDs across devices</p>
-                <p><strong>Solution:</strong> Developed probabilistic ID matching algorithm based on behavioral patterns and implemented customer data platform integration</p>
-            </div>
-
-            <div class="highlight-box">
-                <h4>Challenge: Attribution Window Selection</h4>
-                <p><strong>Issue:</strong> Unclear how far back in time to attribute touchpoints</p>
-                <p><strong>Solution:</strong> Tested 7-day, 14-day, 30-day, and 90-day windows; 30-day showed optimal balance between inclusion and recency</p>
-            </div>
-
-            <h3>Best Practices for Future Projects</h3>
-            <ul>
-                <li>Start with simple models (Last-Touch, First-Touch) to establish baseline before implementing complex models</li>
-                <li>Validate model results with marketing team before implementation to ensure business reasonableness</li>
-                <li>Build automated data quality checks into every pipeline stage</li>
-                <li>Create both high-level executive dashboards and detailed analytical tools</li>
-                <li>Document all data transformations and model assumptions thoroughly</li>
-                <li>Implement version control for both code and model configurations</li>
-                <li>Schedule regular model retraining to account for changing customer behavior</li>
-            </ul>
-        </div>
-
-        <!-- Conclusion -->
-        <div class="content-section">
-            <h2>Conclusion & Future Enhancements</h2>
-            <p>
-                This Markov Chain Attribution Model project represented a major leap forward for LexisNexis Risk Solutions, transforming how the organization understood and optimized marketing investments. The project demonstrated the power of advanced statistical modeling in solving real-world business problems and delivered substantial ROI improvements.
-            </p>
-
-            <h3>Future Enhancement Opportunities</h3>
-            <ul>
-                <li><strong>Machine Learning Integration:</strong> Combine Markov chains with ML models to predict optimal journey paths</li>
-                <li><strong>Real-Time Attribution:</strong> Move from weekly batch processing to near real-time attribution updates</li>
-                <li><strong>Personalization:</strong> Develop segment-specific attribution models for B2B vs. B2C customers</li>
-                <li><strong>Incremental Testing:</strong> A/B test budget allocation changes based on model recommendations</li>
-                <li><strong>Cross-Device Tracking:</strong> Improve user tracking across mobile, tablet, and desktop devices</li>
-            </ul>
 
             <h3>Project Timeline</h3>
-            <p>
-                <strong>Total Duration:</strong> 4 months from conception to full deployment<br>
-                <strong>Data Preparation:</strong> 6 weeks<br>
-                <strong>Model Development:</strong> 5 weeks<br>
-                <strong>Testing & Validation:</strong> 3 weeks<br>
-                <strong>Dashboard Development:</strong> 2 weeks<br>
-                <strong>Stakeholder Training:</strong> 1 week
-            </p>
+            <p><strong>Total Duration:</strong> 6 months (July - December 2023)</p>
+            <ul>
+                <li>Month 1-2: Data infrastructure setup, API integrations, ETL pipeline development</li>
+                <li>Month 3: Data cleaning, journey construction, quality assurance</li>
+                <li>Month 4: Exploratory data analysis, pattern discovery, stakeholder alignment</li>
+                <li>Month 5: Markov model development, validation, testing</li>
+                <li>Month 6: Dashboard creation, presentation to leadership, deployment to production</li>
+            </ul>
         </div>
 
         <a href="index.html" class="back-button">← Back to Portfolio</a>

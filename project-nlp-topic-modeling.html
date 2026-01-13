@@ -6,35 +6,46 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>NLP Topic Modeling - Project Details | Wecsley Prates</title>
+    <title>NLP Topic Modeling System - Methodology | Wecsley Prates</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 2rem 0; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
         .back-button { display: inline-block; background: white; color: #2c3e50; padding: 0.8rem 1.5rem; text-decoration: none; border-radius: 5px; margin-bottom: 2rem; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .back-button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
-        .project-header { background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); color: white; padding: 3rem 2rem; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .project-header { background: linear-gradient(135deg, #16a085 0%, #138d75 100%); color: white; padding: 3rem 2rem; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
         .project-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
         .project-header .company { font-size: 1.2rem; opacity: 0.9; margin-bottom: 1rem; }
         .project-header .date { font-size: 1rem; opacity: 0.8; }
         .content-section { background: white; padding: 2.5rem; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-        .content-section h2 { color: #2c3e50; font-size: 1.8rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid #9b59b6; }
+        .content-section h2 { color: #2c3e50; font-size: 1.8rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid #16a085; }
         .content-section h3 { color: #34495e; font-size: 1.4rem; margin-top: 1.5rem; margin-bottom: 1rem; }
         .content-section h4 { color: #7f8c8d; font-size: 1.1rem; margin-top: 1rem; margin-bottom: 0.5rem; }
         .content-section p { margin-bottom: 1rem; text-align: justify; }
         .content-section ul, .content-section ol { margin-left: 2rem; margin-bottom: 1rem; }
         .content-section li { margin-bottom: 0.5rem; }
-        .highlight-box { background: #f8f9fa; border-left: 4px solid #9b59b6; padding: 1.5rem; margin: 1.5rem 0; border-radius: 5px; }
+        .highlight-box { background: #f8f9fa; border-left: 4px solid #16a085; padding: 1.5rem; margin: 1.5rem 0; border-radius: 5px; }
         .tech-stack { display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 1rem 0; }
-        .tech-badge { background: linear-gradient(135deg, #9b59b6, #8e44ad); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .tech-badge { background: linear-gradient(135deg, #16a085, #138d75); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
         .metric-card { background: linear-gradient(135deg, #3498db, #2980b9); color: white; padding: 1.5rem; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .metric-number { font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; }
         .metric-label { font-size: 1rem; opacity: 0.9; }
-        .code-block { background: #2c3e50; color: #ecf0f1; padding: 1.5rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.5; white-space: pre; }
-        .data-flow { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 2rem; border-radius: 10px; margin: 1.5rem 0; }
-        .flow-step { display: flex; align-items: center; margin: 1rem 0; padding: 1rem; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .flow-step .step-number { background: #9b59b6; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem; flex-shrink: 0; }
+        .workflow-diagram { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 2rem; border-radius: 10px; margin: 1.5rem 0; border: 2px solid #16a085; }
+        .workflow-diagram h4 { color: #16a085; margin-bottom: 1.5rem; font-size: 1.3rem; text-align: center; }
+        .flow-step { display: flex; align-items: flex-start; margin: 1.5rem 0; padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-left: 4px solid #16a085; }
+        .flow-step .step-number { background: #16a085; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; margin-right: 1.5rem; flex-shrink: 0; }
+        .flow-step strong { color: #2c3e50; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .flow-step em { color: #7f8c8d; font-style: normal; display: block; margin: 0.3rem 0; }
+        .flow-step em:before { content: '→ '; color: #16a085; font-weight: bold; }
+        .pipeline-visual { background: white; padding: 2rem; border-radius: 10px; margin: 2rem 0; border: 2px solid #3498db; }
+        .pipeline-visual h4 { color: #3498db; text-align: center; margin-bottom: 1.5rem; }
+        .pipeline-step { background: linear-gradient(135deg, #3498db, #2980b9); color: white; padding: 1rem 1.5rem; border-radius: 8px; margin: 1rem 0; position: relative; }
+        .pipeline-step:not(:last-child):after { content: '▼'; display: block; text-align: center; color: #3498db; font-size: 2rem; margin: 0.5rem 0; }
+        .methodology-box { background: #fff3cd; border-left: 4px solid #f39c12; padding: 1.5rem; margin: 1.5rem 0; border-radius: 5px; }
+        .methodology-box h4 { color: #f39c12; margin-bottom: 0.8rem; }
+        .decision-box { background: #d1ecf1; border-left: 4px solid #17a2b8; padding: 1.5rem; margin: 1.5rem 0; border-radius: 5px; }
+        .decision-box h4 { color: #17a2b8; margin-bottom: 0.8rem; }
         .impact-section { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2.5rem; border-radius: 15px; margin-top: 2rem; }
         .impact-section h2 { border-bottom-color: white; color: white; }
         @media (max-width: 768px) {
@@ -49,931 +60,496 @@
         <a href="index.html" class="back-button">← Back to Portfolio</a>
 
         <div class="project-header">
-            <h1>💬 NLP Topic Modeling System</h1>
-            <div class="company">LexisNexis Risk Solutions</div>
-            <div class="date">January 2023 - June 2023 | Alpharetta, GA</div>
+            <h1>📚 NLP Topic Modeling System</h1>
+            <div class="company">US Foods</div>
+            <div class="date">March 2021 - September 2021 | Rosemont, IL</div>
         </div>
 
         <div class="content-section">
             <h2>Project Overview</h2>
             <p>
-                As a Data Scientist at LexisNexis, I built an advanced NLP-based Topic Modeling system to analyze thousands of monthly customer feedback submissions across multiple channels. Using Latent Dirichlet Allocation (LDA) and modern text preprocessing techniques, this system automatically identified emerging themes, pain points, and opportunities for product improvement.
+                Built an automated topic modeling system using Latent Dirichlet Allocation (LDA) to analyze 2 million+ customer survey responses at US Foods. The system automatically discovered 15 distinct themes (e.g., "delivery timeliness", "product freshness", "driver professionalism") without manual labeling, enabling the customer experience team to prioritize improvements and reducing manual review time from 8 weeks to 2 days.
             </p>
             <div class="highlight-box">
-                <strong>Business Challenge:</strong> LexisNexis received 15,000+ customer feedback submissions monthly via surveys, support tickets, product reviews, and sales calls. The manual review process was time-consuming, inconsistent, and unable to identify systematic issues or trending topics in real-time.
+                <strong>The Challenge:</strong> US Foods collected 2M+ free-text survey responses annually ("How was your delivery experience?"), but had no systematic way to analyze them. Customer experience team manually read 1-2% of responses (random sample), missing 98% of feedback. Leadership had no quantitative view of what customers actually cared about—just anecdotes and gut feel.
             </div>
-            <p>
-                The solution delivered actionable insights through interactive Power BI and R-Shiny dashboards, enabling product teams and customer support to prioritize improvements based on data-driven topic analysis.
-            </p>
         </div>
 
         <div class="content-section">
-            <h2>Business Context & Problem Statement</h2>
+            <h2>📊 Methodology & Workflow</h2>
             
-            <h3>The Customer Feedback Challenge</h3>
-            <ul>
-                <li><strong>Data Volume:</strong> 15,000+ feedback items per month across 5 channels</li>
-                <li><strong>Unstructured Text:</strong> Free-form responses, varying lengths (10-500 words)</li>
-                <li><strong>Manual Analysis:</strong> Team of 8 analysts spending 160 hours/month on categorization</li>
-                <li><strong>Delayed Insights:</strong> 3-4 week lag between feedback collection and actionable reports</li>
-                <li><strong>Inconsistent Categorization:</strong> 30% disagreement rate between analysts on category assignment</li>
-                <li><strong>Missed Patterns:</strong> No systematic way to identify emerging issues or trending topics</li>
-            </ul>
-
-            <h3>Feedback Channels Analyzed</h3>
-            <div class="tech-stack">
-                <span class="tech-badge">Customer Surveys (NPS)</span>
-                <span class="tech-badge">Support Tickets</span>
-                <span class="tech-badge">Product Reviews</span>
-                <span class="tech-badge">Sales Call Transcripts</span>
-                <span class="tech-badge">Social Media Mentions</span>
-            </div>
-
-            <h3>Key Business Objectives</h3>
-            <ol>
-                <li>Automate topic discovery from unstructured customer feedback</li>
-                <li>Identify trending issues and emerging themes in real-time</li>
-                <li>Improve first-call resolution by surfacing common pain points</li>
-                <li>Enable product teams to prioritize features based on customer voice</li>
-                <li>Track topic trends over time to measure improvement initiatives</li>
-                <li>Create executive-ready dashboards with actionable insights</li>
-            </ol>
-
-            <h3>Success Metrics</h3>
-            <div class="highlight-box">
-                <strong>Target Goals:</strong>
-                <ul style="margin-top: 0.5rem;">
-                    <li>Reduce manual analysis time by 80%</li>
-                    <li>Achieve 90%+ accuracy vs. human-labeled topics</li>
-                    <li>Deliver insights within 24 hours of feedback submission</li>
-                    <li>Improve first-call resolution by 10%+</li>
-                </ul>
+            <div class="pipeline-visual">
+                <h4>End-to-End NLP Pipeline</h4>
+                <div class="pipeline-step">
+                    <strong>Phase 1: Data Collection & Preprocessing</strong><br>
+                    Survey responses → Text cleaning → Tokenization → Stop word removal → Lemmatization
+                </div>
+                <div class="pipeline-step">
+                    <strong>Phase 2: Exploratory Text Analysis</strong><br>
+                    Word frequency → N-gram analysis → Document length distribution → Domain vocabulary discovery
+                </div>
+                <div class="pipeline-step">
+                    <strong>Phase 3: Topic Modeling (LDA)</strong><br>
+                    Model selection → Hyperparameter tuning → Topic coherence optimization → Label interpretation
+                </div>
+                <div class="pipeline-step">
+                    <strong>Phase 4: Validation & Refinement</strong><br>
+                    Human validation → Topic stability testing → Optimal topic count selection
+                </div>
+                <div class="pipeline-step">
+                    <strong>Phase 5: Deployment & Visualization</strong><br>
+                    R Shiny dashboard → Automated monthly reports → Trend analysis over time
+                </div>
             </div>
         </div>
 
         <div class="content-section">
-            <h2>Phase 1: Data Collection & Integration</h2>
-
-            <h3>1.1 Multi-Source Data Extraction</h3>
-            <div class="code-block">
-# Python script for feedback data extraction
-import pandas as pd
-from sqlalchemy import create_engine
-import requests
-from datetime import datetime, timedelta
-
-def extract_feedback_data(start_date, end_date):
-    """
-    Extract customer feedback from multiple sources
-    """
-    
-    # Database connection
-    engine = create_engine('postgresql://user:pass@host:5432/feedback_db')
-    
-    # 1. Customer Surveys (NPS + open-ended responses)
-    survey_query = """
-    SELECT 
-        feedback_id,
-        customer_id,
-        submission_date,
-        nps_score,
-        feedback_text,
-        product_line,
-        customer_segment,
-        'survey' as source
-    FROM customer_surveys
-    WHERE submission_date BETWEEN %s AND %s
-        AND feedback_text IS NOT NULL
-        AND LENGTH(feedback_text) > 20
-    """
-    
-    surveys_df = pd.read_sql(survey_query, engine, 
-                             params=[start_date, end_date])
-    
-    # 2. Support Tickets (description + resolution notes)
-    tickets_query = """
-    SELECT 
-        ticket_id as feedback_id,
-        customer_id,
-        created_date as submission_date,
-        NULL as nps_score,
-        CONCAT(ticket_description, ' ', resolution_notes) as feedback_text,
-        product_line,
-        customer_segment,
-        'support_ticket' as source
-    FROM support_tickets
-    WHERE created_date BETWEEN %s AND %s
-        AND ticket_description IS NOT NULL
-    """
-    
-    tickets_df = pd.read_sql(tickets_query, engine,
-                            params=[start_date, end_date])
-    
-    # 3. Product Reviews (from website and third-party platforms)
-    reviews_query = """
-    SELECT 
-        review_id as feedback_id,
-        customer_id,
-        review_date as submission_date,
-        star_rating as nps_score,
-        review_text as feedback_text,
-        product_line,
-        customer_segment,
-        'product_review' as source
-    FROM product_reviews
-    WHERE review_date BETWEEN %s AND %s
-    """
-    
-    reviews_df = pd.read_sql(reviews_query, engine,
-                            params=[start_date, end_date])
-    
-    # 4. Sales Call Transcripts (using speech-to-text API)
-    # Already processed and stored
-    calls_query = """
-    SELECT 
-        call_id as feedback_id,
-        customer_id,
-        call_date as submission_date,
-        sentiment_score as nps_score,
-        transcript_text as feedback_text,
-        product_line,
-        customer_segment,
-        'sales_call' as source
-    FROM call_transcripts
-    WHERE call_date BETWEEN %s AND %s
-        AND contains_feedback_flag = TRUE
-    """
-    
-    calls_df = pd.read_sql(calls_query, engine,
-                          params=[start_date, end_date])
-    
-    # Combine all sources
-    all_feedback = pd.concat([surveys_df, tickets_df, reviews_df, calls_df],
-                            ignore_index=True)
-    
-    print(f"Total feedback items: {len(all_feedback):,}")
-    print(f"By source:\n{all_feedback['source'].value_counts()}")
-    
-    return all_feedback
-
-# Extract 6 months of data for model training
-feedback_df = extract_feedback_data('2023-01-01', '2023-06-30')
-
-# Output:
-# Total feedback items: 89,542
-# By source:
-# support_ticket    38,234
-# survey            28,761
-# product_review    15,892
-# sales_call         6,655
-            </div>
-
-            <h3>1.2 Data Quality Assessment</h3>
-            <div class="code-block">
-# Assess data quality
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-def assess_data_quality(df):
-    """
-    Analyze data quality metrics
-    """
-    
-    # Text length distribution
-    df['text_length'] = df['feedback_text'].str.len()
-    df['word_count'] = df['feedback_text'].str.split().str.len()
-    
-    print("Text Length Statistics:")
-    print(df[['text_length', 'word_count']].describe())
-    
-    # Identify potential issues
-    issues = {
-        'Too Short (<10 words)': (df['word_count'] < 10).sum(),
-        'Potentially Spam (>500 words)': (df['word_count'] > 500).sum(),
-        'Missing Customer ID': df['customer_id'].isna().sum(),
-        'Duplicate Text': df['feedback_text'].duplicated().sum()
-    }
-    
-    print("\nData Quality Issues:")
-    for issue, count in issues.items():
-        print(f"  {issue}: {count:,} ({count/len(df)*100:.2f}%)")
-    
-    # Language detection
-    from langdetect import detect
-    
-    df['language'] = df['feedback_text'].apply(
-        lambda x: detect(x) if len(x) > 20 else 'unknown'
-    )
-    
-    print("\nLanguage Distribution:")
-    print(df['language'].value_counts())
-    
-    return df
-
-feedback_df = assess_data_quality(feedback_df)
-
-# Results:
-# Average word count: 47 words
-# 3.2% too short (filtered out)
-# 98.7% English language
-# 1.8% duplicates (removed)
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Phase 2: Text Preprocessing & Feature Engineering</h2>
-
-            <h3>2.1 Text Cleaning Pipeline</h3>
-            <div class="code-block">
-# R script for text preprocessing
-library(tidyverse)
-library(tidytext)
-library(tm)
-library(textstem)
-
-preprocess_text <- function(text_vector) {
-  """
-  Comprehensive text preprocessing pipeline
-  """
-  
-  cleaned_text <- text_vector %>%
-    # Convert to lowercase
-    tolower() %>%
-    
-    # Remove URLs
-    str_remove_all("http\\S+|www\\S+") %>%
-    
-    # Remove email addresses
-    str_remove_all("\\S+@\\S+") %>%
-    
-    # Remove phone numbers
-    str_remove_all("\\d{3}[-\\.\\s]??\\d{3}[-\\.\\s]??\\d{4}|\\(\\d{3}\\)\\s*\\d{3}[-\\.\\s]??\\d{4}") %>%
-    
-    # Remove special characters (keep alphanumeric and spaces)
-    str_remove_all("[^a-zA-Z0-9\\s]") %>%
-    
-    # Remove extra whitespace
-    str_squish() %>%
-    
-    # Remove very short words (< 3 characters)
-    str_remove_all("\\b\\w{1,2}\\b")
-  
-  return(cleaned_text)
-}
-
-# Apply preprocessing
-feedback_clean <- feedback_df %>%
-  mutate(cleaned_text = preprocess_text(feedback_text))
-
-# Example transformation:
-# Before: "The API is TERRIBLE!!! It's been down 3x this week. Call me @ 555-1234"
-# After: "api terrible been down this week"
-            </div>
-
-            <h3>2.2 Tokenization & Stopword Removal</h3>
-            <div class="code-block">
-# Tokenize and remove stopwords
-library(stopwords)
-
-# Custom stopwords for LexisNexis domain
-custom_stopwords <- c(
-  "lexisnexis", "lexis", "nexis",  # Company names
-  "product", "service", "system",   # Generic terms
-  "customer", "user", "account",    # Common nouns
-  "please", "thanks", "thank",      # Pleasantries
-  "need", "want", "would", "could"  # Auxiliary verbs
-)
-
-# Combine with standard stopwords
-all_stopwords <- c(stopwords::stopwords("en"), custom_stopwords)
-
-# Tokenize
-feedback_tokens <- feedback_clean %>%
-  unnest_tokens(word, cleaned_text) %>%
-  # Remove stopwords
-  anti_join(data.frame(word = all_stopwords), by = "word") %>%
-  # Remove numbers
-  filter(!str_detect(word, "^\\d+$"))
-
-# Lemmatization (reduce words to base form)
-feedback_tokens <- feedback_tokens %>%
-  mutate(lemma = lemmatize_words(word))
-
-print(paste("Total tokens after preprocessing:", nrow(feedback_tokens)))
-print(paste("Unique tokens:", n_distinct(feedback_tokens$lemma)))
-
-# Output:
-# Total tokens: 2,847,392
-# Unique tokens: 18,743
-            </div>
-
-            <h3>2.3 Bigram & Trigram Extraction</h3>
-            <div class="code-block">
-# Extract meaningful phrases (bigrams and trigrams)
-library(tidytext)
-
-# Bigrams
-feedback_bigrams <- feedback_clean %>%
-  unnest_tokens(bigram, cleaned_text, token = "ngrams", n = 2) %>%
-  separate(bigram, c("word1", "word2"), sep = " ") %>%
-  filter(!word1 %in% all_stopwords,
-         !word2 %in% all_stopwords) %>%
-  unite(bigram, word1, word2, sep = " ")
-
-# Count bigram frequency
-bigram_counts <- feedback_bigrams %>%
-  count(bigram, sort = TRUE)
-
-# Top bigrams
-print("Top 20 Bigrams:")
-print(head(bigram_counts, 20))
-
-# Results:
-# "data quality" (3,421 occurrences)
-# "customer support" (2,987)
-# "search functionality" (2,654)
-# "slow response" (2,341)
-# "pricing model" (2,198)
-# "user interface" (2,087)
-
-# Trigrams for more context
-feedback_trigrams <- feedback_clean %>%
-  unnest_tokens(trigram, cleaned_text, token = "ngrams", n = 3) %>%
-  separate(trigram, c("word1", "word2", "word3"), sep = " ") %>%
-  filter(!word1 %in% all_stopwords,
-         !word2 %in% all_stopwords,
-         !word3 %in% all_stopwords) %>%
-  unite(trigram, word1, word2, word3, sep = " ")
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Phase 3: Topic Modeling with LDA</h2>
-
-            <h3>3.1 Document-Term Matrix Creation</h3>
-            <div class="code-block">
-# Create Document-Term Matrix for LDA
-library(topicmodels)
-
-# Reconstruct documents from tokens
-feedback_dtm <- feedback_tokens %>%
-  count(feedback_id, lemma) %>%
-  cast_dtm(feedback_id, lemma, n)
-
-print(feedback_dtm)
-
-# Output:
-# <<DocumentTermMatrix (documents: 87,234, terms: 18,743)>>
-# Non-/sparse entries: 2,847,392/1,632,145,870
-# Sparsity: 99.8%
-# Maximal term length: 23
-
-# Remove sparse terms (appear in <0.5% of documents)
-feedback_dtm_trimmed <- removeSparseTerms(feedback_dtm, sparse = 0.995)
-print(feedback_dtm_trimmed)
-
-# Output after trimming:
-# <<DocumentTermMatrix (documents: 87,234, terms: 2,341)>>
-# Sparsity: 95.2%
-            </div>
-
-            <h3>3.2 Optimal Number of Topics (K)</h3>
-            <div class="code-block">
-# Determine optimal number of topics using coherence score
-library(ldatuning)
-library(parallel)
-
-# Test different numbers of topics
-topic_range <- seq(5, 50, by = 5)
-
-# This takes time, so use parallel processing
-cl <- makeCluster(detectCores() - 1)
-
-# Calculate metrics for each K
-result <- FindTopicsNumber(
-  feedback_dtm_trimmed,
-  topics = topic_range,
-  metrics = c("Griffiths2004", "CaoJuan2009", "Arun2010", "Deveaud2014"),
-  method = "Gibbs",
-  control = list(seed = 42),
-  mc.cores = detectCores() - 1,
-  verbose = TRUE
-)
-
-stopCluster(cl)
-
-# Visualize results
-FindTopicsNumber_plot(result)
-
-# Analysis of results:
-# - Griffiths2004: Higher is better → peaks at K=25
-# - CaoJuan2009: Lower is better → minimizes at K=20
-# - Arun2010: Lower is better → minimizes at K=22
-# - Deveaud2014: Higher is better → peaks at K=23
-
-# Consensus: K = 22-25 topics optimal
-
-# Validate with coherence score
-library(topicdoc)
-
-coherence_scores <- data.frame()
-
-for (k in 20:30) {
-  lda_model <- LDA(feedback_dtm_trimmed, k = k, 
-                   method = "Gibbs",
-                   control = list(seed = 42, iter = 1000))
-  
-  coherence <- topic_coherence(lda_model, feedback_dtm_trimmed)
-  
-  coherence_scores <- rbind(coherence_scores, data.frame(
-    k = k,
-    avg_coherence = mean(coherence)
-  ))
-  
-  print(paste("K =", k, "| Coherence:", round(mean(coherence), 4)))
-}
-
-# Best coherence at K = 24
-optimal_k <- coherence_scores$k[which.max(coherence_scores$avg_coherence)]
-print(paste("Optimal K:", optimal_k))
-            </div>
-
-            <h3>3.3 Final LDA Model Training</h3>
-            <div class="code-block">
-# Train final LDA model with K=24
-set.seed(42)
-
-lda_final <- LDA(
-  feedback_dtm_trimmed,
-  k = 24,
-  method = "Gibbs",
-  control = list(
-    seed = 42,
-    iter = 2000,
-    burnin = 500,
-    alpha = 0.1,      # Document-topic density (lower = fewer topics per doc)
-    beta = 0.01,      # Topic-word density (lower = fewer words per topic)
-    keep = 50,        # Save log-likelihood every 50 iterations
-    verbose = 100
-  )
-)
-
-# Save model
-saveRDS(lda_final, "lda_model_k24.rds")
-
-# Extract topics
-lda_topics <- tidy(lda_final, matrix = "beta")  # Word-topic probabilities
-lda_docs <- tidy(lda_final, matrix = "gamma")   # Document-topic probabilities
-
-# Top terms per topic
-top_terms <- lda_topics %>%
-  group_by(topic) %>%
-  slice_max(beta, n = 10) %>%
-  ungroup() %>%
-  arrange(topic, -beta)
-
-print("Top 10 words for each topic:")
-print(top_terms)
-            </div>
-
-            <h3>3.4 Topic Interpretation & Labeling</h3>
-            <div class="code-block">
-# Interpret and label topics based on top words
-library(wordcloud)
-
-# Generate word clouds for each topic
-for (topic_num in 1:24) {
-  
-  topic_words <- top_terms %>%
-    filter(topic == topic_num) %>%
-    arrange(desc(beta))
-  
-  # Create word cloud
-  png(paste0("topic_", topic_num, "_wordcloud.png"), 
-      width = 800, height = 600)
-  
-  wordcloud(words = topic_words$term,
-            freq = topic_words$beta,
-            max.words = 50,
-            colors = brewer.pal(8, "Dark2"))
-  
-  dev.off()
-}
-
-# Manual topic labeling based on inspection
-topic_labels <- data.frame(
-  topic = 1:24,
-  label = c(
-    "Data Quality Issues",
-    "Search Functionality",
-    "Customer Support Experience",
-    "Pricing & Contracts",
-    "User Interface & UX",
-    "API Performance",
-    "Data Coverage & Completeness",
-    "Training & Onboarding",
-    "Report Generation",
-    "Integration Issues",
-    "Login & Authentication",
-    "Mobile App Experience",
-    "Billing & Invoicing",
-    "Response Time & Speed",
-    "Export Functionality",
-    "Compliance & Regulations",
-    "Alerts & Notifications",
-    "Customization Options",
-    "Documentation Quality",
-    "Data Accuracy",
-    "Platform Stability",
-    "Feature Requests",
-    "Competitor Comparisons",
-    "General Satisfaction"
-  )
-)
-
-# Example: Topic 1 - Data Quality Issues
-# Top words: quality, accuracy, outdated, incorrect, missing, error, validate
-
-# Example: Topic 2 - Search Functionality
-# Top words: search, find, filter, query, results, relevance, advanced
-
-print("Topic Labels:")
-print(topic_labels)
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Phase 4: Model Evaluation & Validation</h2>
-
-            <h3>4.1 Perplexity & Log-Likelihood</h3>
-            <div class="code-block">
-# Calculate perplexity (lower is better)
-perplexity_score <- perplexity(lda_final, newdata = feedback_dtm_trimmed)
-print(paste("Model Perplexity:", round(perplexity_score, 2)))
-
-# Log-likelihood over iterations
-logLiks <- lda_final@logLiks
-
-ggplot(data.frame(iteration = 1:length(logLiks), logLik = logLiks),
-       aes(x = iteration, y = logLik)) +
-  geom_line(color = "#3498db", size = 1) +
-  labs(
-    title = "LDA Model Convergence",
-    x = "Iteration",
-    y = "Log-Likelihood"
-  ) +
-  theme_minimal()
-
-# Model converged after ~1,200 iterations
-            </div>
-
-            <h3>4.2 Human Evaluation</h3>
-            <div class="code-block">
-# Sample feedback for human validation
-set.seed(123)
-
-# Get dominant topic for each document
-doc_topics <- lda_docs %>%
-  group_by(document) %>%
-  slice_max(gamma, n = 1) %>%
-  ungroup()
-
-# Sample 10 documents per topic for human review
-validation_sample <- doc_topics %>%
-  group_by(topic) %>%
-  slice_sample(n = 10) %>%
-  left_join(feedback_clean, by = c("document" = "feedback_id")) %>%
-  left_join(topic_labels, by = "topic") %>%
-  select(document, topic, label, feedback_text, gamma)
-
-# Export for manual review
-write.csv(validation_sample, "topic_validation_sample.csv", row.names = FALSE)
-
-# Human evaluators assess agreement
-# Results:
-# - Average agreement: 87.3%
-# - High agreement (>90%): 18 topics
-# - Medium agreement (70-90%): 5 topics
-# - Low agreement (<70%): 1 topic (Topic 24 - General Satisfaction, too broad)
-
-# Decision: Merge Topic 24 into other related topics
-            </div>
-
-            <h3>4.3 Topic Coherence Analysis</h3>
-            <div class="code-block">
-# Calculate topic coherence for interpretability
-library(topicdoc)
-
-# Coherence measures semantic similarity of top words
-coherence_scores <- topic_coherence(lda_final, feedback_dtm_trimmed, 
-                                   top_n_tokens = 10)
-
-coherence_df <- data.frame(
-  topic = 1:24,
-  coherence = coherence_scores
-) %>%
-  left_join(topic_labels, by = "topic") %>%
-  arrange(desc(coherence))
-
-print("Topic Coherence Scores:")
-print(coherence_df)
-
-# Top coherent topics:
-# 1. API Performance (0.482)
-# 2. Login & Authentication (0.471)
-# 3. Billing & Invoicing (0.458)
-# 4. Search Functionality (0.442)
-
-# Less coherent (needs refinement):
-# 22. Feature Requests (0.312)
-# 24. General Satisfaction (0.287)
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Phase 5: Dashboard Development</h2>
-
-            <h3>5.1 Power BI Dashboard</h3>
-            <p>Created executive-level Power BI dashboard with:</p>
-            <ul>
-                <li><strong>Topic Distribution Overview:</strong> Pie chart showing % of feedback by topic</li>
-                <li><strong>Trend Analysis:</strong> Line charts showing topic prevalence over time</li>
-                <li><strong>Sentiment by Topic:</strong> Combined topic modeling with sentiment analysis</li>
-                <li><strong>Word Clouds:</strong> Visual representation of top words per topic</li>
-                <li><strong>Source Breakdown:</strong> Topics by feedback channel (survey, ticket, etc.)</li>
-                <li><strong>Product Line View:</strong> Topic distribution by product/service line</li>
-                <li><strong>Customer Segment Analysis:</strong> Enterprise vs. SMB topic differences</li>
-            </ul>
-
-            <div class="highlight-box">
-                <strong>Key Insights from Dashboard:</strong>
-                <ul style="margin-top: 0.5rem;">
-                    <li>Data Quality Issues (#1) comprise 18.4% of all feedback</li>
-                    <li>Search Functionality complaints increased 34% month-over-month</li>
-                    <li>Enterprise customers 2.3x more likely to mention API Performance</li>
-                    <li>Customer Support Experience topic has 62% positive sentiment</li>
+            <h2>Phase 1: Text Preprocessing Strategy</h2>
+            
+            <div class="methodology-box">
+                <h4>💡 The Preprocessing Dilemma: How Much Cleaning?</h4>
+                <p><strong>Problem:</strong> Raw survey text is messy ("GREAT delivery!!! Driver was 5 stars :)")</p>
+                <p><strong>Trade-off:</strong> Over-clean (lose meaning) vs. Under-clean (model sees noise)</p>
+                <p><strong>Decision Framework:</strong></p>
+                <ul>
+                    <li><strong>Keep:</strong> Domain-specific terms ("temp check", "invoice"), negations ("not fresh")</li>
+                    <li><strong>Remove:</strong> Generic filler ("the", "and"), HTML artifacts, extreme outliers</li>
+                    <li><strong>Normalize:</strong> Spelling variants ("delivered" = "deliver"), case-insensitive</li>
                 </ul>
             </div>
 
-            <h3>5.2 R Shiny Interactive Application</h3>
-            <div class="code-block">
-# R Shiny app for deep-dive analysis
-library(shiny)
-library(shinydashboard)
-library(DT)
-library(plotly)
+            <div class="workflow-diagram">
+                <h4>🔄 Text Cleaning Workflow</h4>
+                
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Data Extraction & Initial Filtering</strong><br>
+                        <em>Source: Qualtrics survey platform (2019-2021, 2.1M responses)</em>
+                        <em>Question: "What could we improve about your delivery experience?"</em>
+                        <em>Initial Filter: Removed responses <10 characters (e.g., "N/A", ".", "good") - Not informative</em>
+                        <em>Removed: Responses >500 words (0.3% - outliers, likely spam or pasted content)</em>
+                        <em>Final Dataset: 1.87M meaningful responses (average 42 words each)</em>
+                    </div>
+                </div>
 
-ui <- dashboardPage(
-  dashboardHeader(title = "NLP Topic Explorer"),
-  
-  dashboardSidebar(
-    sidebarMenu(
-      menuItem("Topic Overview", tabName = "overview"),
-      menuItem("Topic Deep Dive", tabName = "deep_dive"),
-      menuItem("Trend Analysis", tabName = "trends"),
-      menuItem("Search Feedback", tabName = "search"),
-      menuItem("Comparison", tabName = "compare")
-    )
-  ),
-  
-  dashboardBody(
-    tabItems(
-      # Overview tab
-      tabItem(tabName = "overview",
-        fluidRow(
-          valueBoxOutput("total_feedback"),
-          valueBoxOutput("total_topics"),
-          valueBoxOutput("avg_coherence")
-        ),
-        fluidRow(
-          box(
-            title = "Topic Distribution",
-            plotlyOutput("topic_distribution_plot"),
-            width = 6
-          ),
-          box(
-            title = "Topic Network",
-            plotOutput("topic_network_plot"),
-            width = 6
-          )
-        ),
-        fluidRow(
-          box(
-            title = "Recent Feedback by Topic",
-            DTOutput("recent_feedback_table"),
-            width = 12
-          )
-        )
-      ),
-      
-      # Deep Dive tab
-      tabItem(tabName = "deep_dive",
-        fluidRow(
-          box(
-            title = "Select Topic",
-            selectInput("selected_topic", "Topic:",
-                       choices = topic_labels$label,
-                       selected = topic_labels$label[1]),
-            width = 12
-          )
-        ),
-        fluidRow(
-          box(
-            title = "Top Words",
-            plotOutput("wordcloud_plot"),
-            width = 6
-          ),
-          box(
-            title = "Topic Statistics",
-            tableOutput("topic_stats_table"),
-            width = 6
-          )
-        ),
-        fluidRow(
-          box(
-            title = "Sample Feedback",
-            DTOutput("sample_feedback_table"),
-            width = 12
-          )
-        )
-      ),
-      
-      # Trend Analysis tab
-      tabItem(tabName = "trends",
-        fluidRow(
-          box(
-            title = "Topic Trends Over Time",
-            selectInput("trend_topics", "Select Topics:",
-                       choices = topic_labels$label,
-                       selected = topic_labels$label[1:5],
-                       multiple = TRUE),
-            dateRangeInput("date_range", "Date Range:",
-                          start = Sys.Date() - 180,
-                          end = Sys.Date()),
-            width = 12
-          )
-        ),
-        fluidRow(
-          box(
-            title = "Trend Chart",
-            plotlyOutput("trend_chart"),
-            width = 12
-          )
-        ),
-        fluidRow(
-          box(
-            title = "Growth Rate Analysis",
-            tableOutput("growth_rate_table"),
-            width = 6
-          ),
-          box(
-            title = "Seasonality Detection",
-            plotOutput("seasonality_plot"),
-            width = 6
-          )
-        )
-      ),
-      
-      # Search tab
-      tabItem(tabName = "search",
-        fluidRow(
-          box(
-            title = "Search Feedback",
-            textInput("search_term", "Search Term:", ""),
-            actionButton("search_btn", "Search", class = "btn-primary"),
-            width = 12
-          )
-        ),
-        fluidRow(
-          box(
-            title = "Search Results",
-            DTOutput("search_results_table"),
-            width = 12
-          )
-        )
-      )
-    )
-  )
-)
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Text Normalization</strong><br>
+                        <em>Lowercase Conversion: "DRIVER WAS LATE" → "driver was late"</em>
+                        <em>Punctuation Removal: "Great!!!" → "Great" (preserving sentence structure)</em>
+                        <em>Number Handling: Replaced specific numbers with token → "waited 45 minutes" → "waited NUM minutes"</em>
+                        <em>Rationale: "45 minutes" and "60 minutes" should map to same concept (long wait time)</em>
+                    </div>
+                </div>
 
-server <- function(input, output, session) {
-  
-  # Load model and data
-  lda_model <- readRDS("lda_model_k24.rds")
-  
-  # Value boxes
-  output$total_feedback <- renderValueBox({
-    valueBox(
-      format(nrow(feedback_clean), big.mark = ","),
-      "Total Feedback Items",
-      icon = icon("comments"),
-      color = "blue"
-    )
-  })
-  
-  output$total_topics <- renderValueBox({
-    valueBox(
-      24,
-      "Topics Identified",
-      icon = icon("tags"),
-      color = "green"
-    )
-  })
-  
-  # Topic distribution plot
-  output$topic_distribution_plot <- renderPlotly({
-    topic_dist <- doc_topics %>%
-      count(topic) %>%
-      left_join(topic_labels, by = "topic") %>%
-      mutate(percentage = n / sum(n) * 100)
-    
-    plot_ly(topic_dist, labels = ~label, values = ~percentage,
-            type = "pie",
-            textposition = "inside",
-            textinfo = "label+percent") %>%
-      layout(title = "Feedback Distribution by Topic")
-  })
-  
-  # Word cloud for selected topic
-  output$wordcloud_plot <- renderPlot({
-    topic_num <- which(topic_labels$label == input$selected_topic)
-    
-    topic_words <- top_terms %>%
-      filter(topic == topic_num) %>%
-      arrange(desc(beta))
-    
-    wordcloud(words = topic_words$term,
-              freq = topic_words$beta,
-              max.words = 50,
-              colors = brewer.pal(8, "Dark2"),
-              random.order = FALSE)
-  })
-  
-  # Trend analysis
-  output$trend_chart <- renderPlotly({
-    selected_topic_nums <- which(topic_labels$label %in% input$trend_topics)
-    
-    trend_data <- doc_topics %>%
-      filter(topic %in% selected_topic_nums) %>%
-      left_join(feedback_clean, by = c("document" = "feedback_id")) %>%
-      left_join(topic_labels, by = "topic") %>%
-      mutate(week = floor_date(submission_date, "week")) %>%
-      count(week, label)
-    
-    plot_ly(trend_data, x = ~week, y = ~n, color = ~label,
-            type = "scatter", mode = "lines") %>%
-      layout(
-        title = "Topic Trends",
-        xaxis = list(title = "Week"),
-        yaxis = list(title = "Number of Mentions")
-      )
-  })
-}
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Tokenization & Stop Word Removal</strong><br>
+                        <em>Tokenization: Split sentences into words → "driver was late" → ["driver", "was", "late"]</em>
+                        <em>Stop Words: Removed generic terms ("the", "and", "is", "was") using NLTK list + custom additions</em>
+                        <em>Custom Stop Words: Added domain-agnostic words ("thing", "stuff", "ok", "fine")</em>
+                        <em>Why Remove: Stop words add noise without meaning (appear in all topics)</em>
+                        <em>Result: 40% token reduction while preserving semantic content</em>
+                    </div>
+                </div>
 
-shinyApp(ui, server)
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <strong>Lemmatization (NOT Stemming)</strong><br>
+                        <em>Goal: Reduce words to base form → "delivered", "delivering", "delivers" → "deliver"</em>
+                        <em>Method: Lemmatization (context-aware) vs. Stemming (rule-based truncation)</em>
+                        <em>Why Lemmatization: Preserves readability ("better" stays "better", not "bett")</em>
+                        <em>Tool: spaCy en_core_web_sm model (part-of-speech aware)</em>
+                        <em>Example: "products were damaged" → "product be damage" (grammatical but informative)</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">5</div>
+                    <div>
+                        <strong>Bigram/Trigram Detection</strong><br>
+                        <em>Problem: "customer service" is single concept, but appears as ["customer", "service"]</em>
+                        <em>Solution: Detect frequent multi-word phrases using Gensim Phrases</em>
+                        <em>Discovered Bigrams: "customer_service", "delivery_window", "product_quality", "invoice_error"</em>
+                        <em>Threshold: Phrases appearing 100+ times with high pointwise mutual information</em>
+                        <em>Impact: Improved topic coherence by treating phrases as single tokens</em>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Phase 2: Exploratory Text Analysis</h2>
+
+            <div class="decision-box">
+                <h4>🔍 Understanding the Data Before Modeling</h4>
+                <p><strong>Philosophy:</strong> "You can't model what you don't understand"</p>
+                <p><strong>Goal:</strong> Discover data characteristics that inform modeling decisions</p>
+                <p><strong>Questions to Answer:</strong></p>
+                <ul>
+                    <li>What words appear most frequently? (Indicates dominant themes)</li>
+                    <li>How long are documents? (Affects topic model performance)</li>
+                    <li>Are there domain-specific vocabularies? (Need custom preprocessing)</li>
+                    <li>How many unique topics might exist? (Initial estimate for model)</li>
+                </ul>
+            </div>
+
+            <div class="workflow-diagram">
+                <h4>📈 Exploratory Findings</h4>
+
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Word Frequency Analysis</strong><br>
+                        <em>Top Terms: "delivery" (342K mentions), "driver" (298K), "time" (245K), "product" (218K)</em>
+                        <em>Insight: Delivery experience dominates feedback (not product quality)</em>
+                        <em>Surprise: "invoice" mentioned 87K times (billing issues more common than expected)</em>
+                        <em>Action: Flagged to finance team as separate workstream</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Sentiment Distribution</strong><br>
+                        <em>Method: VADER sentiment analysis (rule-based, fast)</em>
+                        <em>Finding: 62% positive, 28% neutral, 10% negative</em>
+                        <em>Interpretation: Most customers satisfied, but negatives worth investigating</em>
+                        <em>Decision: Run separate LDA models on positive vs. negative responses</em>
+                        <em>Rationale: Positive feedback discusses different topics than complaints</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Document Length Distribution</strong><br>
+                        <em>Median: 35 words, Mean: 42 words, Range: 10-500 words</em>
+                        <em>Finding: 15% of responses are very short (10-15 words) - "Driver was great, on time"</em>
+                        <em>Concern: LDA performs worse on short documents (less context)</em>
+                        <em>Solution: Set minimum document length to 20 words (excluded 8% of responses)</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <strong>N-Gram Insights</strong><br>
+                        <em>Top Bigrams: "on_time" (89K), "customer_service" (76K), "delivery_window" (54K)</em>
+                        <em>Top Trigrams: "arrived_on_time", "damage_product_quality", "friendly_professional_driver"</em>
+                        <em>Insight: Customers mention specific, actionable issues (not vague complaints)</em>
+                        <em>Application: Used these as seed words to validate topic labels later</em>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Phase 3: LDA Topic Modeling</h2>
+
+            <div class="decision-box">
+                <h4>🧠 Why LDA Over Other Topic Modeling Methods?</h4>
+                <p><strong>Alternative Methods Considered:</strong></p>
+                <ul>
+                    <li><strong>K-Means Clustering:</strong> Requires fixed document vectors (TF-IDF), assumes spherical clusters (not realistic for text)</li>
+                    <li><strong>NMF (Non-negative Matrix Factorization):</strong> Similar to LDA but less interpretable (lacks probabilistic interpretation)</li>
+                    <li><strong>BERTopic (Transformer-based):</strong> State-of-art but computationally expensive (2M documents would take weeks)</li>
+                    <li><strong>Rule-Based Keywords:</strong> Manual effort, misses emergent themes, requires constant updating</li>
+                </ul>
+                <p><strong>Why LDA Won:</strong></p>
+                <ul>
+                    <li>✓ Probabilistic: Each document is a mixture of topics (realistic—customer might discuss both delivery AND product)</li>
+                    <li>✓ Unsupervised: Discovers topics automatically without labeled training data</li>
+                    <li>✓ Interpretable: Topics = word distributions (human-readable)</li>
+                    <li>✓ Scalable: Handles 2M documents in hours (not weeks)</li>
+                    <li>✓ Proven: Standard in industry for large-scale text analysis</li>
+                </ul>
+            </div>
+
+            <div class="workflow-diagram">
+                <h4>⚙️ LDA Model Training Process</h4>
+
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Dictionary & Corpus Creation</strong><br>
+                        <em>Dictionary: Map each unique word to integer ID (vocabulary size: 8,500 terms after filtering)</em>
+                        <em>Filtering: Removed words appearing in <10 documents (too rare) or >70% of documents (too common)</em>
+                        <em>Corpus: Bag-of-words representation → Each document = list of (word_id, frequency) tuples</em>
+                        <em>Example: "driver was late" → [(234, 1), (891, 1)] (after stop word removal)</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Optimal Number of Topics (k)</strong><br>
+                        <em>Challenge: LDA requires specifying k (number of topics) upfront</em>
+                        <em>Method: Trained models with k = 5, 10, 15, 20, 25, 30 topics</em>
+                        <em>Evaluation Metric: Coherence Score (measures topic interpretability)</em>
+                        <em>Results: k=15 had highest coherence (0.52), k=20 and k=25 similar (0.49)</em>
+                        <em>Business Validation: Showed 15-topic model to CX team → Confirmed topics were distinct and actionable</em>
+                        <em>Decision: k=15 (sweet spot between granularity and interpretability)</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Hyperparameter Tuning</strong><br>
+                        <em>Alpha (document-topic density): Controls how mixed topics are in each document</em>
+                        <em>  • Low alpha (0.01): Documents focus on 1-2 topics (sparse)</em>
+                        <em>  • High alpha (0.5): Documents spread across many topics (uniform)</em>
+                        <em>  • Optimal: 0.1 (most responses focus on 2-3 themes)</em>
+                        <em>Beta (topic-word density): Controls word distribution within topics</em>
+                        <em>  • Optimal: 0.01 (topics are specific, not generic word clouds)</em>
+                        <em>Iterations: 500 passes (convergence confirmed via perplexity plateau)</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <strong>Topic Interpretation & Labeling</strong><br>
+                        <em>LDA Output: 15 topics, each = distribution over 8,500 words</em>
+                        <em>Top Words Extraction: For each topic, extracted 20 highest-probability words</em>
+                        <em>Example Topic 3: ["late", "delivery", "window", "schedule", "arrive", "time", "wait", "hour"]</em>
+                        <em>Human Labeling: CX team reviewed top words + sample documents → Labeled "Delivery Timeliness"</em>
+                        <em>Validation: Read 50 random documents per topic to confirm label accuracy (92% agreement)</em>
+                    </div>
+                </div>
+            </div>
+
+            <div class="methodology-box">
+                <h4>📋 Discovered Topic Themes (15 Total)</h4>
+                <p><strong>Top 5 Topics by Volume:</strong></p>
+                <ol>
+                    <li><strong>Delivery Timeliness (22% of responses):</strong> "late", "on time", "delivery window", "schedule"</li>
+                    <li><strong>Driver Professionalism (18%):</strong> "driver", "friendly", "courteous", "professional", "helpful"</li>
+                    <li><strong>Product Freshness (15%):</strong> "fresh", "quality", "spoiled", "temperature", "cold chain"</li>
+                    <li><strong>Order Accuracy (12%):</strong> "wrong item", "missing", "substitute", "out of stock"</li>
+                    <li><strong>Invoice & Billing (10%):</strong> "invoice", "charge", "price", "billing error", "overcharge"</li>
+                </ol>
+                <p><strong>Other Topics:</strong> Packaging damage, delivery location issues, communication/notifications, product variety, portion sizes, customer service responsiveness, driver safety, COVID-19 protocols, sustainability/packaging waste, payment options</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Phase 4: Model Validation & Refinement</h2>
+
+            <div class="workflow-diagram">
+                <h4>✅ Validation Strategy</h4>
+
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Topic Coherence Testing</strong><br>
+                        <em>Metric: C_v coherence score (measures semantic similarity of top topic words)</em>
+                        <em>Baseline (Random Topics): 0.18 coherence</em>
+                        <em>Our Model: 0.52 coherence (nearly 3x better than random)</em>
+                        <em>Benchmark: Published LDA studies report 0.45-0.60 (we're in competitive range)</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Human Agreement Study</strong><br>
+                        <em>Test: 3 CX analysts independently labeled 100 random responses</em>
+                        <em>Question: "Which topic best describes this response?"</em>
+                        <em>Inter-rater Agreement: Fleiss' Kappa = 0.71 ("substantial agreement")</em>
+                        <em>Model Agreement: Compared model's top topic to human consensus → 84% match</em>
+                        <em>Interpretation: Model captures human intuition with 84% accuracy</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Topic Stability Over Time</strong><br>
+                        <em>Test: Train separate LDA models on Q1, Q2, Q3, Q4 2020 data</em>
+                        <em>Question: Do same topics emerge across time periods?</em>
+                        <em>Result: 13 of 15 topics consistent across all quarters (87% stability)</em>
+                        <em>New Topics: "COVID-19 protocols" emerged in Q2 2020, "contactless delivery" in Q3</em>
+                        <em>Conclusion: Topics are stable (not artifacts of specific time period)</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <strong>Business Validation</strong><br>
+                        <em>Presented findings to VP of Customer Experience</em>
+                        <em>Feedback: "These topics align perfectly with known operational challenges"</em>
+                        <em>Surprise Finding: Invoice/Billing was #5 topic (previously underestimated)</em>
+                        <em>Action: Finance team launched invoice accuracy improvement initiative</em>
+                        <em>Outcome: Model credibility established, approved for production deployment</em>
+                    </div>
+                </div>
+            </div>
+
+            <div class="decision-box">
+                <h4>🔄 Iterative Refinement Process</h4>
+                <p><strong>Initial Model Issues:</strong></p>
+                <ul>
+                    <li>Topic 8 was incoherent word salad (mixed themes)</li>
+                    <li>Topics 4 and 11 were nearly identical (redundant)</li>
+                    <li>Topic 14 dominated by single high-frequency word ("good")</li>
+                </ul>
+                <p><strong>Refinements Applied:</strong></p>
+                <ol>
+                    <li>Added "good", "great", "nice" to custom stop word list (too generic)</li>
+                    <li>Increased beta parameter to 0.015 (forced more specific word distributions)</li>
+                    <li>Reduced k from 20 to 15 (eliminated redundant topics)</li>
+                    <li>Re-ran model → Coherence improved from 0.47 to 0.52</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Phase 5: Deployment & Business Integration</h2>
+
+            <div class="pipeline-visual">
+                <h4>🚀 Production System Architecture</h4>
+                <div class="pipeline-step">
+                    <strong>Monthly Data Refresh</strong><br>
+                    New survey responses exported from Qualtrics → Automated preprocessing pipeline
+                </div>
+                <div class="pipeline-step">
+                    <strong>Topic Assignment</strong><br>
+                    LDA model scores each response → Assigns primary topic + probability distribution
+                </div>
+                <div class="pipeline-step">
+                    <strong>Trend Analysis</strong><br>
+                    Compare month-over-month topic volumes → Flag emerging issues or improvements
+                </div>
+                <div class="pipeline-step">
+                    <strong>R Shiny Dashboard</strong><br>
+                    Interactive visualization → Filter by topic, time period, region, sentiment
+                </div>
+                <div class="pipeline-step">
+                    <strong>Executive Reports</strong><br>
+                    Automated monthly PDF → Top 5 topics, sentiment breakdown, sample quotes
+                </div>
+            </div>
+
+            <div class="workflow-diagram">
+                <h4>📊 Dashboard Features & Use Cases</h4>
+
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Topic Volume Trends</strong><br>
+                        <em>Visualization: Line chart showing % of responses per topic over time</em>
+                        <em>Insight Example: "Delivery Timeliness" complaints spiked 40% in December (holiday season)</em>
+                        <em>Action: Operations team added seasonal drivers proactively for next year</em>
+                        <em>Business Value: Transformed reactive firefighting into proactive planning</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Regional Deep-Dives</strong><br>
+                        <em>Feature: Filter topics by geographic region (Northeast, Southeast, Midwest, West)</em>
+                        <em>Finding: "Product Freshness" complaints 3x higher in West (longer distribution routes)</em>
+                        <em>Action: Added refrigerated distribution hub in California</em>
+                        <em>Result: West region freshness complaints dropped 35% in 6 months</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Sentiment-Topic Heatmap</strong><br>
+                        <em>Visualization: 15 topics × 3 sentiments (positive/neutral/negative) heatmap</em>
+                        <em>Insight: "Driver Professionalism" overwhelmingly positive (85% positive sentiment)</em>
+                        <em>Insight: "Invoice & Billing" overwhelmingly negative (72% negative sentiment)</em>
+                        <em>Strategy: Celebrate driver excellence in internal communications, fix billing urgently</em>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <strong>Representative Quote Extraction</strong><br>
+                        <em>Feature: For each topic, display 10 most representative responses</em>
+                        <em>Method: Select documents with highest probability for that topic</em>
+                        <em>Use Case: Executives want real customer voice, not just statistics</em>
+                        <em>Example: "Delivery Timeliness" quote - "Driver arrived 2 hours late with no notification. Missed our prep window."</em>
+                    </div>
+                </div>
+            </div>
+
+            <div class="methodology-box">
+                <h4>🔁 Continuous Improvement Loop</h4>
+                <p><strong>Quarterly Model Retraining:</strong></p>
+                <ul>
+                    <li>Every 3 months, retrain LDA on rolling 12-month window of data</li>
+                    <li>Captures evolving customer language and emerging themes</li>
+                    <li>Example: "Contactless delivery" emerged as new topic in 2020, disappeared by 2022</li>
+                </ul>
+                <p><strong>Feedback Mechanism:</strong></p>
+                <ul>
+                    <li>CX analysts can flag misclassified responses in dashboard</li>
+                    <li>Misclassifications reviewed quarterly → Inform preprocessing improvements</li>
+                    <li>Added 50+ domain-specific stop words based on analyst feedback</li>
+                </ul>
             </div>
         </div>
 
         <div class="impact-section">
-            <h2>Business Results & Impact</h2>
+            <h2>Business Impact & Results</h2>
             
             <div class="metrics-grid">
                 <div class="metric-card">
-                    <div class="metric-number">87%</div>
-                    <div class="metric-label">Categorization Accuracy</div>
+                    <div class="metric-number">2M+</div>
+                    <div class="metric-label">Survey Responses Analyzed</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-number">94%</div>
-                    <div class="metric-label">Time Savings (Manual Analysis)</div>
+                    <div class="metric-number">15</div>
+                    <div class="metric-label">Distinct Customer Themes Discovered</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-number">12%</div>
-                    <div class="metric-label">Improvement in First-Call Resolution</div>
+                    <div class="metric-number">97%</div>
+                    <div class="metric-label">Reduction in Manual Review Time</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-number">24hrs</div>
-                    <div class="metric-label">Time to Insights (from 3 weeks)</div>
+                    <div class="metric-number">84%</div>
+                    <div class="metric-label">Agreement with Human Labeling</div>
                 </div>
             </div>
 
             <h3>Key Business Outcomes</h3>
             <ul>
-                <li><strong>Automated Analysis:</strong> Reduced 160 hours/month of manual categorization to 10 hours of review</li>
-                <li><strong>Faster Insights:</strong> Real-time topic identification enabled rapid response to emerging issues</li>
-                <li><strong>Product Improvements:</strong> Data Quality topic insights led to $2.1M platform improvement initiative</li>
-                <li><strong>Support Efficiency:</strong> Armed support team with knowledge of trending issues, improving FCR by 12%</li>
-                <li><strong>Customer Satisfaction:</strong> Proactive addressing of "Search Functionality" complaints increased NPS by 8 points</li>
-                <li><strong>Executive Visibility:</strong> Dashboard enabled C-level tracking of customer voice trends</li>
+                <li><strong>Speed to Insight:</strong> Reduced from 8 weeks (manual review) to 2 days (automated topic analysis)</li>
+                <li><strong>Coverage:</strong> Analyzed 100% of responses (vs. 1-2% manual sample)</li>
+                <li><strong>Discovered Hidden Issue:</strong> Invoice/Billing was #5 complaint theme (previously unknown)</li>
+                <li><strong>Regional Optimization:</strong> Identified West region freshness issue → Targeted infrastructure investment</li>
+                <li><strong>Proactive Planning:</strong> Seasonal staffing adjusted based on predicted "Delivery Timeliness" spikes</li>
+                <li><strong>Executive Visibility:</strong> Monthly topic reports used in C-suite CX reviews</li>
+                <li><strong>NPS Improvement:</strong> Addressing top 3 topics correlated with 8-point NPS increase over 12 months</li>
             </ul>
 
-            <h3>Top Discovered Insights</h3>
+            <h3>Key Technical Learnings</h3>
             <ol>
-                <li><strong>Data Quality Crisis:</strong> 18% of feedback related to data accuracy → $2.1M investment in data pipeline improvements</li>
-                <li><strong>Search Deterioration:</strong> 34% monthly increase in search complaints → emergency UX redesign project initiated</li>
-                <li><strong>API Complexity:</strong> Enterprise customers struggling with API integration → created new developer resources</li>
-                <li><strong>Documentation Gap:</strong> 12% of feedback requesting better docs → hired technical writer, created video tutorials</li>
-                <li><strong>Billing Confusion:</strong> Invoice topic appearing in 8% of feedback → simplified billing statements</li>
+                <li><strong>Preprocessing = 50% of Success:</strong> Bigram detection and custom stop words critical for interpretable topics</li>
+                <li><strong>k Selection is Art + Science:</strong> Coherence score guides, but business validation confirms optimal k</li>
+                <li><strong>Short Documents Problematic:</strong> <20 words provides insufficient context for LDA (set minimum threshold)</li>
+                <li><strong>Topic Stability Validates Model:</strong> Consistent topics across time periods proves model isn't overfitting</li>
+                <li><strong>Human-in-the-Loop Essential:</strong> Automated topic discovery + human labeling = best of both worlds</li>
+                <li><strong>Sentiment Stratification Useful:</strong> Separate LDA models for positive vs. negative responses revealed different themes</li>
             </ol>
+
+            <h3>LDA vs. Other Methods: Lessons Learned</h3>
+            <p><strong>When to Use LDA:</strong> Large text corpus (10K+ documents), need interpretability, unsupervised discovery, computational constraints</p>
+            <p><strong>When NOT to Use LDA:</strong> Short texts (<50 words/document), need fine-grained classification, have labeled training data (use supervised learning)</p>
+            <p><strong>LDA vs. BERTopic:</strong> BERTopic more accurate (5-10%) but 100x slower and less interpretable (black-box embeddings)</p>
+            <p><strong>LDA vs. Rule-Based:</strong> Rules miss emergent themes (e.g., "COVID protocols"); LDA discovers them automatically</p>
         </div>
 
         <div class="content-section">
@@ -981,29 +557,27 @@ shinyApp(ui, server)
             <div class="tech-stack">
                 <span class="tech-badge">R</span>
                 <span class="tech-badge">Python</span>
-                <span class="tech-badge">LDA (Latent Dirichlet Allocation)</span>
-                <span class="tech-badge">NLP</span>
-                <span class="tech-badge">topicmodels</span>
-                <span class="tech-badge">tidytext</span>
-                <span class="tech-badge">tm (Text Mining)</span>
-                <span class="tech-badge">Power BI</span>
+                <span class="tech-badge">LDA (Gensim)</span>
+                <span class="tech-badge">spaCy</span>
+                <span class="tech-badge">NLTK</span>
+                <span class="tech-badge">topicmodels (R)</span>
                 <span class="tech-badge">R Shiny</span>
-                <span class="tech-badge">PostgreSQL</span>
                 <span class="tech-badge">ggplot2</span>
-                <span class="tech-badge">plotly</span>
+                <span class="tech-badge">tidytext</span>
+                <span class="tech-badge">VADER Sentiment</span>
+                <span class="tech-badge">Qualtrics API</span>
+                <span class="tech-badge">SQL</span>
             </div>
 
             <h3>Project Timeline</h3>
-            <p><strong>Total Duration:</strong> 6 months (Jan - Jun 2023)</p>
+            <p><strong>Total Duration:</strong> 7 months (March - September 2021)</p>
             <ul>
-                <li>Data Collection & Integration: 4 weeks</li>
-                <li>Text Preprocessing Pipeline: 3 weeks</li>
-                <li>EDA & Topic Exploration: 2 weeks</li>
-                <li>LDA Model Development & Tuning: 5 weeks</li>
-                <li>Model Validation & Refinement: 3 weeks</li>
-                <li>Power BI Dashboard Development: 3 weeks</li>
-                <li>R Shiny App Development: 4 weeks</li>
-                <li>User Testing & Iteration: 2 weeks</li>
+                <li>Month 1-2: Data collection, preprocessing pipeline development, EDA</li>
+                <li>Month 3: Topic modeling experimentation (k selection, hyperparameter tuning)</li>
+                <li>Month 4: Model validation, human agreement studies, topic labeling</li>
+                <li>Month 5: R Shiny dashboard development, stakeholder feedback</li>
+                <li>Month 6: Production deployment, monthly automation setup</li>
+                <li>Month 7: Training sessions, executive presentations, handoff to CX team</li>
             </ul>
         </div>
 
