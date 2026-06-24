@@ -3,865 +3,1699 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wecsley O. Prates, Ph.D. - Data Science Portfolio</title>
+    <title>Wecsley Prates, Ph.D. — Lead Data Scientist & AI Strategist</title>
+    <meta name="description" content="Lead Data Scientist with 15+ years of experience in ML, AI, and Marketing Analytics. Delivered $500K+ in budget optimization across Fortune 500 companies.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        * {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --success-color: #27ae60;
-            --text-color: #333;
-            --light-bg: #ecf0f1;
-            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --bg-primary: #060b18;
+            --bg-secondary: #0d1526;
+            --bg-card: rgba(255, 255, 255, 0.04);
+            --bg-card-hover: rgba(255, 255, 255, 0.07);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(99, 140, 255, 0.4);
+            --blue: #3b7df8;
+            --blue-light: #60a5fa;
+            --purple: #7c3aed;
+            --purple-light: #a78bfa;
+            --gradient: linear-gradient(135deg, #3b7df8 0%, #7c3aed 100%);
+            --gradient-text: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            --gradient-soft: linear-gradient(135deg, rgba(59,125,248,0.15) 0%, rgba(124,58,237,0.15) 100%);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #475569;
+            --success: #10b981;
+            --gold: #f59e0b;
+            --card-radius: 16px;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+            --shadow-glow: 0 0 40px rgba(59, 125, 248, 0.15);
         }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
-            color: white;
-            padding: 3rem 2rem;
+        /* ── SCROLLBAR ── */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
+
+        /* ── UTILITIES ── */
+        .gradient-text {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blue-light);
+            margin-bottom: 1rem;
+        }
+
+        .section-label::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        .section-header {
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header.center {
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-header.center .section-label {
+            justify-content: center;
+        }
+
+        .section-header.center .section-subtitle {
+            margin: 0 auto;
+        }
+
+        /* ── NAVIGATION ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.25rem 2rem;
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            background: rgba(6, 11, 24, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.9rem 2rem;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-logo span { color: var(--blue-light); }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.5rem 0.9rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+            background: var(--bg-card);
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--gradient);
+            color: #fff !important;
+            padding: 0.55rem 1.25rem !important;
+            border-radius: 8px !important;
+            font-weight: 600 !important;
+            font-size: 0.875rem !important;
+            transition: var(--transition) !important;
+            box-shadow: 0 4px 16px rgba(59, 125, 248, 0.35);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px) !important;
+            box-shadow: 0 6px 24px rgba(59, 125, 248, 0.45) !important;
+            background: rgba(0,0,0,0) !important;
+            background-image: linear-gradient(135deg, #5090ff 0%, #9155ff 100%) !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* ── HERO ── */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 8rem 2rem 6rem;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.35;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, #3b7df8 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #7c3aed 0%, transparent 70%);
+            bottom: -100px;
+            left: -100px;
+            animation-delay: -3s;
+        }
+
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #60a5fa 0%, transparent 70%);
+            top: 40%;
+            left: 40%;
+            animation-delay: -6s;
+            opacity: 0.2;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(20px, -20px) scale(1.02); }
+            66% { transform: translate(-10px, 15px) scale(0.98); }
+        }
+
+        .hero-grid {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(59, 125, 248, 0.12);
+            border: 1px solid rgba(59, 125, 248, 0.3);
+            color: var(--blue-light);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.8); }
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title .line-accent {
+            display: block;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 520px;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gradient);
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 0.85rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(59, 125, 248, 0.4);
+            transition: var(--transition);
+            letter-spacing: 0.01em;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(59, 125, 248, 0.5);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.85rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card);
+            transform: translateY(-2px);
+        }
+
+        .hero-contact {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-contact a {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: var(--transition);
+        }
+
+        .hero-contact a:hover { color: var(--blue-light); }
+
+        .hero-contact .dot {
+            width: 3px;
+            height: 3px;
+            background: var(--text-muted);
+            border-radius: 50%;
+        }
+
+        /* Hero card */
+        .hero-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .hero-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+            box-shadow: 0 4px 16px rgba(59, 125, 248, 0.4);
+        }
+
+        .hero-card-name {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+
+        .hero-card-title {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-metric {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .hero-metric-value {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-metric-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .hero-companies {
+            border-top: 1px solid var(--border);
+            padding-top: 1.25rem;
+        }
+
+        .hero-companies p {
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .company-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .company-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .company-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gradient);
+            flex-shrink: 0;
+        }
+
+        /* ── STATS BAR ── */
+        #stats-bar {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        #stats-bar::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(59,125,248,0.06), rgba(124,58,237,0.06));
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+        }
+
+        .stat-item {
+            background: var(--bg-primary);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* ── SECTIONS ── */
+        section {
+            padding: 6rem 0;
+        }
+
+        /* ── EXPERTISE CARDS ── */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .expertise-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--card-radius);
+            padding: 2rem;
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
         }
 
-        header::before {
+        .expertise-card::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: pulse 15s infinite;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient);
+            opacity: 0;
+            transition: var(--transition);
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
+        .expertise-card:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-card), var(--shadow-glow);
         }
 
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
+        .expertise-card:hover::before { opacity: 1; }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: fadeInDown 1s ease;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .tagline {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.95;
-            animation: fadeInUp 1s ease 0.3s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-            animation: fadeInUp 1s ease 0.6s both;
-        }
-
-        .contact-item {
+        .expertise-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--gradient-soft);
+            border: 1px solid rgba(99, 140, 255, 0.2);
+            border-radius: 10px;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .contact-item a:hover {
-            color: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-
-        /* Navigation */
-        nav {
-            background: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
             justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
+            font-size: 1.2rem;
+            margin-bottom: 1.25rem;
         }
 
-        nav a {
-            text-decoration: none;
-            color: var(--primary-color);
+        .expertise-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
             font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: var(--transition);
-            position: relative;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
         }
 
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--secondary-color);
-            transition: var(--transition);
-            transform: translateX(-50%);
+        .expertise-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
         }
 
-        nav a:hover::after {
-            width: 80%;
+        /* ── SKILLS ── */
+        #skills {
+            background: var(--bg-secondary);
         }
 
-        nav a:hover {
-            color: var(--secondary-color);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        /* Section Styles */
-        section {
-            background: white;
-            margin: 2rem 0;
-            padding: 3rem 2rem;
-            border-radius: 15px;
-            box-shadow: var(--card-shadow);
-            animation: fadeIn 1s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h2 {
-            color: var(--primary-color);
-            font-size: 2.2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
-            border-radius: 2px;
-        }
-
-        /* Profile Summary */
-        .profile-summary {
+        .skills-layout {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
-            margin-top: 2rem;
         }
 
-        .summary-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        .skill-group {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--card-radius);
+            padding: 1.75rem;
             transition: var(--transition);
-            cursor: pointer;
         }
 
-        .summary-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        .skill-group:hover {
+            border-color: var(--border-hover);
         }
 
-        .summary-card h3 {
-            font-size: 1.3rem;
+        .skill-group-title {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--blue-light);
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+        .skill-group-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
         }
 
-        .skill-category {
-            background: var(--light-bg);
-            padding: 2rem;
-            border-radius: 10px;
-            transition: var(--transition);
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .skill-category h3 {
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.4rem;
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .skill-tag {
-            display: inline-block;
-            background: white;
-            padding: 0.5rem 1rem;
-            margin: 0.3rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: inline-flex;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            padding: 0.3rem 0.75rem;
+            border-radius: 6px;
             transition: var(--transition);
+            cursor: default;
         }
 
         .skill-tag:hover {
-            background: var(--secondary-color);
-            color: white;
-            transform: scale(1.05);
+            background: rgba(59, 125, 248, 0.12);
+            border-color: rgba(59, 125, 248, 0.35);
+            color: var(--blue-light);
         }
 
-        /* Experience Timeline */
+        /* ── EXPERIENCE ── */
         .timeline {
             position: relative;
-            padding: 2rem 0;
+            padding-left: 2rem;
         }
 
         .timeline::before {
             content: '';
             position: absolute;
-            left: 50%;
-            top: 0;
+            left: 0;
+            top: 8px;
             bottom: 0;
-            width: 3px;
-            background: linear-gradient(180deg, var(--secondary-color), var(--accent-color));
-            transform: translateX(-50%);
+            width: 1px;
+            background: linear-gradient(180deg, var(--blue) 0%, rgba(124,58,237,0.3) 100%);
         }
 
         .timeline-item {
-            margin-bottom: 3rem;
             position: relative;
-            width: 100%;
+            padding-left: 2rem;
+            padding-bottom: 3rem;
         }
 
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-left: auto;
-            margin-right: 2rem;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-right: auto;
-            margin-left: 2rem;
-        }
-
-        .timeline-content {
-            background: var(--light-bg);
-            padding: 2rem;
-            border-radius: 10px;
-            width: 45%;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
-
-        .timeline-content:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
+        .timeline-item:last-child { padding-bottom: 0; }
 
         .timeline-dot {
             position: absolute;
-            left: 50%;
-            top: 2rem;
-            width: 20px;
-            height: 20px;
-            background: var(--secondary-color);
-            border: 4px solid white;
+            left: -2rem;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            background: var(--gradient);
             border-radius: 50%;
             transform: translateX(-50%);
-            box-shadow: 0 0 0 4px var(--light-bg);
-            z-index: 1;
+            box-shadow: 0 0 0 3px var(--bg-primary), 0 0 0 5px rgba(59, 125, 248, 0.2);
         }
 
-        .timeline-content h3 {
-            color: var(--primary-color);
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content .company {
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content .date {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .timeline-content ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .timeline-content li {
-            padding-left: 1.5rem;
-            position: relative;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--secondary-color);
-            font-weight: bold;
-        }
-
-        /* Achievements Grid */
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .achievement-card {
-            background: linear-gradient(135deg, var(--success-color) 0%, #229954 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        .timeline-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--card-radius);
+            padding: 1.75rem;
             transition: var(--transition);
-            position: relative;
-            overflow: hidden;
         }
 
-        .achievement-card::before {
-            content: '🏆';
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            font-size: 8rem;
-            opacity: 0.1;
+        .timeline-card:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
         }
 
-        .achievement-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .achievement-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .achievement-card p {
-            position: relative;
-            z-index: 1;
-            line-height: 1.6;
-        }
-
-        .achievement-card .metric {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-top: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Methodologies */
-        .methodologies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .methodology-card {
-            background: white;
-            border: 2px solid var(--light-bg);
-            padding: 2rem;
-            border-radius: 10px;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .methodology-card:hover {
-            border-color: var(--secondary-color);
-            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .methodology-card h3 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        .methodology-card .tech-stack {
+        .timeline-header {
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .tech-badge {
-            background: var(--secondary-color);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        /* Stats Dashboard */
-        .stats-dashboard {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: var(--transition);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        /* Interactive Tabs */
-        .tabs {
-            display: flex;
-            justify-content: center;
+            align-items: flex-start;
+            justify-content: space-between;
             gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
+            margin-bottom: 1rem;
         }
 
-        .tab-button {
-            background: var(--light-bg);
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 10px;
-            font-size: 1rem;
+        .timeline-role {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
             font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
+            color: var(--text-primary);
         }
 
-        .tab-button:hover {
-            background: var(--secondary-color);
-            color: white;
-            transform: translateY(-3px);
+        .timeline-company {
+            font-size: 0.9rem;
+            color: var(--blue-light);
+            font-weight: 500;
         }
 
-        .tab-button.active {
-            background: var(--secondary-color);
-            color: white;
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        .timeline-date {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            flex-shrink: 0;
         }
 
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.5s ease;
+        .timeline-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
-        .tab-content.active {
-            display: block;
+        .timeline-list li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
         }
 
-        /* Project Showcase */
-        .project-grid {
+        .timeline-list li::before {
+            content: '→';
+            color: var(--blue);
+            flex-shrink: 0;
+            margin-top: 0.05rem;
+        }
+
+        /* ── PROJECTS ── */
+        #projects {
+            background: var(--bg-secondary);
+        }
+
+        .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
         }
 
         .project-card {
-            background: white;
-            border-radius: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--card-radius);
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            display: block;
             transition: var(--transition);
+            position: relative;
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: var(--border-hover);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(59, 125, 248, 0.12);
         }
 
-        .project-header {
-            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-            color: white;
-            padding: 1.5rem;
+        .project-visual {
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .project-header h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
+        .project-visual::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, var(--bg-card) 100%);
         }
+
+        .project-visual-icon {
+            font-size: 3.5rem;
+            position: relative;
+            z-index: 1;
+            opacity: 0.9;
+        }
+
+        .project-visual-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.15;
+        }
+
+        .pv-1 { background: linear-gradient(135deg, #3b7df8, #7c3aed); }
+        .pv-2 { background: linear-gradient(135deg, #10b981, #3b7df8); }
+        .pv-3 { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+        .pv-4 { background: linear-gradient(135deg, #7c3aed, #ec4899); }
+        .pv-5 { background: linear-gradient(135deg, #06b6d4, #3b7df8); }
+        .pv-6 { background: linear-gradient(135deg, #10b981, #f59e0b); }
 
         .project-body {
             padding: 1.5rem;
         }
 
-        .project-impact {
-            background: var(--light-bg);
-            padding: 1rem;
-            border-radius: 5px;
-            margin-top: 1rem;
+        .project-company {
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+
+        .project-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
             font-weight: 600;
-            color: var(--success-color);
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
         }
 
-        /* Footer */
-        footer {
-            background: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
+        .project-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .tagline {
-                font-size: 1rem;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .timeline::before {
-                left: 30px;
-            }
-
-            .timeline-content {
-                width: calc(100% - 80px) !important;
-                margin-left: 60px !important;
-                margin-right: 0 !important;
-            }
-
-            .timeline-dot {
-                left: 30px;
-            }
-
-            .stat-number {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.8rem;
-            }
-
-            .skills-grid,
-            .achievements-grid,
-            .methodologies-grid,
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
+        .project-impact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
         }
 
-        /* Scroll animations */
-        .scroll-reveal {
+        .impact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--success);
+        }
+
+        .impact-item::before {
+            content: '✓';
+            font-weight: 700;
+        }
+
+        .project-arrow {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 32px;
+            height: 32px;
+            background: var(--bg-card-hover);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-arrow {
+            background: var(--gradient);
+            border-color: transparent;
+            color: #fff;
+        }
+
+        /* ── METHODOLOGIES ── */
+        .method-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border);
+            overflow-x: auto;
+            padding-bottom: 0;
+        }
+
+        .method-tab {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.75rem 1.25rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
+            position: relative;
+            top: 1px;
+        }
+
+        .method-tab:hover { color: var(--text-secondary); }
+
+        .method-tab.active {
+            color: var(--blue-light);
+            border-bottom-color: var(--blue);
+        }
+
+        .method-panel {
+            display: none;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            animation: fadeUp 0.3s ease;
+        }
+
+        .method-panel.active {
+            display: grid;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .method-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--card-radius);
+            padding: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .method-card:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+        }
+
+        .method-card h3 {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.6rem;
+        }
+
+        .method-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: 1rem;
+        }
+
+        .tech-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .tech-pill {
+            font-size: 0.72rem;
+            font-weight: 600;
+            background: rgba(59, 125, 248, 0.1);
+            border: 1px solid rgba(59, 125, 248, 0.2);
+            color: var(--blue-light);
+            padding: 0.2rem 0.6rem;
+            border-radius: 100px;
+        }
+
+        /* ── ACHIEVEMENTS ── */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .achievement-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--card-radius);
+            padding: 1.75rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient);
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transition: var(--transition);
         }
 
-        .scroll-reveal.revealed {
+        .achievement-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .achievement-card:hover::after { opacity: 1; }
+
+        .achievement-metric {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .achievement-title {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ── EDUCATION ── */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .education-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--card-radius);
+            padding: 2rem;
+            display: flex;
+            gap: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .education-card:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+        }
+
+        .education-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-soft);
+            border: 1px solid rgba(99, 140, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .education-degree {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .education-school {
+            font-size: 0.85rem;
+            color: var(--blue-light);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-desc {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ── CTA SECTION ── */
+        #cta {
+            padding: 5rem 0;
+        }
+
+        .cta-box {
+            background: var(--gradient-soft);
+            border: 1px solid rgba(99, 140, 255, 0.2);
+            border-radius: 24px;
+            padding: 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 1px;
+            background: var(--gradient);
+            opacity: 0.6;
+        }
+
+        .cta-box h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 480px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+
+        .cta-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .availability {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--success);
+            margin-top: 1.5rem;
+        }
+
+        .availability::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 3rem 0;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-brand {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-brand span { color: var(--blue-light); }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover { color: var(--blue-light); }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ── SCROLL REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Loading Animation */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s ease-in-out infinite;
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                max-width: 700px;
+            }
+
+            .hero-card { display: none; }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(6, 11, 24, 0.98);
+                backdrop-filter: blur(20px);
+                align-items: center;
+                justify-content: center;
+                gap: 1.5rem;
+                z-index: 999;
+            }
+
+            .nav-links.open a {
+                font-size: 1.3rem;
+                padding: 0.75rem 2rem;
+            }
+
+            .expertise-grid,
+            .skills-layout,
+            .achievements-grid,
+            .education-grid,
+            .method-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-box {
+                padding: 2.5rem 1.5rem;
+            }
+
+            #hero {
+                padding: 7rem 1.5rem 4rem;
+            }
+
+            .section-title { font-size: 1.8rem; }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-contact { flex-direction: column; gap: 0.75rem; }
+            .hero-contact .dot { display: none; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h1>Wecsley O. Prates, Ph.D.</h1>
-            <p class="tagline">Lead Data Scientist | Machine Learning Expert | Marketing Analytics Innovator</p>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <span>📧</span>
-                    <a href="mailto:prateswecsley@gmail.com">prateswecsley@gmail.com</a>
+
+    <!-- ── NAVIGATION ── -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a class="nav-logo" href="#">WP<span>.</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#methodologies">Methods</a></li>
+                <li><a href="mailto:prateswecsley@gmail.com" class="nav-cta">Hire Me →</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section id="hero">
+        <div class="hero-bg">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">Available for new opportunities</div>
+                <h1 class="hero-title">
+                    Lead Data Scientist
+                    <span class="line-accent">&amp; AI Strategist</span>
+                </h1>
+                <p class="hero-description">
+                    Ph.D. with 15+ years turning complex data into measurable business outcomes — from Markov Chain attribution at LexisNexis to AI-powered risk models at StateFarm. Specialized in ML, Generative AI, and Marketing Analytics.
+                </p>
+                <div class="hero-actions">
+                    <a href="mailto:prateswecsley@gmail.com" class="btn-primary">
+                        Get in Touch →
+                    </a>
+                    <a href="#projects" class="btn-secondary">
+                        View Projects
+                    </a>
                 </div>
-                <div class="contact-item">
-                    <span>📱</span>
-                    <a href="tel:+14074339015">+1 (407) 433-9015</a>
+                <div class="hero-contact">
+                    <a href="mailto:prateswecsley@gmail.com">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        prateswecsley@gmail.com
+                    </a>
+                    <span class="dot"></span>
+                    <a href="https://www.linkedin.com/in/wecsley-prates" target="_blank" rel="noopener">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        LinkedIn
+                    </a>
+                    <span class="dot"></span>
+                    <a href="tel:+14074339015">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        +1 (407) 433-9015
+                    </a>
+                    <span class="dot"></span>
+                    <span style="color:var(--text-muted);font-size:0.875rem;">Green Card Holder · Open to Relocate</span>
                 </div>
-                <div class="contact-item">
-                    <span>💼</span>
-                    <a href="https://www.linkedin.com/in/wecsley-prates" target="_blank">LinkedIn</a>
+            </div>
+
+            <!-- Floating card -->
+            <div class="hero-card">
+                <div class="hero-card-header">
+                    <div class="avatar">WP</div>
+                    <div>
+                        <div class="hero-card-name">Wecsley O. Prates, Ph.D.</div>
+                        <div class="hero-card-title">Lead Data Scientist @ StateFarm</div>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <span>🌍</span>
-                    <span>Green Card Holder | Open to Relocate</span>
+                <div class="hero-metrics">
+                    <div class="hero-metric">
+                        <div class="hero-metric-value">15+</div>
+                        <div class="hero-metric-label">Years Experience</div>
+                    </div>
+                    <div class="hero-metric">
+                        <div class="hero-metric-value">$500K</div>
+                        <div class="hero-metric-label">Budget Optimized</div>
+                    </div>
+                    <div class="hero-metric">
+                        <div class="hero-metric-value">92%</div>
+                        <div class="hero-metric-label">Model Accuracy</div>
+                    </div>
+                    <div class="hero-metric">
+                        <div class="hero-metric-value">50%</div>
+                        <div class="hero-metric-label">Time Reduction</div>
+                    </div>
+                </div>
+                <div class="hero-companies">
+                    <p>Recent experience at</p>
+                    <div class="company-list">
+                        <div class="company-item"><div class="company-dot"></div>StateFarm Insurance</div>
+                        <div class="company-item"><div class="company-dot"></div>M&amp;T Bank</div>
+                        <div class="company-item"><div class="company-dot"></div>LexisNexis Risk Solutions</div>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <nav>
-        <ul>
-            <li><a href="#profile">Profile</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#achievements">Achievements</a></li>
-            <li><a href="#methodologies">Methodologies</a></li>
-            <li><a href="#projects">Major Projects</a></li>
-            <li><a href="#stats">Impact Stats</a></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <!-- Profile Summary Section -->
-        <section id="profile" class="scroll-reveal">
-            <h2>Professional Profile</h2>
-            <div class="profile-summary">
-                <div class="summary-card">
-                    <h3>🎯 Expertise</h3>
-                    <p>Specialized in analyzing large datasets and developing advanced ML models including MTAs, MMMs, LLMs, and Generative AI, solving complex business challenges across finance, insurance, and risk analytics sectors.</p>
+    <!-- ── STATS BAR ── -->
+    <section id="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item reveal">
+                    <div class="stat-value" data-target="15">0</div>
+                    <div class="stat-desc">Years of Data Science &amp; ML experience</div>
                 </div>
-                <div class="summary-card">
-                    <h3>🧪 Testing & Optimization</h3>
-                    <p>Proven expertise in guiding A/B testing and multivariate testing strategies, driving data-informed decisions to enhance customer experiences and engagement with measurable ROI improvements.</p>
+                <div class="stat-item reveal reveal-delay-1">
+                    <div class="stat-value" data-target="30" data-suffix="%">0%</div>
+                    <div class="stat-desc">Maximum ROI increase delivered</div>
                 </div>
-                <div class="summary-card">
-                    <h3>⚙️ Automation</h3>
-                    <p>Expert in automating machine learning processes for marketing campaign model development, performance analysis, and attribution reporting, reducing analysis time by up to 50%.</p>
+                <div class="stat-item reveal reveal-delay-2">
+                    <div class="stat-value" data-target="50" data-suffix="%">0%</div>
+                    <div class="stat-desc">Campaign analysis time reduction</div>
                 </div>
-                <div class="summary-card">
-                    <h3>☁️ Cloud Solutions</h3>
-                    <p>Strong track record of leveraging cloud platforms such as AWS, GCP, Microsoft Azure, and Databricks to implement scalable and impactful data science solutions.</p>
+                <div class="stat-item reveal reveal-delay-3">
+                    <div class="stat-value">100K+</div>
+                    <div class="stat-desc">Monthly feedback entries automated</div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="scroll-reveal">
-            <h2>Technical & Professional Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Cloud Platforms</h3>
-                    <div class="skill-tag">AWS S3</div>
-                    <div class="skill-tag">Microsoft Azure</div>
-                    <div class="skill-tag">Databricks</div>
-                    <div class="skill-tag">Google Cloud Platform</div>
-                    <div class="skill-tag">Domino</div>
-                    <div class="skill-tag">Hadoop</div>
+    <!-- ── ABOUT / EXPERTISE ── -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Expertise</div>
+                <h2 class="section-title">Built for impact at every layer</h2>
+                <p class="section-subtitle">From raw data pipelines to board-level insights — I bridge the gap between technical complexity and strategic business value.</p>
+            </div>
+            <div class="expertise-grid reveal">
+                <div class="expertise-card">
+                    <div class="expertise-icon">🎯</div>
+                    <h3>ML &amp; Predictive Modeling</h3>
+                    <p>Developing advanced models including MTAs, MMMs, LLMs, and Generative AI across finance, insurance, and risk analytics. From XGBoost at 92% accuracy to first-of-kind Markov Chain attribution in 25 years.</p>
                 </div>
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-tag">Python</div>
-                    <div class="skill-tag">R</div>
-                    <div class="skill-tag">SQL</div>
-                    <div class="skill-tag">PySpark</div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">🧪</div>
+                    <h3>A/B Testing &amp; Optimization</h3>
+                    <p>Guiding A/B and multivariate testing strategies that drive data-informed decisions. Proven track record enhancing customer experiences and campaign performance with measurable, statistically significant ROI improvements.</p>
                 </div>
-                <div class="skill-category">
-                    <h3>Development Tools</h3>
-                    <div class="skill-tag">R-Studio</div>
-                    <div class="skill-tag">Jupyter Notebook</div>
-                    <div class="skill-tag">Git/GitHub</div>
-                    <div class="skill-tag">FastAPI</div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">⚙️</div>
+                    <h3>ML Pipeline Automation</h3>
+                    <p>Expert in automating machine learning workflows — from campaign model development to performance attribution reporting — reducing analysis time by up to 50% without sacrificing precision.</p>
                 </div>
-                <div class="skill-category">
-                    <h3>Visualization Tools</h3>
-                    <div class="skill-tag">Tableau</div>
-                    <div class="skill-tag">Power BI</div>
-                    <div class="skill-tag">Google Data Studio</div>
-                    <div class="skill-tag">R-Shiny</div>
-                    <div class="skill-tag">R-Markdown</div>
-                </div>
-                <div class="skill-category">
-                    <h3>Machine Learning & AI</h3>
-                    <div class="skill-tag">Generative AI</div>
-                    <div class="skill-tag">LLMs (GPT, BERT)</div>
-                    <div class="skill-tag">RAG Systems</div>
-                    <div class="skill-tag">NLP</div>
-                    <div class="skill-tag">Topic Modeling</div>
-                    <div class="skill-tag">Deep Learning</div>
-                </div>
-                <div class="skill-category">
-                    <h3>Statistical Models</h3>
-                    <div class="skill-tag">MTA (Multi-Touch Attribution)</div>
-                    <div class="skill-tag">MMM (Marketing Mix Modeling)</div>
-                    <div class="skill-tag">Markov Chains</div>
-                    <div class="skill-tag">Time Series Forecasting</div>
-                    <div class="skill-tag">Segmentation</div>
-                    <div class="skill-tag">Classification</div>
-                    <div class="skill-tag">Churn Modeling</div>
-                    <div class="skill-tag">XGBoost</div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">☁️</div>
+                    <h3>Cloud-Scale Data Solutions</h3>
+                    <p>Leveraging AWS, GCP, Azure, and Databricks to implement scalable, production-grade data science solutions that handle enterprise-level data volumes and real-time analytical demands.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Experience Timeline -->
-        <section id="experience" class="scroll-reveal">
-            <h2>Professional Experience</h2>
-            <div class="timeline">
+    <!-- ── SKILLS ── -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Technical Stack</div>
+                <h2 class="section-title">Tools &amp; technologies</h2>
+                <p class="section-subtitle">A full-stack data science arsenal refined across 15+ years and six enterprise environments.</p>
+            </div>
+            <div class="skills-layout reveal">
+                <div class="skill-group">
+                    <div class="skill-group-title">Cloud Platforms</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS S3</span>
+                        <span class="skill-tag">Microsoft Azure</span>
+                        <span class="skill-tag">Databricks</span>
+                        <span class="skill-tag">Google Cloud</span>
+                        <span class="skill-tag">Domino</span>
+                        <span class="skill-tag">Hadoop</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Languages</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">PySpark</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Dev Tools</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Jupyter</span>
+                        <span class="skill-tag">R-Studio</span>
+                        <span class="skill-tag">Git / GitHub</span>
+                        <span class="skill-tag">FastAPI</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Visualization</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Google Data Studio</span>
+                        <span class="skill-tag">R-Shiny</span>
+                        <span class="skill-tag">R-Markdown</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">ML &amp; AI</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Generative AI</span>
+                        <span class="skill-tag">LLMs (GPT, BERT)</span>
+                        <span class="skill-tag">RAG Systems</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Computer Vision</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Statistical Models</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MTA</span>
+                        <span class="skill-tag">MMM</span>
+                        <span class="skill-tag">Markov Chains</span>
+                        <span class="skill-tag">Time Series</span>
+                        <span class="skill-tag">XGBoost</span>
+                        <span class="skill-tag">Churn Modeling</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── EXPERIENCE ── -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Career</div>
+                <h2 class="section-title">Professional experience</h2>
+                <p class="section-subtitle">Six enterprise roles across insurance, banking, risk analytics, and education — each leaving measurable outcomes.</p>
+            </div>
+            <div class="timeline reveal">
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Lead Data Scientist</h3>
-                        <div class="company">StateFarm Insurance</div>
-                        <div class="date">April 2025 - Present | Winter Garden, FL</div>
-                        <ul>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-role">Lead Data Scientist</div>
+                                <div class="timeline-company">StateFarm Insurance</div>
+                            </div>
+                            <span class="timeline-date">Apr 2025 – Present · Winter Garden, FL</span>
+                        </div>
+                        <ul class="timeline-list">
                             <li>Developed Home Score analysis and modeling for home defects in weather conditions using Python and Power BI</li>
                             <li>Created an AI Assistant for EDA in Neural Networks Modeling</li>
-                            <li>Leading advanced analytics initiatives for risk assessment</li>
+                            <li>Leading advanced analytics initiatives for enterprise-level risk assessment</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Senior Data Scientist</h3>
-                        <div class="company">M&T Bank</div>
-                        <div class="date">April 2024 - October 2024 | Buffalo, NY</div>
-                        <ul>
-                            <li>Developed Marketing Mix Model (MMM) improving ROI by 12%</li>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-role">Senior Data Scientist</div>
+                                <div class="timeline-company">M&amp;T Bank</div>
+                            </div>
+                            <span class="timeline-date">Apr 2024 – Oct 2024 · Buffalo, NY</span>
+                        </div>
+                        <ul class="timeline-list">
+                            <li>Developed Marketing Mix Model (MMM) improving marketing ROI by 12%</li>
                             <li>Integrated LLM-based text analytics with ChatGPT optimization</li>
                             <li>Automated campaign performance attribution, improving efficiency by 30%</li>
                             <li>Conducted A/B Testing for Direct Mail campaign optimization</li>
-                            <li>Developed RAG application using GPT models for enhanced marketing analytics</li>
+                            <li>Built RAG application using GPT models for enhanced marketing analytics</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Data Scientist / Marketing Analyst</h3>
-                        <div class="company">LexisNexis Risk Solutions</div>
-                        <div class="date">January 2021 - April 2024 | Alpharetta, GA</div>
-                        <ul>
-                            <li>Built pioneering Attribution Model using Markov Chains (first in 25 years)</li>
-                            <li>Achieved 15% spend reduction and 12% ROI increase through optimization</li>
-                            <li>Developed Topic Modeling system using NLP with PowerBI dashboards</li>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-role">Data Scientist / Marketing Analyst</div>
+                                <div class="timeline-company">LexisNexis Risk Solutions</div>
+                            </div>
+                            <span class="timeline-date">Jan 2021 – Apr 2024 · Alpharetta, GA</span>
+                        </div>
+                        <ul class="timeline-list">
+                            <li>Built company's first Attribution Model using Markov Chains in 25 years</li>
+                            <li>Achieved 15% spend reduction and 12% ROI increase through channel optimization</li>
+                            <li>Developed Topic Modeling system using NLP with Power BI dashboards</li>
                             <li>Fine-tuned GPT models for automating text-based customer insights</li>
-                            <li>Utilized Databricks for dataset quality testing and model development</li>
                             <li>Enabled 30% improvement in budget allocation accuracy</li>
                         </ul>
                     </div>
@@ -869,13 +1703,17 @@
 
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Senior Data Scientist</h3>
-                        <div class="company">Lumini IT Solution</div>
-                        <div class="date">August 2020 - January 2021 | Brazil</div>
-                        <ul>
-                            <li>Led loan scoring model development for largest residential real estate company in Latin America</li>
-                            <li>Developed multiclass XGBoost model with 89.8% accuracy</li>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-role">Senior Data Scientist</div>
+                                <div class="timeline-company">Lumini IT Solution</div>
+                            </div>
+                            <span class="timeline-date">Aug 2020 – Jan 2021 · Brazil</span>
+                        </div>
+                        <ul class="timeline-list">
+                            <li>Led loan scoring model for Latin America's largest residential real estate company</li>
+                            <li>Built multiclass XGBoost model achieving 89.8% accuracy</li>
                             <li>Created binary XGBoost model with 92% accuracy for loan classification</li>
                             <li>Built fraud detection model using XGBoost and unsupervised learning</li>
                         </ul>
@@ -884,12 +1722,16 @@
 
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Coordinator and Professor</h3>
-                        <div class="company">Federal University of Bahia</div>
-                        <div class="date">March 2015 - August 2020 | Brazil</div>
-                        <ul>
-                            <li>Led PhD Statistics Professors team for data science education</li>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-role">Coordinator &amp; Professor</div>
+                                <div class="timeline-company">Federal University of Bahia</div>
+                            </div>
+                            <span class="timeline-date">Mar 2015 – Aug 2020 · Brazil</span>
+                        </div>
+                        <ul class="timeline-list">
+                            <li>Led PhD Statistics faculty team in advancing data science education</li>
                             <li>Conducted research using LLMs for text mining and sentiment analysis</li>
                             <li>Applied Computer Vision with LSTM models for influencer content analysis</li>
                             <li>Coordinated projects improving course success rates by 15%</li>
@@ -899,11 +1741,15 @@
 
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Data Scientist</h3>
-                        <div class="company">Nexus Strategic Information</div>
-                        <div class="date">November 2011 - November 2016 | Brazil</div>
-                        <ul>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-role">Data Scientist</div>
+                                <div class="timeline-company">Nexus Strategic Information</div>
+                            </div>
+                            <span class="timeline-date">Nov 2011 – Nov 2016 · Brazil</span>
+                        </div>
+                        <ul class="timeline-list">
                             <li>Optimized sales and profit using cluster analysis (9% sales, 11% profit increase)</li>
                             <li>Reduced queue wait time by 40% through Markov Chains modeling</li>
                             <li>Drove 27% increase in average incremental revenue</li>
@@ -912,519 +1758,489 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Achievements Section -->
-        <section id="achievements" class="scroll-reveal">
-            <h2>Major Accomplishments</h2>
-            <div class="achievements-grid">
-                <div class="achievement-card">
-                    <h3>Markov Chain Attribution Model</h3>
-                    <p>Developed LexisNexis' first Markov Chain-based Attribution Model in 25 years, revolutionizing campaign budget allocation.</p>
-                    <div class="metric">+30% Accuracy</div>
+    <!-- ── PROJECTS ── -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Portfolio</div>
+                <h2 class="section-title">Signature projects</h2>
+                <p class="section-subtitle">Six high-impact case studies — each with a defined problem, engineered solution, and quantified result.</p>
+            </div>
+            <div class="projects-grid">
+
+                <a href="project-markov-attribution.html" class="project-card reveal">
+                    <div class="project-visual pv-1">
+                        <div class="project-visual-bg"></div>
+                        <span class="project-visual-icon">🎯</span>
+                    </div>
+                    <div class="project-arrow">→</div>
+                    <div class="project-body">
+                        <div class="project-company">LexisNexis Risk Solutions</div>
+                        <div class="project-title">Markov Chain Attribution Model</div>
+                        <div class="project-desc">First-ever Markov Chain MTA in 25 years at LexisNexis — replacing Last-Touch attribution with probabilistic pathway modeling.</div>
+                        <div class="project-impact">
+                            <div class="impact-item">15% spend reduction on low-impact channels</div>
+                            <div class="impact-item">12% ROI increase · $500K budget reallocation</div>
+                            <div class="impact-item">30% improved allocation accuracy</div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="project-genai-insights.html" class="project-card reveal reveal-delay-1">
+                    <div class="project-visual pv-2">
+                        <div class="project-visual-bg"></div>
+                        <span class="project-visual-icon">🤖</span>
+                    </div>
+                    <div class="project-arrow">→</div>
+                    <div class="project-body">
+                        <div class="project-company">LexisNexis Risk Solutions</div>
+                        <div class="project-title">Generative AI Customer Insights</div>
+                        <div class="project-desc">Fine-tuned BERT and GPT models to automate analysis of thousands of customer feedback entries monthly.</div>
+                        <div class="project-impact">
+                            <div class="impact-item">27% improvement in summarization accuracy</div>
+                            <div class="impact-item">100K+ feedback entries automated monthly</div>
+                            <div class="impact-item">15% increase in NPS scores</div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="project-mmm-mtbank.html" class="project-card reveal reveal-delay-2">
+                    <div class="project-visual pv-3">
+                        <div class="project-visual-bg"></div>
+                        <span class="project-visual-icon">📊</span>
+                    </div>
+                    <div class="project-arrow">→</div>
+                    <div class="project-body">
+                        <div class="project-company">M&amp;T Bank</div>
+                        <div class="project-title">Marketing Mix Modeling (MMM)</div>
+                        <div class="project-desc">Comprehensive MMM analyzing all marketing channels with seasonality and economic factors for multi-channel campaign optimization.</div>
+                        <div class="project-impact">
+                            <div class="impact-item">12% improvement in marketing ROI</div>
+                            <div class="impact-item">30% faster decision-making cycles</div>
+                            <div class="impact-item">Optimized cross-channel budget allocation</div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="project-loan-classification.html" class="project-card reveal">
+                    <div class="project-visual pv-4">
+                        <div class="project-visual-bg"></div>
+                        <span class="project-visual-icon">🏠</span>
+                    </div>
+                    <div class="project-arrow">→</div>
+                    <div class="project-body">
+                        <div class="project-company">Lumini IT Solution</div>
+                        <div class="project-title">XGBoost Loan Classification</div>
+                        <div class="project-desc">Multiclass and binary classification models for Latin America's largest real estate company with integrated fraud detection.</div>
+                        <div class="project-impact">
+                            <div class="impact-item">89.8% multiclass accuracy</div>
+                            <div class="impact-item">92% binary classification accuracy</div>
+                            <div class="impact-item">Early fraud detection capability</div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="project-nlp-topic-modeling.html" class="project-card reveal reveal-delay-1">
+                    <div class="project-visual pv-5">
+                        <div class="project-visual-bg"></div>
+                        <span class="project-visual-icon">💬</span>
+                    </div>
+                    <div class="project-arrow">→</div>
+                    <div class="project-body">
+                        <div class="project-company">LexisNexis Risk Solutions</div>
+                        <div class="project-title">NLP Topic Modeling System</div>
+                        <div class="project-desc">LDA-based Topic Modeling with interactive Power BI and R-Shiny dashboards to surface actionable insights from unstructured feedback.</div>
+                        <div class="project-impact">
+                            <div class="impact-item">12% improvement in first-call resolution</div>
+                            <div class="impact-item">Automated complaint categorization</div>
+                            <div class="impact-item">Identified key product improvements</div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="project-queue-optimization.html" class="project-card reveal reveal-delay-2">
+                    <div class="project-visual pv-6">
+                        <div class="project-visual-bg"></div>
+                        <span class="project-visual-icon">⚡</span>
+                    </div>
+                    <div class="project-arrow">→</div>
+                    <div class="project-body">
+                        <div class="project-company">Nexus Strategic Information</div>
+                        <div class="project-title">Queue Theory Optimization</div>
+                        <div class="project-desc">Applied Queue Theory and Markov Chains to optimize customer flow and staffing for a major supermarket chain.</div>
+                        <div class="project-impact">
+                            <div class="impact-item">40% reduction in average wait time</div>
+                            <div class="impact-item">27% increase in incremental revenue</div>
+                            <div class="impact-item">9% weekly sales growth</div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── METHODOLOGIES ── -->
+    <section id="methodologies">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Methodologies</div>
+                <h2 class="section-title">Advanced techniques</h2>
+                <p class="section-subtitle">A deep repertoire of analytical methods, rigorously applied to solve real business problems.</p>
+            </div>
+
+            <div class="method-tabs">
+                <button class="method-tab active" onclick="switchMethod('analytics', this)">Analytics Models</button>
+                <button class="method-tab" onclick="switchMethod('ml', this)">Machine Learning</button>
+                <button class="method-tab" onclick="switchMethod('ai', this)">AI &amp; GenAI</button>
+                <button class="method-tab" onclick="switchMethod('optimization', this)">Optimization</button>
+            </div>
+
+            <div id="analytics" class="method-panel active reveal">
+                <div class="method-card">
+                    <h3>Multi-Touch Attribution (MTA)</h3>
+                    <p>User-level analysis to determine contribution of each marketing touchpoint along the customer journey. Implemented using Markov Chains for probabilistic pathway modeling.</p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">R</span>
+                        <span class="tech-pill">Markov Chains</span>
+                        <span class="tech-pill">Python</span>
+                        <span class="tech-pill">Power BI</span>
+                    </div>
                 </div>
-                <div class="achievement-card">
+                <div class="method-card">
+                    <h3>Marketing Mix Modeling (MMM)</h3>
+                    <p>Aggregate-level analysis estimating impact of various marketing channels on business outcomes. Incorporates seasonality, economic trends, and competitive factors.</p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">Python</span>
+                        <span class="tech-pill">R</span>
+                        <span class="tech-pill">Time Series</span>
+                        <span class="tech-pill">Regression</span>
+                    </div>
+                </div>
+                <div class="method-card">
+                    <h3>A/B &amp; Multivariate Testing</h3>
+                    <p>Experimental design for campaign optimization — analyzing variations to determine most effective strategies with rigorous statistical significance testing.</p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">Python</span>
+                        <span class="tech-pill">Statistical Testing</span>
+                        <span class="tech-pill">Power BI</span>
+                    </div>
+                </div>
+                <div class="method-card">
+                    <h3>Customer Segmentation</h3>
+                    <p>Advanced clustering techniques including K-Means, K-Prototypes, GMM, and Hierarchical Clustering for actionable, revenue-driving customer segments.</p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">K-Means</span>
+                        <span class="tech-pill">K-Prototypes</span>
+                        <span class="tech-pill">GMM</span>
+                        <span class="tech-pill">DBSCAN</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ml" class="method-panel reveal">
+                <div class="method-card">
+                    <h3>XGBoost Classification</h3>
+                    <p>Gradient boosting models for loan classification, fraud detection, and churn prediction with high accuracy and precision at enterprise scale.</p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">XGBoost</span>
+                        <span class="tech-pill">Python</span>
+                        <span class="tech-pill">Scikit-learn</span>
+                    </div>
+                </div>
+                <div class="method-card">
+                    <h3>Time Series Forecasting</h3>
+                    <p>Predictive modeling for trend analysis, seasonality detection, and future value prediction using ARIMA, Prophet, and LSTM architectures.</p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">ARIMA</span>
+                        <span class="tech-pill">Prophet</span>
+                        <span class="tech-pill">LSTM</span>
+                    </div>
+                </div>
+                <div class="method-card">
+                    <h3>Churn Modeling</h3>
+                    <p>Predictive models using Random Forest, XGBoost, and Logistic Regression to identify at-risk customers and enable proactive retention strategies.</p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">Random Forest</span>
+                        <span class="tech-pill">XGBoost</span>
+                        <span class="tech-pill">Survival Analysis</span>
+                    </div>
+                </div>
+                <div class="method-card">
+                    <h3>Anomaly Detection</h3>
+                    <p>Unsupervised learning techniques for fraud detection and outlier identification using Isolation Forest and advanced clustering methods.</p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">Isolation Forest</span>
+                        <span class="tech-pill">Clustering</span>
+                        <span class="tech-pill">Python</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ai" class="method-panel reveal">
+                <div class="method-card">
+                    <h3>Large Language Models (LLMs)</h3>
+                    <p>Fine-tuning GPT and BERT models for text analytics, customer feedback analysis, and automated insights generation at scale.</p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">GPT</span>
+                        <span class="tech-pill">BERT</span>
+                        <span class="tech-pill">Hugging Face</span>
+                        <span class="tech-pill">PyTorch</span>
+                    </div>
+                </div>
+                <div class="method-card">
+                    <h3>Retrieval-Augmented Generation (RAG)</h3>
+                    <p>Enhanced LLM applications integrating external data sources for improved accuracy and contextual relevance in marketing and risk analytics.</p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">OpenAI API</span>
+                        <span class="tech-pill">Vector DB</span>
+                        <span class="tech-pill">Python</span>
+                    </div>
+                </div>
+                <div class="method-card">
+                    <h3>NLP &amp; Topic Modeling</h3>
+                    <p>Latent Dirichlet Allocation (LDA) and advanced NLP techniques for sentiment analysis, theme extraction, and actionable customer insights.</p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">LDA</span>
+                        <span class="tech-pill">tidytext</span>
+                        <span class="tech-pill">tm</span>
+                        <span class="tech-pill">R</span>
+                    </div>
+                </div>
+                <div class="method-card">
+                    <h3>Computer Vision + NLP</h3>
+                    <p>LSTM models analyzing influencer video content on YouTube, providing actionable insights for digital marketing strategy decisions.</p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">LSTM</span>
+                        <span class="tech-pill">TensorFlow</span>
+                        <span class="tech-pill">Computer Vision</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="optimization" class="method-panel reveal">
+                <div class="method-card">
+                    <h3>Budget Allocation Optimization</h3>
+                    <p>Non-linear optimization techniques accounting for diminishing returns and maximizing ROI across competing marketing channels.</p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">Python</span>
+                        <span class="tech-pill">SciPy</span>
+                        <span class="tech-pill">Optimization</span>
+                    </div>
+                </div>
+                <div class="method-card">
+                    <h3>Queue Theory &amp; Markov Chains</h3>
+                    <p>Modeling customer flow and wait times with Markov Chains — achieving 40% reductions in wait time and significant revenue lifts.</p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">Markov Chains</span>
+                        <span class="tech-pill">Queue Theory</span>
+                        <span class="tech-pill">R</span>
+                    </div>
+                </div>
+                <div class="method-card">
+                    <h3>Cluster Analysis</h3>
+                    <p>Advanced clustering for sales and profit optimization — consistently outperforming traditional regression methods in business impact.</p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">K-Means</span>
+                        <span class="tech-pill">Hierarchical</span>
+                        <span class="tech-pill">PCA</span>
+                    </div>
+                </div>
+                <div class="method-card">
                     <h3>ML Pipeline Automation</h3>
-                    <p>Led automated ML workflows at M&T Bank, reducing campaign analysis time significantly.</p>
-                    <div class="metric">-50% Time</div>
+                    <p>Automated workflows for model development, performance analysis, and reporting using AWS, Databricks, and custom orchestration scripts.</p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">AWS</span>
+                        <span class="tech-pill">Databricks</span>
+                        <span class="tech-pill">Python</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── ACHIEVEMENTS ── -->
+    <section id="achievements" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Track Record</div>
+                <h2 class="section-title">Key accomplishments</h2>
+                <p class="section-subtitle">Numbers that tell the story better than words.</p>
+            </div>
+            <div class="achievements-grid reveal">
+                <div class="achievement-card">
+                    <div class="achievement-metric">+30%</div>
+                    <div class="achievement-title">Markov Chain Attribution</div>
+                    <div class="achievement-desc">Built LexisNexis' first attribution model using Markov Chains in 25 years — revolutionizing campaign budget allocation.</div>
                 </div>
                 <div class="achievement-card">
-                    <h3>Databricks Framework</h3>
-                    <p>Established comprehensive data quality and model testing framework ensuring high data integrity.</p>
-                    <div class="metric">100% Quality</div>
+                    <div class="achievement-metric">−50%</div>
+                    <div class="achievement-title">ML Pipeline Automation</div>
+                    <div class="achievement-desc">Led automated ML workflows at M&amp;T Bank, cutting campaign analysis time in half without sacrificing quality.</div>
                 </div>
                 <div class="achievement-card">
-                    <h3>XGBoost Loan Model</h3>
-                    <p>Built loan classification model for Latin America's largest real estate company with exceptional accuracy.</p>
-                    <div class="metric">92% Accuracy</div>
+                    <div class="achievement-metric">100%</div>
+                    <div class="achievement-title">Databricks Framework</div>
+                    <div class="achievement-desc">Established comprehensive data quality and model testing framework ensuring complete data integrity at enterprise scale.</div>
                 </div>
                 <div class="achievement-card">
-                    <h3>NLP Topic Modeling</h3>
-                    <p>Implemented NLP-based Topic Modeling system at LexisNexis, improving customer support resolution.</p>
-                    <div class="metric">+12% Resolution</div>
+                    <div class="achievement-metric">92%</div>
+                    <div class="achievement-title">XGBoost Loan Model</div>
+                    <div class="achievement-desc">Built binary loan classification model for Latin America's largest real estate company with exceptional accuracy.</div>
                 </div>
                 <div class="achievement-card">
-                    <h3>Education Innovation</h3>
-                    <p>Led data science education initiatives at Federal University, increasing course completion rates.</p>
-                    <div class="metric">+15% Success</div>
+                    <div class="achievement-metric">+12%</div>
+                    <div class="achievement-title">NLP Topic Modeling</div>
+                    <div class="achievement-desc">Implemented NLP Topic Modeling at LexisNexis that improved customer support first-call resolution rates.</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-metric">+15%</div>
+                    <div class="achievement-title">Education Innovation</div>
+                    <div class="achievement-desc">Led data science education initiatives at Federal University, measurably increasing course completion and success rates.</div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Methodologies Section -->
-        <section id="methodologies" class="scroll-reveal">
-            <h2>Advanced Methodologies & Techniques</h2>
-            
-            <div class="tabs">
-                <button class="tab-button active" onclick="switchTab('analytics')">Analytics Models</button>
-                <button class="tab-button" onclick="switchTab('ml')">Machine Learning</button>
-                <button class="tab-button" onclick="switchTab('ai')">AI & GenAI</button>
-                <button class="tab-button" onclick="switchTab('optimization')">Optimization</button>
+    <!-- ── EDUCATION ── -->
+    <section id="education">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Academic Background</div>
+                <h2 class="section-title">Education</h2>
             </div>
-
-            <div id="analytics" class="tab-content active">
-                <div class="methodologies-grid">
-                    <div class="methodology-card">
-                        <h3>Multi-Touch Attribution (MTA)</h3>
-                        <p>User-level analysis to determine contribution of each marketing touchpoint along customer journey. Implemented using Markov Chains for probabilistic pathway modeling.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">R</span>
-                            <span class="tech-badge">Markov Chains</span>
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">Power BI</span>
-                        </div>
+            <div class="education-grid reveal">
+                <div class="education-card">
+                    <div class="education-icon">🎓</div>
+                    <div>
+                        <div class="education-degree">Ph.D. — Inference in Stochastic Processes</div>
+                        <div class="education-school">Federal University of Minas Gerais · 2010–2016</div>
+                        <div class="education-desc">Advanced research in probabilistic models and statistical inference — the academic foundation for Markov Chain and time series expertise applied throughout career.</div>
                     </div>
-                    <div class="methodology-card">
-                        <h3>Marketing Mix Modeling (MMM)</h3>
-                        <p>Aggregate-level analysis estimating impact of various marketing channels on business outcomes. Incorporates seasonality, economic trends, and competition factors.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">R</span>
-                            <span class="tech-badge">Time Series</span>
-                            <span class="tech-badge">Regression</span>
-                        </div>
-                    </div>
-                    <div class="methodology-card">
-                        <h3>A/B Testing & Multivariate Testing</h3>
-                        <p>Experimental design for campaign optimization, analyzing variations to determine most effective strategies with statistical significance testing.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">Statistical Testing</span>
-                            <span class="tech-badge">Power BI</span>
-                        </div>
-                    </div>
-                    <div class="methodology-card">
-                        <h3>Customer Segmentation</h3>
-                        <p>Advanced clustering techniques including K-Means, K-Prototypes, GMM, and Hierarchical Clustering for actionable customer segments.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">K-Means</span>
-                            <span class="tech-badge">K-Prototypes</span>
-                            <span class="tech-badge">GMM</span>
-                            <span class="tech-badge">DBSCAN</span>
-                        </div>
+                </div>
+                <div class="education-card">
+                    <div class="education-icon">📐</div>
+                    <div>
+                        <div class="education-degree">M.Sc. — Inference in Stochastic Processes</div>
+                        <div class="education-school">Federal University of Minas Gerais</div>
+                        <div class="education-desc">Specialized training in stochastic modeling, probability theory, and statistical analysis methodologies forming the rigorous quantitative backbone of all subsequent work.</div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div id="ml" class="tab-content">
-                <div class="methodologies-grid">
-                    <div class="methodology-card">
-                        <h3>XGBoost Classification</h3>
-                        <p>Gradient boosting models for loan classification, fraud detection, and churn prediction with high accuracy and precision.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">XGBoost</span>
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">Scikit-learn</span>
-                        </div>
-                    </div>
-                    <div class="methodology-card">
-                        <h3>Time Series Forecasting</h3>
-                        <p>Predictive modeling for trend analysis, seasonality detection, and future value prediction using ARIMA, Prophet, and LSTM.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">ARIMA</span>
-                            <span class="tech-badge">Prophet</span>
-                            <span class="tech-badge">LSTM</span>
-                        </div>
-                    </div>
-                    <div class="methodology-card">
-                        <h3>Churn Modeling</h3>
-                        <p>Predictive models using Random Forest, XGBoost, and Logistic Regression to identify at-risk customers and enable retention strategies.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">Random Forest</span>
-                            <span class="tech-badge">XGBoost</span>
-                            <span class="tech-badge">Survival Analysis</span>
-                        </div>
-                    </div>
-                    <div class="methodology-card">
-                        <h3>Anomaly Detection</h3>
-                        <p>Unsupervised learning techniques for fraud detection and outlier identification using Isolation Forest and clustering methods.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">Isolation Forest</span>
-                            <span class="tech-badge">Clustering</span>
-                            <span class="tech-badge">Python</span>
-                        </div>
-                    </div>
+    <!-- ── CTA ── -->
+    <section id="cta">
+        <div class="container">
+            <div class="cta-box reveal">
+                <h2>Ready to turn data into decisions?</h2>
+                <p>Whether you need a Lead Data Scientist, an AI strategy partner, or a senior analytics resource — let's talk about how I can deliver measurable results for your team.</p>
+                <div class="cta-actions">
+                    <a href="mailto:prateswecsley@gmail.com" class="btn-primary">
+                        Send me an email →
+                    </a>
+                    <a href="https://www.linkedin.com/in/wecsley-prates" target="_blank" rel="noopener" class="btn-secondary">
+                        Connect on LinkedIn
+                    </a>
+                </div>
+                <div class="availability" style="justify-content:center; margin-top:1.5rem;">
+                    Open to on-site, hybrid &amp; remote · Green Card Holder · Open to Relocate
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div id="ai" class="tab-content">
-                <div class="methodologies-grid">
-                    <div class="methodology-card">
-                        <h3>Large Language Models (LLMs)</h3>
-                        <p>Fine-tuning GPT and BERT models for text analytics, customer feedback analysis, and automated insights generation.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">GPT</span>
-                            <span class="tech-badge">BERT</span>
-                            <span class="tech-badge">Hugging Face</span>
-                            <span class="tech-badge">PyTorch</span>
-                        </div>
-                    </div>
-                    <div class="methodology-card">
-                        <h3>Retrieval-Augmented Generation (RAG)</h3>
-                        <p>Enhanced LLM applications integrating external data sources for improved accuracy and contextual relevance in marketing analytics.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">OpenAI API</span>
-                            <span class="tech-badge">Vector DB</span>
-                            <span class="tech-badge">Python</span>
-                        </div>
-                    </div>
-                    <div class="methodology-card">
-                        <h3>NLP & Topic Modeling</h3>
-                        <p>Latent Dirichlet Allocation (LDA) and advanced NLP techniques for sentiment analysis, theme extraction, and customer insights.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">LDA</span>
-                            <span class="tech-badge">tidytext</span>
-                            <span class="tech-badge">tm</span>
-                            <span class="tech-badge">R</span>
-                        </div>
-                    </div>
-                    <div class="methodology-card">
-                        <h3>Computer Vision with NLP</h3>
-                        <p>LSTM models for analyzing influencer content on YouTube, providing actionable insights for digital marketing strategies.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">LSTM</span>
-                            <span class="tech-badge">TensorFlow</span>
-                            <span class="tech-badge">Computer Vision</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="optimization" class="tab-content">
-                <div class="methodologies-grid">
-                    <div class="methodology-card">
-                        <h3>Budget Allocation Optimization</h3>
-                        <p>Non-linear optimization techniques accounting for diminishing returns and maximizing ROI across marketing channels.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">SciPy</span>
-                            <span class="tech-badge">Optimization</span>
-                        </div>
-                    </div>
-                    <div class="methodology-card">
-                        <h3>Queue Theory & Markov Chains</h3>
-                        <p>Modeling customer flow and wait times, achieving significant reductions in queue times and improved customer experience.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">Markov Chains</span>
-                            <span class="tech-badge">Queue Theory</span>
-                            <span class="tech-badge">R</span>
-                        </div>
-                    </div>
-                    <div class="methodology-card">
-                        <h3>Cluster Analysis</h3>
-                        <p>Advanced clustering for sales and profit optimization, achieving superior results compared to traditional regression methods.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">K-Means</span>
-                            <span class="tech-badge">Hierarchical</span>
-                            <span class="tech-badge">PCA</span>
-                        </div>
-                    </div>
-                    <div class="methodology-card">
-                        <h3>ML Pipeline Automation</h3>
-                        <p>Automated workflows for model development, performance analysis, and reporting using AWS, Databricks, and custom scripts.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">AWS</span>
-                            <span class="tech-badge">Databricks</span>
-                            <span class="tech-badge">Python</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Major Projects -->
-        <section id="projects" class="scroll-reveal">
-            <h2>Signature Projects</h2>
-            <div class="project-grid">
-                <div class="project-card" onclick="window.location.href='project-markov-attribution.html'" style="cursor: pointer;">
-                    <div class="project-header">
-                        <h3>🎯 Markov Chain Attribution Model</h3>
-                        <p>LexisNexis Risk Solutions</p>
-                    </div>
-                    <div class="project-body">
-                        <p><strong>Challenge:</strong> Traditional Last-Touch attribution oversimplified customer journeys, limiting marketing optimization.</p>
-                        <p><strong>Solution:</strong> Built first-ever Markov Chain-based MTA model using R, calculating removal effects and channel contributions.</p>
-                        <p><strong>Technologies:</strong> R, Markov Chains, Power BI, R-Shiny</p>
-                        <div class="project-impact">
-                            ✓ 15% spend reduction on low-impact channels<br>
-                            ✓ 12% ROI increase through optimization<br>
-                            ✓ $500K budget reallocation<br>
-                            ✓ 30% improved allocation accuracy
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" onclick="window.location.href='project-genai-insights.html'" style="cursor: pointer;">
-                    <div class="project-header">
-                        <h3>🤖 Generative AI Customer Insights</h3>
-                        <p>LexisNexis Risk Solutions</p>
-                    </div>
-                    <div class="project-body">
-                        <p><strong>Challenge:</strong> Manual processing of thousands of customer feedback entries was time-consuming and inconsistent.</p>
-                        <p><strong>Solution:</strong> Fine-tuned BERT and GPT models using R/Python integration for automated text analysis and summarization.</p>
-                        <p><strong>Technologies:</strong> GPT, BERT, Hugging Face, reticulate, FastAPI</p>
-                        <div class="project-impact">
-                            ✓ 27% improvement in summarization accuracy<br>
-                            ✓ Automated 100K+ feedback entries monthly<br>
-                            ✓ 15% increase in NPS scores<br>
-                            ✓ Significant reduction in manual review time
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" onclick="window.location.href='project-mmm-mtbank.html'" style="cursor: pointer;">
-                    <div class="project-header">
-                        <h3>📊 Marketing Mix Modeling</h3>
-                        <p>M&T Bank</p>
-                    </div>
-                    <div class="project-body">
-                        <p><strong>Challenge:</strong> Need to optimize multi-channel campaign performance across digital and traditional media.</p>
-                        <p><strong>Solution:</strong> Developed comprehensive MMM analyzing all marketing channels with seasonality and economic factors.</p>
-                        <p><strong>Technologies:</strong> Python, R, Statistical Modeling, Power BI</p>
-                        <div class="project-impact">
-                            ✓ 12% improvement in ROI<br>
-                            ✓ Optimized channel mix allocation<br>
-                            ✓ 30% faster decision-making<br>
-                            ✓ Data-driven budget planning
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" onclick="window.location.href='project-loan-classification.html'" style="cursor: pointer;">
-                    <div class="project-header">
-                        <h3>🏠 Loan Classification Model</h3>
-                        <p>Lumini IT Solution</p>
-                    </div>
-                    <div class="project-body">
-                        <p><strong>Challenge:</strong> Latin America's largest real estate company needed to identify ideal loan clients efficiently.</p>
-                        <p><strong>Solution:</strong> Developed multiclass XGBoost model with comprehensive feature engineering and fraud detection.</p>
-                        <p><strong>Technologies:</strong> XGBoost, Python, R-Shiny, AWS</p>
-                        <div class="project-impact">
-                            ✓ 89.8% multiclass accuracy<br>
-                            ✓ 92% binary classification accuracy<br>
-                            ✓ Reduced processing time & costs<br>
-                            ✓ Early fraud detection capability
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" onclick="window.location.href='project-nlp-topic-modeling.html'" style="cursor: pointer;">
-                    <div class="project-header">
-                        <h3>💬 NLP Topic Modeling System</h3>
-                        <p>LexisNexis Risk Solutions</p>
-                    </div>
-                    <div class="project-body">
-                        <p><strong>Challenge:</strong> Unstructured customer feedback lacked actionable insights for product and support teams.</p>
-                        <p><strong>Solution:</strong> Implemented LDA-based Topic Modeling with interactive Power BI and R-Shiny dashboards.</p>
-                        <p><strong>Technologies:</strong> LDA, NLP, Power BI, R-Shiny, tidytext</p>
-                        <div class="project-impact">
-                            ✓ 12% improvement in first-call resolution<br>
-                            ✓ Identified key product improvements<br>
-                            ✓ Enhanced marketing strategies<br>
-                            ✓ Automated complaint categorization
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" onclick="window.location.href='project-queue-optimization.html'" style="cursor: pointer;">
-                    <div class="project-header">
-                        <h3>⚡ Queue Optimization</h3>
-                        <p>Nexus Strategic Information</p>
-                    </div>
-                    <div class="project-body">
-                        <p><strong>Challenge:</strong> Long customer wait times negatively impacting satisfaction and revenue for supermarket chain.</p>
-                        <p><strong>Solution:</strong> Applied Queue Theory and Markov Chains to optimize staffing and customer flow.</p>
-                        <p><strong>Technologies:</strong> Markov Chains, Queue Theory, R, Tableau</p>
-                        <div class="project-impact">
-                            ✓ 40% reduction in average wait time<br>
-                            ✓ 27% increase in incremental revenue<br>
-                            ✓ 9% average weekly sales increase<br>
-                            ✓ 11% profit growth
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Impact Stats Dashboard -->
-        <section id="stats" class="scroll-reveal">
-            <h2>Career Impact Statistics</h2>
-            <div class="stats-dashboard">
-                <div class="stat-card">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">6</div>
-                    <div class="stat-label">Major Companies</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">30%</div>
-                    <div class="stat-label">Max ROI Increase</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">92%</div>
-                    <div class="stat-label">Model Accuracy</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">50%</div>
-                    <div class="stat-label">Time Reduction</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">$500K</div>
-                    <div class="stat-label">Budget Optimized</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">100K+</div>
-                    <div class="stat-label">Monthly Feedback</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">25+</div>
-                    <div class="stat-label">Technologies</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education -->
-        <section class="scroll-reveal">
-            <h2>Education & Academic Background</h2>
-            <div class="methodologies-grid">
-                <div class="methodology-card">
-                    <h3>🎓 Ph.D. in Inference in Stochastic Processes</h3>
-                    <p><strong>Federal University of Minas Gerais</strong> | 2010 - 2016</p>
-                    <p>Advanced research in probabilistic models and statistical inference, providing foundation for Markov Chain and time series expertise.</p>
-                </div>
-                <div class="methodology-card">
-                    <h3>🎓 Master's in Inference in Stochastic Processes</h3>
-                    <p><strong>Federal University of Minas Gerais</strong></p>
-                    <p>Specialized training in stochastic modeling, probability theory, and statistical analysis methodologies.</p>
-                </div>
-            </div>
-        </section>
-    </div>
-
+    <!-- ── FOOTER ── -->
     <footer>
-        <p>&copy; 2026 Wecsley O. Prates, Ph.D. | Lead Data Scientist</p>
-        <p>Available for: On-Site • Hybrid • Remote Opportunities</p>
-        <p style="margin-top: 1rem; opacity: 0.8;">Expertise in ML, AI, Marketing Analytics, and Data Science Leadership</p>
+        <div class="footer-inner">
+            <div class="footer-brand">Wecsley Prates<span>, Ph.D.</span></div>
+            <div class="footer-links">
+                <a href="mailto:prateswecsley@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/wecsley-prates" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="tel:+14074339015">Phone</a>
+            </div>
+            <div class="footer-copy">&copy; 2026 Wecsley O. Prates, Ph.D.</div>
+        </div>
     </footer>
 
     <script>
-        // Scroll reveal animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.scroll-reveal').forEach(el => {
-            observer.observe(el);
+        // ── Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 40);
         });
 
-        // Tab switching functionality
-        function switchTab(tabName) {
-            // Hide all tab contents
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            // Remove active class from all buttons
-            document.querySelectorAll('.tab-button').forEach(button => {
-                button.classList.remove('active');
-            });
-            
-            // Show selected tab content
-            document.getElementById(tabName).classList.add('active');
-            
-            // Add active class to clicked button
-            event.target.classList.add('active');
+        // ── Mobile menu
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('open');
         }
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                if (targetSection) {
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+        document.querySelectorAll('#navLinks a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('open');
             });
         });
 
-        // Add animation on skill tags
-        document.querySelectorAll('.skill-tag').forEach(tag => {
-            tag.addEventListener('click', function() {
-                this.style.transform = 'scale(1.1) rotate(5deg)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1) rotate(0deg)';
-                }, 300);
+        // ── Scroll reveal
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-        // Initialize stats counter animation
-        function animateValue(element, start, end, duration) {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                const value = Math.floor(progress * (end - start) + start);
-                element.textContent = value + (element.dataset.suffix || '');
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // ── Counter animation
+        function animateCount(el, target, suffix = '') {
+            const duration = 1800;
+            const start = performance.now();
+            const step = (now) => {
+                const progress = Math.min((now - start) / duration, 1);
+                const ease = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.floor(ease * target) + suffix;
+                if (progress < 1) requestAnimationFrame(step);
             };
-            window.requestAnimationFrame(step);
+            requestAnimationFrame(step);
         }
 
-        // Trigger counter animation when stats section is visible
-        const statsObserver = new IntersectionObserver((entries) => {
+        const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.dataset.animated) {
-                    const statNumbers = entry.target.querySelectorAll('.stat-number');
-                    statNumbers.forEach(stat => {
-                        const text = stat.textContent;
-                        const num = parseInt(text.replace(/\D/g, ''));
-                        if (!isNaN(num)) {
-                            stat.dataset.suffix = text.replace(/[0-9]/g, '');
-                            animateValue(stat, 0, num, 2000);
-                        }
+                if (entry.isIntersecting && !entry.target.dataset.counted) {
+                    entry.target.dataset.counted = true;
+                    entry.target.querySelectorAll('[data-target]').forEach(el => {
+                        const target = parseInt(el.dataset.target);
+                        const suffix = el.dataset.suffix || (el.textContent.includes('+') ? '+' : '');
+                        if (!isNaN(target)) animateCount(el, target, suffix);
                     });
-                    entry.target.dataset.animated = true;
                 }
             });
         }, { threshold: 0.5 });
 
-        const statsSection = document.getElementById('stats');
-        if (statsSection) {
-            statsObserver.observe(statsSection);
+        const statsBar = document.getElementById('stats-bar');
+        if (statsBar) counterObserver.observe(statsBar);
+
+        // ── Method tabs
+        function switchMethod(panel, btn) {
+            document.querySelectorAll('.method-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.method-tab').forEach(b => b.classList.remove('active'));
+            document.getElementById(panel).classList.add('active');
+            btn.classList.add('active');
         }
 
-        // Add interactive hover effects to project cards
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-15px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(-10px) scale(1)';
+        // ── Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             });
         });
-
-        // Console easter egg
-        console.log('%c👋 Welcome to Wecsley\'s Portfolio!', 'color: #3498db; font-size: 20px; font-weight: bold;');
-        console.log('%c🚀 Interested in collaboration? Reach out at prateswecsley@gmail.com', 'color: #27ae60; font-size: 14px;');
     </script>
 </body>
 </html>
